@@ -1,95 +1,78 @@
+import databaseImage from "@/../public/grid/database.svg";
+import fullstackImage from "@/../public/grid/fullstack.svg";
 import Image from "next/image";
-import styles from "./page.module.css";
+import { GridBox, IntroBox } from "./_components";
+import css from "./page.module.css";
 
 export default function Home() {
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
+    <div className={css.container}>
+      <IntroBox />
+      <main className={css.grid}>
+        <ServiceRow />
+        <GridBox.Root type="stretch">
+          <GridBox.Header
+            title="I speak many languages."
+            subtitle="Web technologies, is one of them."
+            intro="Different languages, frameworks and tools"
+          />
+        </GridBox.Root>
+        <GridBox.Root type="split" side="start">
+          <GridBox.Header
+            title="Passion is guaranteed, always."
+            subtitle="My love is a driving motivator."
+            intro="Quality through passion and skill."
+          />
+        </GridBox.Root>
+        <GridBox.Root type="split" side="end">
+          <GridBox.Header
+            title="From medium to large scale."
+            subtitle="Any scale of application. I do it."
+            intro="Varying complexity"
+          />
+        </GridBox.Root>
+        <GridBox.Root type="stretch">Projects</GridBox.Root>
+        <GridBox.Root type="stretch" style={{ borderBottom: "unset" }}>
+          Get in touch
+        </GridBox.Root>
+      </main>
+    </div>
+  );
+}
 
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
+function ServiceRow() {
+  return (
+    <>
+      <GridBox.Root type="split" side="start" style={{ borderTop: "unset" }}>
+        <GridBox.Header
+          title="Frontend Engineering"
+          subtitle="From concept, to implementation."
+          intro="Crafting user experiences"
         />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+        <div className={css.boxImageContainer}>
+          <Image
+            fill
+            src={fullstackImage}
+            alt="The same webapp opened on both a phone and desktop"
+            style={{ objectFit: "contain" }}
+          />
+        </div>
+      </GridBox.Root>
+      <GridBox.Root type="split" side="end" style={{ borderTop: "unset" }}>
+        <GridBox.Header
+          title="Backend Engineering"
+          subtitle="Creating performant backends."
+          intro="Scalable and performant backends"
+        />
+        <div className={css.boxImageContainer}>
+          <Image
+            fill
+            src={databaseImage}
+            alt="Database table showing many entries"
+            style={{ objectFit: "contain" }}
+          />
+        </div>
+      </GridBox.Root>
+    </>
   );
 }

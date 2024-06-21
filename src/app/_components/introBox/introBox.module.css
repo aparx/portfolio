@@ -1,0 +1,112 @@
+.intro {
+  display: flex;
+  flex-direction: column;
+  grid-column: 1 / -1;
+  border: var(--grid-border);
+  margin-bottom: var(--spacing-2);
+  background: var(--color-accent-1);
+}
+
+.intro > *:first-child {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap-reverse;
+}
+
+.intro > footer {
+  background: var(--color-accent-1);
+  padding: var(--spacing-1) var(--spacing-4);
+  border-top: var(--grid-border);
+  color: var(--color-emphasis-medium);
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  padding: var(--spacing-4);
+  gap: var(--spacing-4);
+}
+
+.portrait {
+  position: relative;
+  height: 300px;
+  aspect-ratio: 1 / 1.5;
+  margin: var(--spacing-4);
+}
+
+.timeline {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  margin: unset;
+  padding: unset;
+}
+
+.timeline > li {
+  display: flex;
+  gap: var(--spacing-3);
+}
+
+.timeline time,
+.timeline p {
+  color: var(--color-emphasis-medium);
+  max-width: 50ch;
+}
+
+.timeline p {
+  padding-bottom: var(--spacing-2);
+}
+
+.timelineLine {
+  --stroke-width: 2px;
+  --circle-size: 8px;
+  box-sizing: content-box;
+  position: relative;
+  background: var(--color-primary);
+  height: 100%;
+  width: var(--stroke-width);
+}
+
+.timelineLine::after {
+  content: "";
+  position: absolute;
+  background: blue;
+  width: var(--circle-size);
+  height: var(--circle-size);
+  top: calc(var(--circle-size) / 2);
+  border-radius: 100%;
+  border: var(--stroke-width) solid var(--color-primary);
+  background: var(--color-accent-1);
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.timeline > li:first-child {
+  color: var(--color-primary);
+}
+
+.timeline > li:first-child .timelineLine {
+  top: var(--spacing-0);
+}
+
+.timeline > li:first-child .timelineLine::after {
+  top: 0;
+  border-radius: 0%;
+}
+
+.timeline > li:last-child .timelineLine {
+  height: var(--circle-size);
+}
+
+.timeline > li:last-child .timelineLine::after {
+  animation: timelineActive 1s infinite;
+}
+
+@keyframes timelineActive {
+  from {
+    box-shadow: 0 0 0 0px var(--color-primary);
+  }
+  to {
+    box-shadow: 0 0 0 4px transparent;
+  }
+}
