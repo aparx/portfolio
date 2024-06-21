@@ -6,9 +6,9 @@
   --color-accent-2: #151515;
   --color-accent-3: #232323;
   --color-accent-4: #383838;
-  --color-emphasis-high: #ffffff;
-  --color-emphasis-medium: #ffffffb2;
-  --color-emphasis-low: #ffffff25;
+  --color-emphasis-high: rgb(230, 230, 230);
+  --color-emphasis-medium: rgba(230, 230, 230, 0.8);
+  --color-emphasis-low: rgba(230, 230, 230, 0.37);
   --color-outline-grid: #1e1e1e;
   --color-outline-card: #ffffff14;
 
@@ -23,12 +23,12 @@
   --spacing-2: 15px;
   --spacing-3: 20px;
   --spacing-4: 30px;
-  --spacing-5: 60px;
+  --spacing-5: 50px;
 
   /** <---> Font size <---> */
   --fs-base: 0.875rem;
   --fs-0: 0.857rem;
-  --fs-1: var(--fs-base);
+  --fs-1: 1rem;
   --fs-2: 1.143rem;
   --fs-3: 1.571rem;
 }
@@ -41,8 +41,9 @@ html {
 body {
   background: var(--color-accent-0);
   color: var(--color-emphasis-high);
-  font-size: var(--fs-base);
+  font-size: var(--fs-1);
   font-weight: 400;
+  letter-spacing: 0.01em;
   line-height: 1.647em;
 }
 
@@ -63,15 +64,28 @@ h1 {
 }
 
 h2 {
-  font-size: var(--fs-2);
-  font-weight: 550;
-  line-height: 1.445em;
-  letter-spacing: 0.02em;
+  font-size: var(--fs-3);
+  font-weight: 600;
+  line-height: 1.345em;
+  letter-spacing: -0.01em;
 }
 
 h3 {
+  font-size: var(--fs-3);
+  font-weight: 500;
+  line-height: 1.345em;
+  letter-spacing: -0.01em;
+}
+
+h4 {
   font-size: var(--fs-2);
-  font-weight: 450;
-  line-height: 1.445em;
-  letter-spacing: 0.01em;
+  font-weight: 550;
+  line-height: 1.345em;
+  letter-spacing: 0em;
+}
+
+@media screen and (max-width: 540px) {
+  html {
+    font-size: calc(0.85 * var(--fs-base));
+  }
 }

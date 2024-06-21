@@ -23,9 +23,9 @@ const TIMELINE_ITEMS: ReadonlyArray<Readonly<TimelineItemData>> = [
   },
   {
     date: "2017",
-    title: "Game and desktop development with Java and C++",
+    title: "Desktop and Game development",
     description:
-      "I began making larger projects, that a couple thousand users would end up using. Also begun learning reverse enginnering.",
+      "I began making larger projects with Java and C++, that a couple thousand users would end up using. Also begun reverse enginnering.",
   },
   {
     date: "2019",
@@ -75,14 +75,14 @@ export function IntroBox() {
 function Timeline() {
   return (
     <ol className={css.timeline}>
-      {TIMELINE_ITEMS.map((element, i) => (
+      {TIMELINE_ITEMS.map((element) => (
         <li key={element.date}>
-          <TextFont asChild type="mono" style={{ lineHeight: "180%" }}>
+          <TextFont asChild type="mono">
             <time>{element.date}</time>
           </TextFont>
           <div className={css.timelineLine} />
           <div>
-            <h3>{element.title}</h3>
+            <h4>{element.title}</h4>
             <p>{element.description}</p>
           </div>
         </li>

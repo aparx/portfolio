@@ -3,7 +3,6 @@
   flex-direction: column;
   grid-column: 1 / -1;
   border: var(--grid-border);
-  margin-bottom: var(--spacing-2);
   background: var(--color-accent-1);
 }
 

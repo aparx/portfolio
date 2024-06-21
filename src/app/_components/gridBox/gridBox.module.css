@@ -5,6 +5,7 @@
   padding: var(--spacing-4);
   border-top: var(--grid-border);
   border-bottom: var(--grid-border);
+  background: var(--color-accent-0);
 }
 
 .box[data-type="stretch"] {
@@ -32,4 +33,12 @@
 .title h3,
 .title p {
   color: var(--color-emphasis-medium);
+}
+
+.title p {
+  font-size: var(--fs-2);
+  color: var(--color-emphasis-medium);
+  display: flex;
+  gap: var(--spacing-2);
+  align-items: center;
 }
