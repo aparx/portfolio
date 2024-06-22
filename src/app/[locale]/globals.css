@@ -1,4 +1,6 @@
 :root {
+  color-scheme: dark;
+
   /** <---> Colors <---> */
   --color-primary: #64b5e2;
   --color-accent-0: #000000;

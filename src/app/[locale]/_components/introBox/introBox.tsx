@@ -44,7 +44,7 @@ function Timeline() {
 
   return (
     <ol className={css.timeline} aria-label="My knowledge timeline">
-      {keys.map((key) => (
+      {keys.map((key, i) => (
         <li key={key}>
           <TextFont asChild type="mono">
             <time>{key}</time>
