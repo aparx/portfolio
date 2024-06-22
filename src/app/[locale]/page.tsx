@@ -1,6 +1,6 @@
-import databaseImage from "@/../public/grid/database.svg";
+import databaseImage from "@/../public/grid/database.png";
 import editorImage from "@/../public/grid/editor.svg";
-import fullstackImage from "@/../public/grid/fullstack.svg";
+import fullstackImage from "@/../public/grid/fullstack.png";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { FaArrowTrendUp } from "react-icons/fa6";
@@ -86,6 +86,7 @@ function ServiceRow() {
             src={fullstackImage}
             alt="The same webapp opened on both a phone and desktop"
             style={{ objectFit: "contain" }}
+            quality={100}
           />
         </div>
       </GridBox.Root>
@@ -101,6 +102,7 @@ function ServiceRow() {
             src={databaseImage}
             alt="Database table showing many entries"
             style={{ objectFit: "contain" }}
+            quality={100}
           />
         </div>
       </GridBox.Root>
