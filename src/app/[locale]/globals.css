@@ -2,14 +2,14 @@
   /** <---> Colors <---> */
   --color-primary: #64b5e2;
   --color-accent-0: #000000;
-  --color-accent-1: #0e0e0e;
-  --color-accent-2: #151515;
-  --color-accent-3: #232323;
-  --color-accent-4: #383838;
+  --color-accent-1: #0c0c0c;
+  --color-accent-2: #131313;
+  --color-accent-3: #202020;
+  --color-accent-4: #343434;
   --color-emphasis-high: rgb(230, 230, 230);
   --color-emphasis-medium: rgba(230, 230, 230, 0.8);
   --color-emphasis-low: rgba(230, 230, 230, 0.37);
-  --color-outline-grid: #1e1e1e;
+  --color-outline-grid: #212121;
   --color-outline-card: #ffffff14;
 
   /** <---> Opacities <---> */

@@ -1,0 +1,29 @@
+{
+  "index": {
+    "Intro": {
+      "subtitle": "Fullstack Entwickler & UI/UX Designer",
+      "timeline": {
+        "0": {
+          "date": "2003",
+          "title": "Geboren 13. Oktober",
+          "description": ""
+        },
+        "1": {
+          "date": "2015",
+          "title": "Der Beginn meiner Reise",
+          "description": "Meine Reise begann mit Visual Basic und führte mich schnell zu Java."
+        },
+        "2": {
+          "date": "2017",
+          "title": "Desktop und Game development",
+          "description": "Ich begann mit der Entwicklung umfangreicher Projekte mit Java und C++, die letztlich von Tausenden von Nutzern verwendet wurden. Zusätzlich tauchte ich in die Welt des Reverse Engineering ein."
+        },
+        "3": {
+          "date": "2019",
+          "title": "Fullstack Entwicklung",
+          "description": "Ich begann mit der Full-Stack-Webentwicklung, anfangs mit PHP und dem Laravel (MVC)-Framework, und erweiterte anschließend mein Fachwissen auf verschiedene JavaScript-Frameworks."
+        }
+      }
+    }
+  }
+}

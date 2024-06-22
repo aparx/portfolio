@@ -1,5 +1,7 @@
 import databaseImage from "@/../public/grid/database.svg";
+import editorImage from "@/../public/grid/editor.svg";
 import fullstackImage from "@/../public/grid/fullstack.svg";
+import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { FaArrowTrendUp } from "react-icons/fa6";
 import { MdVerified } from "react-icons/md";
@@ -7,6 +9,8 @@ import { GridBox, IntroBox } from "./_components";
 import css from "./page.module.css";
 
 export default function Home() {
+  const t = useTranslations("index");
+
   return (
     <>
       <div className={css.background} />
@@ -32,6 +36,14 @@ export default function Home() {
                 </>
               }
             />
+            <div className={css.boxImageContainer}>
+              <Image
+                fill
+                src={editorImage}
+                alt="An editor showing issues being fixed, done with passion"
+                style={{ objectFit: "contain" }}
+              />
+            </div>
           </GridBox.Root>
           <GridBox.Root type="split" side="end">
             <GridBox.Header

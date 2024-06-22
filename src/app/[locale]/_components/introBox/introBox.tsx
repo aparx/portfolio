@@ -1,48 +1,21 @@
 import portraitImage from "@/../public/portrait.png";
 import thatsMeImage from "@/../public/thatsMe.svg";
 import { TextFont } from "@/components";
+import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { GridBox } from "../gridBox";
 import css from "./introBox.module.css";
 
-interface TimelineItemData {
-  date: string;
-  title: string;
-  description?: string;
-}
-
-const TIMELINE_ITEMS: ReadonlyArray<Readonly<TimelineItemData>> = [
-  {
-    date: "2003",
-    title: "Born October 13th",
-  },
-  {
-    date: "2015",
-    title: "The beginning of my journey",
-    description: "I began with Visual Basic and quickly moved to Java.",
-  },
-  {
-    date: "2017",
-    title: "Desktop and Game development",
-    description:
-      "I began making larger projects with Java and C++, that a couple thousand users would end up using. Also begun reverse enginnering.",
-  },
-  {
-    date: "2019",
-    title: "Fullstack development",
-    description:
-      "Started to work in fullstack web development. Initially with PHP & Laravel (MVC) and later with many JS Frameworks.",
-  },
-] as const;
-
 export function IntroBox() {
+  const t = useTranslations("index");
+
   return (
-    <article className={css.intro}>
+    <section className={css.intro}>
       <div>
         <div className={css.content}>
           <GridBox.Header
             title="Vinzent Alexander Zeband"
-            subtitle="Fullstack Developer & UI/UX Designer"
+            subtitle={t("Intro.subtitle")}
           />
           <Timeline />
         </div>
@@ -68,22 +41,25 @@ export function IntroBox() {
       <TextFont asChild type="mono" size="sm">
         <footer>Contact me</footer>
       </TextFont>
-    </article>
+    </section>
   );
 }
 
 function Timeline() {
+  const t = useTranslations("index");
+  const keys = ["0", "1", "2", "3"] as const;
+
   return (
-    <ol className={css.timeline}>
-      {TIMELINE_ITEMS.map((element) => (
-        <li key={element.date}>
+    <ol className={css.timeline} aria-label="My knowledge timeline">
+      {keys.map((key) => (
+        <li key={t(`Intro.timeline.${key}.date`)}>
           <TextFont asChild type="mono">
-            <time>{element.date}</time>
+            <time>{t(`Intro.timeline.${key}.date`)}</time>
           </TextFont>
           <div className={css.timelineLine} />
           <div>
-            <h4>{element.title}</h4>
-            <p>{element.description}</p>
+            <h4>{t(`Intro.timeline.${key}.title`)}</h4>
+            <p>{t(`Intro.timeline.${key}.description`)}</p>
           </div>
         </li>
       ))}
