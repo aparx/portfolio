@@ -3,27 +3,48 @@
     "Intro": {
       "subtitle": "Fullstack Developer & UI/UX Designer",
       "timeline": {
-        "0": {
-          "date": "2003",
+        "2003": {
           "title": "Born October 13th",
           "description": ""
         },
-        "1": {
-          "date": "2015",
+        "2015": {
           "title": "The beginning of my journey",
           "description": "My journey commenced with Visual Basic, swiftly transitioning to Java."
         },
-        "2": {
-          "date": "2017",
+        "2017": {
           "title": "Desktop and Game development",
           "description": "I started developing substantial projects using Java and C++, which ultimately served thousands of users. Additionally, I delved into the realm of reverse engineering."
         },
-        "3": {
-          "date": "2019",
+        "2019": {
           "title": "Fullstack development",
           "description": "I embarked on full-stack web development, initially utilizing PHP and the Laravel (MVC) framework, and subsequently expanding my expertise to encompass various JavaScript frameworks."
         }
       }
+    },
+    "Frontend": {
+      "title": "Frontend Engineering",
+      "subtitle": "From concept, to implementation.",
+      "intro": "Crafting user experiences"
+    },
+    "Backend": {
+      "title": "Backend Engineering",
+      "subtitle": "Creating performant backends.",
+      "intro": "Extensive backend engineering"
+    },
+    "Languages": {
+      "title": "I speak many languages.",
+      "subtitle": "{name}, is one of them.",
+      "intro": "Different languages, frameworks and tools"
+    },
+    "Passion": {
+      "title": "Passion is guaranteed, always.",
+      "subtitle": "My love is a driving motivator.",
+      "intro": "Quality through passion and skill"
+    },
+    "Scale": {
+      "title": "From medium to large scale.",
+      "subtitle": "Any scale of application. I do it.",
+      "intro": "Varying complexity"
     }
   }
 }

@@ -20,19 +20,21 @@ export default function Home() {
           <ServiceRow />
           <GridBox.Root type="stretch">
             <GridBox.Header
-              title="I speak many languages."
-              subtitle="Web technologies, is one of them."
-              intro="Different languages, frameworks and tools"
+              title={t("Languages.title")}
+              subtitle={t("Languages.subtitle", {
+                name: "Web Architektur",
+              })}
+              intro={t("Languages.intro")}
             />
           </GridBox.Root>
           <GridBox.Root type="split" side="start">
             <GridBox.Header
-              title="Passion is guaranteed, always."
-              subtitle="My love is a driving motivator."
+              title={t("Passion.title")}
+              subtitle={t("Passion.subtitle")}
               intro={
                 <>
                   <MdVerified />
-                  Varying complexity
+                  {t("Passion.intro")}
                 </>
               }
             />
@@ -47,12 +49,12 @@ export default function Home() {
           </GridBox.Root>
           <GridBox.Root type="split" side="end">
             <GridBox.Header
-              title="From medium to large scale."
-              subtitle="Any scale of application. I do it."
+              title={t("Scale.title")}
+              subtitle={t("Scale.subtitle")}
               intro={
                 <>
                   <FaArrowTrendUp />
-                  Varying complexity
+                  {t("Scale.intro")}
                 </>
               }
             />
@@ -68,13 +70,15 @@ export default function Home() {
 }
 
 function ServiceRow() {
+  const t = useTranslations("index");
+
   return (
     <>
       <GridBox.Root type="split" side="start" style={{ borderTop: "unset" }}>
         <GridBox.Header
-          title="Frontend Engineering"
-          subtitle="From concept, to implementation."
-          intro={"Crafting user experiences"}
+          title={t("Frontend.title")}
+          subtitle={t("Frontend.subtitle")}
+          intro={t("Frontend.intro")}
         />
         <div className={css.boxImageContainer}>
           <Image
@@ -87,9 +91,9 @@ function ServiceRow() {
       </GridBox.Root>
       <GridBox.Root type="split" side="end" style={{ borderTop: "unset" }}>
         <GridBox.Header
-          title="Backend Engineering"
-          subtitle="Creating performant backends."
-          intro={"Scalable and performant backends"}
+          title={t("Backend.title")}
+          subtitle={t("Backend.subtitle")}
+          intro={t("Backend.intro")}
         />
         <div className={css.boxImageContainer}>
           <Image

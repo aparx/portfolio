@@ -3,27 +3,48 @@
     "Intro": {
       "subtitle": "Fullstack Entwickler & UI/UX Designer",
       "timeline": {
-        "0": {
-          "date": "2003",
+        "2003": {
           "title": "Geboren 13. Oktober",
           "description": ""
         },
-        "1": {
-          "date": "2015",
+        "2015": {
           "title": "Der Beginn meiner Reise",
           "description": "Meine Reise begann mit Visual Basic und führte mich schnell zu Java."
         },
-        "2": {
-          "date": "2017",
+        "2017": {
           "title": "Desktop und Game development",
           "description": "Ich begann mit der Entwicklung umfangreicher Projekte mit Java und C++, die letztlich von Tausenden von Nutzern verwendet wurden. Zusätzlich tauchte ich in die Welt des Reverse Engineering ein."
         },
-        "3": {
-          "date": "2019",
+        "2019": {
           "title": "Fullstack Entwicklung",
           "description": "Ich begann mit der Full-Stack-Webentwicklung, anfangs mit PHP und dem Laravel (MVC)-Framework, und erweiterte anschließend mein Fachwissen auf verschiedene JavaScript-Frameworks."
         }
       }
+    },
+    "Frontend": {
+      "title": "Frontend Entwicklung",
+      "subtitle": "Von Konzepierung, zum Resultat.",
+      "intro": "Erschaffen von Erlebnissen"
+    },
+    "Backend": {
+      "title": "Backend Entwicklung",
+      "subtitle": "Performante, skalierbare Backends.",
+      "intro": "Extensive Backend Entwicklung"
+    },
+    "Languages": {
+      "title": "Ich spreche viele Sprachen.",
+      "subtitle": "{name}, ist eine davon.",
+      "intro": "Verschiedene Sprachen, Frameworks und Tools."
+    },
+    "Passion": {
+      "title": "Leidenschaft is garantiert. Immer.",
+      "subtitle": "Meine Leidenschaft ist ein ständiger Motivator.",
+      "intro": "Qualitätsversprechen"
+    },
+    "Scale": {
+      "title": "Von mittelgroß bis ganz groß.",
+      "subtitle": "Jegliche Skalierung, ich mach es.",
+      "intro": "Variierende Komplexität und Skalierung"
     }
   }
 }

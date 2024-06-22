@@ -1,6 +1,7 @@
 .box {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   gap: var(--spacing-4);
   padding: var(--spacing-4);
   border-top: var(--grid-border);

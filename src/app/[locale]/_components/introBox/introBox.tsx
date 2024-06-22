@@ -26,14 +26,7 @@ export function IntroBox() {
             fill
             style={{ objectFit: "cover" }}
           />
-          <div
-            style={{
-              position: "absolute",
-              bottom: 0,
-              right: "-75%",
-              rotate: "0deg",
-            }}
-          >
+          <div className={css.portraitArrow}>
             <Image src={thatsMeImage} alt="Arrow" width={180} />
           </div>
         </div>
@@ -47,14 +40,14 @@ export function IntroBox() {
 
 function Timeline() {
   const t = useTranslations("index");
-  const keys = ["0", "1", "2", "3"] as const;
+  const keys = ["2003", "2015", "2017", "2019"] as const;
 
   return (
     <ol className={css.timeline} aria-label="My knowledge timeline">
       {keys.map((key) => (
-        <li key={t(`Intro.timeline.${key}.date`)}>
+        <li key={key}>
           <TextFont asChild type="mono">
-            <time>{t(`Intro.timeline.${key}.date`)}</time>
+            <time>{key}</time>
           </TextFont>
           <div className={css.timelineLine} />
           <div>

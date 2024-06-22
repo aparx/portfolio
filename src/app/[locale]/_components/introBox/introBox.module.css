@@ -9,7 +9,7 @@
 .intro > *:first-child {
   display: flex;
   justify-content: space-between;
-  flex-wrap: wrap-reverse;
+  flex-wrap: wrap;
 }
 
 .intro > footer {
@@ -24,13 +24,23 @@
   flex-direction: column;
   padding: var(--spacing-4);
   gap: var(--spacing-4);
+  flex: 1 1 400px;
 }
 
 .portrait {
   position: relative;
-  height: 300px;
+  min-height: 300px;
+  max-height: 400px;
   aspect-ratio: 1 / 1.5;
   margin: var(--spacing-4);
+  filter: grayscale(0.33);
+}
+
+.portraitArrow {
+  position: absolute;
+  bottom: 0;
+  right: -75%;
+  rotate: 0deg;
 }
 
 .timeline {
@@ -39,6 +49,7 @@
   list-style: none;
   margin: unset;
   padding: unset;
+  min-width: 300px;
 }
 
 .timeline > li {
@@ -107,5 +118,17 @@
   }
   to {
     box-shadow: 0 0 0 4px transparent;
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .portrait {
+    display: none; /* TODO change */
+  }
+}
+
+@media screen and (max-width: 1400px) {
+  .portraitArrow {
+    display: none;
   }
 }
