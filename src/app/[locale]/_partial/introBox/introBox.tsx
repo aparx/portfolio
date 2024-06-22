@@ -3,7 +3,7 @@ import thatsMeImage from "@/../public/thatsMe.svg";
 import { TextFont } from "@/components";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
-import { GridBox } from "../gridBox";
+import { GridBox } from "../../_components/gridBox";
 import css from "./introBox.module.css";
 
 export function IntroBox() {
@@ -32,7 +32,7 @@ export function IntroBox() {
         </div>
       </div>
       <TextFont asChild type="mono" size="sm">
-        <footer>Contact me</footer>
+        <footer>Contact</footer>
       </TextFont>
     </section>
   );
