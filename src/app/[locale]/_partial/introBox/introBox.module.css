@@ -14,9 +14,27 @@
 
 .intro > footer {
   background: var(--color-accent-1);
-  padding: var(--spacing-1) var(--spacing-4);
+  padding: var(--spacing-1) var(--spacing-3);
   border-top: var(--grid-border);
   color: var(--color-emphasis-medium);
+}
+
+.intro > footer > ul {
+  display: flex;
+  gap: var(--spacing-3);
+  list-style: none;
+  padding: unset;
+  margin: unset;
+}
+
+.intro > footer button,
+.intro > footer a {
+  gap: var(--spacing-1);
+  text-decoration: none;
+}
+
+.intro > footer li:last-child {
+  margin-left: auto;
 }
 
 .content {
@@ -125,6 +143,11 @@
 @media screen and (max-width: 540px) {
   .portrait {
     display: none; /* TODO change */
+  }
+
+  .intro > footer li:not(:last-child) button p,
+  .intro > footer li:not(:last-child) a p {
+    display: none;
   }
 }
 
