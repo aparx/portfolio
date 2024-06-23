@@ -1,16 +1,21 @@
-import { useCallback, useEffect, useRef } from "react";
+import { useCallback, useEffect, useMemo, useRef } from "react";
 
 export interface UseTimeoutResult {
   stop: () => void;
   start: () => void;
   restart: () => void;
+  isRunning: () => boolean;
 }
 
-export function useInterval(
-  callback: () => any,
-  timeInMs: number,
-  startByDefault: boolean = true
-): UseTimeoutResult {
+export function useInterval({
+  callback,
+  timeInMs,
+  startByDefault = true,
+}: {
+  callback: () => any;
+  timeInMs: number;
+  startByDefault?: boolean;
+}): UseTimeoutResult {
   const callbackRef = useRef(callback);
   callbackRef.current = callback;
 
@@ -26,19 +31,23 @@ export function useInterval(
     if (timeoutRef.current != null)
       throw new Error("Timeout is already started. Stop first.");
     timeoutRef.current = setInterval(() => callbackRef.current(), timeInMs);
-  }, [stop]);
+  }, [timeInMs, stop]);
 
   useEffect(() => {
     if (startByDefault) start();
     return stop;
-  }, [timeInMs]);
+  }, [startByDefault, start, stop]);
 
-  return {
-    stop,
-    start,
-    restart: () => {
-      stop();
-      start();
-    },
-  };
+  return useMemo(
+    () => ({
+      isRunning: () => timeoutRef.current != null,
+      stop,
+      start,
+      restart: () => {
+        stop();
+        start();
+      },
+    }),
+    [start, stop]
+  );
 }

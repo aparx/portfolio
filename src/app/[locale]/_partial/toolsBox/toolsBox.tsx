@@ -3,7 +3,8 @@ import { TextFont } from "@/components";
 import { useInterval } from "@/hooks";
 import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 import { useTranslations } from "next-intl";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useId, useRef, useState } from "react";
+import { useInView } from "react-intersection-observer";
 import { GridBox } from "../../_components";
 import { useToolCategories } from "./toolsBox.config";
 import css from "./toolsBox.module.css";
@@ -24,20 +25,30 @@ export function ToolsBox() {
   const activeCategory = categories[active];
   const [maxHeight, setMaxHeight] = useState<number>();
   const containerRef = useRef<HTMLDivElement>(null);
+  const controlId = useId();
 
   useEffect(() => {
     const newHeight = containerRef.current?.clientHeight;
     if (newHeight == null) return;
     setMaxHeight((oldHeight) => Math.max(newHeight, oldHeight ?? 0));
-  }, []);
+  });
 
-  const interval = useInterval(() => {
-    setActive((oldActive) => (1 + oldActive) % categories.length);
-  }, 4500);
+  const interval = useInterval({
+    callback: () => setActive((last) => (1 + last) % categories.length),
+    timeInMs: 4500,
+    startByDefault: false,
+  });
+
+  const { ref } = useInView({
+    onChange: (inView) => {
+      if (!inView && active) interval.stop();
+      else if (inView && !interval.isRunning()) interval.start();
+    },
+  });
 
   return (
     <GridBox.Root type="stretch" className={css.root}>
-      <div>
+      <div ref={ref}>
         <GridBox.Header
           title={t("Languages.title")}
           subtitle={t("Languages.subtitle", {
@@ -60,6 +71,7 @@ export function ToolsBox() {
                     <input
                       type="radio"
                       name={"Select Category"}
+                      aria-controls={controlId}
                       checked={active === i}
                     />
                   </VisuallyHidden>
@@ -72,7 +84,11 @@ export function ToolsBox() {
         </div>
       </div>
       <div ref={containerRef} style={{ minHeight: maxHeight }}>
-        <ul className={css.toolList} aria-label={activeCategory?.name}>
+        <ul
+          className={css.toolList}
+          aria-label={activeCategory?.name}
+          id={controlId}
+        >
           {activeCategory?.elements.map((element, i) => (
             <li
               key={element.name}

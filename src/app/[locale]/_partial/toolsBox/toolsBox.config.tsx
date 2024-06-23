@@ -1,21 +1,16 @@
 import { useTranslations } from "next-intl";
 import React, { useMemo } from "react";
 import { CgVercel } from "react-icons/cg";
-import { DiIllustrator, DiJava, DiPhotoshop } from "react-icons/di";
+import { DiIllustrator, DiJava } from "react-icons/di";
 import { FaNodeJs } from "react-icons/fa";
-import {
-  FaFigma,
-  FaGitAlt,
-  FaGlobe,
-  FaLanguage,
-  FaPhp,
-  FaReact,
-} from "react-icons/fa6";
+import { FaFigma, FaGitAlt, FaGlobe, FaPhp, FaReact } from "react-icons/fa6";
 import { FiFigma } from "react-icons/fi";
 import { IoLanguage } from "react-icons/io5";
 import { RiNextjsLine, RiSvelteLine } from "react-icons/ri";
 import {
+  SiHibernate,
   SiPostgresql,
+  SiPrisma,
   SiSpring,
   SiSupabase,
   SiTypescript,
@@ -100,10 +95,6 @@ export function useToolCategories() {
             icon: <DiIllustrator color="#F58219" />,
           },
           {
-            name: "Photoshop",
-            icon: <DiPhotoshop color="#64B5E2" />,
-          },
-          {
             name: "Vercel",
             icon: <CgVercel />,
           },
@@ -114,6 +105,10 @@ export function useToolCategories() {
           {
             name: "Git",
             icon: <FaGitAlt />,
+          },
+          {
+            name: "Prisma",
+            icon: <SiPrisma />,
           },
         ],
       },
