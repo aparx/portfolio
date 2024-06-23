@@ -11,12 +11,13 @@ import css from "./toolsBox.module.css";
 
 export function ToolsBox() {
   const t = useTranslations("index");
-  const [active, setActive] = useState(0);
   const categories = useToolCategories();
-  const activeCategory = categories[active];
+  const [active, setActive] = useState(0);
   const [maxHeight, setMaxHeight] = useState<number>();
   const containerRef = useRef<HTMLDivElement>(null);
+  const animationDeltaRef = useRef<"up" | "down">("down");
   const controlId = useId();
+  const activeCategory = categories[active];
 
   useEffect(() => {
     const newHeight = containerRef.current?.clientHeight;
@@ -25,7 +26,12 @@ export function ToolsBox() {
   });
 
   const interval = useInterval({
-    callback: () => setActive((last) => (1 + last) % categories.length),
+    callback: () =>
+      setActive((oldActive) => {
+        const newIndex = (1 + oldActive) % categories.length;
+        animationDeltaRef.current = newIndex > oldActive ? "down" : "up";
+        return newIndex;
+      }),
     timeInMs: 4500,
     startByDefault: false,
   });
@@ -52,19 +58,21 @@ export function ToolsBox() {
           <ul className={css.selector} aria-label="Category Selector">
             {categories.map((category, i) => (
               <li key={category.name}>
-                <label
-                  data-active={i === active}
-                  onClick={() => {
-                    setActive(i);
-                    interval.restart();
-                  }}
-                >
+                <label data-active={i === active}>
                   <VisuallyHidden>
                     <input
                       type="radio"
                       name={"Select Category"}
                       aria-controls={controlId}
                       checked={active === i}
+                      onChange={() => {
+                        interval.restart();
+                        setActive((oldActive) => {
+                          animationDeltaRef.current =
+                            i > oldActive ? "down" : "up";
+                          return i;
+                        });
+                      }}
                     />
                   </VisuallyHidden>
                   {category.icon}
@@ -81,6 +89,7 @@ export function ToolsBox() {
           className={css.toolList}
           aria-label={activeCategory?.name}
           id={controlId}
+          data-animation-delta={animationDeltaRef.current}
         >
           {activeCategory?.elements.map((element, i) => (
             <li
