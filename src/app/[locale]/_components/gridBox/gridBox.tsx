@@ -9,7 +9,7 @@ type GridBoxBaseProps = { asChild?: boolean } & (
 );
 
 export type GridBoxProps = Omit<
-  ComponentPropsWithoutRef<"section">,
+  ComponentPropsWithoutRef<"article">,
   keyof GridBoxBaseProps
 > &
   GridBoxBaseProps;
@@ -22,7 +22,7 @@ export function Root({
   className,
   ...restProps
 }: GridBoxProps) {
-  const Comp = asChild ? Slot : "section";
+  const Comp = asChild ? Slot : "article";
   return (
     <Comp
       className={mergeClassNames(className, css.box)}

@@ -145,7 +145,7 @@
   }
 }
 
-@media screen and (max-width: 540px) {
+@media screen and (max-width: 650px) {
   .portrait {
     display: none; /* TODO change */
   }

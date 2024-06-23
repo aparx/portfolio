@@ -13,7 +13,7 @@ export function IntroBox() {
   const t = useTranslations("index");
 
   return (
-    <section className={css.intro}>
+    <article className={css.intro}>
       <div>
         <div className={css.content}>
           <GridBox.Header
@@ -39,7 +39,7 @@ export function IntroBox() {
           <SocialList />
         </footer>
       </TextFont>
-    </section>
+    </article>
   );
 }
 

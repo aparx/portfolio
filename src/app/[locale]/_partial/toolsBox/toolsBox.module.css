@@ -1,0 +1,62 @@
+.selectorContainer {
+  position: relative;
+}
+
+.selector {
+  list-style: none;
+  padding: unset;
+  margin: unset;
+  border-radius: var(--spacing-1);
+  border: 1px solid var(--color-outline-card);
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  color: var(--color-emphasis-medium);
+  overflow-x: auto;
+  max-width: 100%;
+}
+
+.selector label {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+  padding: var(--spacing-1) var(--spacing-2);
+  white-space: nowrap;
+  font-weight: 500;
+  transition:
+    0.15s background,
+    0.15s color;
+}
+
+.selector label:hover,
+.selector label:focus-within {
+  background: var(--color-state-hover);
+  cursor: pointer;
+}
+
+.selector label[data-active="true"] {
+  background: var(--color-emphasis-high);
+  color: var(--color-accent-1);
+}
+
+.selector li:not(:last-child) label {
+  border-bottom: 1px solid var(--color-outline-card);
+}
+
+@media screen and (max-width: 540px) {
+  .selectorContainer {
+    display: flex;
+    justify-content: center;
+    height: calc(calc(2 * var(--spacing-2)) + 1em);
+  }
+
+  .selector {
+    position: absolute;
+    flex-direction: row !important;
+  }
+
+  .selector li:not(:last-child) label {
+    border-bottom: unset;
+    border-right: 1px solid var(--color-outline-card);
+  }
+}

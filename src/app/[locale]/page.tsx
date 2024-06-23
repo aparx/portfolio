@@ -6,7 +6,7 @@ import Image from "next/image";
 import { FaArrowTrendUp } from "react-icons/fa6";
 import { MdVerified } from "react-icons/md";
 import { GridBox } from "./_components";
-import { IntroBox } from "./_partial";
+import { IntroBox, ToolsBox } from "./_partial";
 import css from "./page.module.css";
 
 export default function Home() {
@@ -19,15 +19,7 @@ export default function Home() {
         <IntroBox />
         <main className={css.grid}>
           <ServiceRow />
-          <GridBox.Root type="stretch">
-            <GridBox.Header
-              title={t("Languages.title")}
-              subtitle={t("Languages.subtitle", {
-                name: "Web Architektur",
-              })}
-              intro={t("Languages.intro")}
-            />
-          </GridBox.Root>
+          <ToolsBox />
           <GridBox.Root type="split" side="start">
             <GridBox.Header
               title={t("Passion.title")}

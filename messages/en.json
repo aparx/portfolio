@@ -34,7 +34,12 @@
     "Languages": {
       "title": "I speak many languages.",
       "subtitle": "{name}, is one of them.",
-      "intro": "Different languages, frameworks and tools"
+      "intro": "Different languages, frameworks and tools",
+      "categories": {
+        "0": "Web Architecture",
+        "1": "Backend and Desktop",
+        "2": "Webdesign and Tools"
+      }
     },
     "Passion": {
       "title": "Passion is guaranteed, always.",
