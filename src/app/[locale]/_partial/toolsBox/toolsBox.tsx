@@ -3,20 +3,11 @@ import { TextFont } from "@/components";
 import { useInterval } from "@/hooks";
 import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 import { useTranslations } from "next-intl";
-import React, { useEffect, useId, useRef, useState } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 import { useInView } from "react-intersection-observer";
 import { GridBox } from "../../_components";
 import { useToolCategories } from "./toolsBox.config";
 import css from "./toolsBox.module.css";
-
-interface ToolsCategory {
-  name: string;
-  icon: React.ReactNode;
-  elements: Array<{
-    icon: React.ReactNode;
-    name: string;
-  }>;
-}
 
 export function ToolsBox() {
   const t = useTranslations("index");
@@ -56,6 +47,7 @@ export function ToolsBox() {
           })}
           intro={t("Languages.intro")}
         />
+        {/** Category Selector */}
         <div className={css.selectorContainer}>
           <ul className={css.selector} aria-label="Category Selector">
             {categories.map((category, i) => (
@@ -83,6 +75,7 @@ export function ToolsBox() {
           </ul>
         </div>
       </div>
+      {/** Category Contents */}
       <div ref={containerRef} style={{ minHeight: maxHeight }}>
         <ul
           className={css.toolList}
@@ -93,9 +86,7 @@ export function ToolsBox() {
             <li
               key={element.name}
               className={css.tool}
-              style={{
-                animationDelay: `${50 * i}ms`,
-              }}
+              style={{ animationDelay: `${50 * i}ms` }}
             >
               {element.icon}
               {element.name}
