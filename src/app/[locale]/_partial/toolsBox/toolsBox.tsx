@@ -2,7 +2,7 @@
 import { TextFont } from "@/components";
 import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 import { useTranslations } from "next-intl";
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { GridBox } from "../../_components";
 import { useToolCategories } from "./toolsBox.config";
 import css from "./toolsBox.module.css";
@@ -21,6 +21,14 @@ export function ToolsBox() {
   const [active, setActive] = useState(0);
   const categories = useToolCategories();
   const activeCategory = categories[active];
+  const [maxHeight, setMaxHeight] = useState<number>();
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const currentHeight = containerRef.current?.clientHeight;
+    if (currentHeight == null) return;
+    setMaxHeight((oldHeight) => Math.max(currentHeight, oldHeight ?? 0));
+  }, []);
 
   return (
     <GridBox.Root type="stretch" className={css.root}>
@@ -52,7 +60,7 @@ export function ToolsBox() {
           </ul>
         </div>
       </div>
-      <div>
+      <div ref={containerRef} style={{ minHeight: maxHeight }}>
         <ul className={css.toolList} aria-label={activeCategory?.name}>
           {activeCategory?.elements.map((element, i) => (
             <li
