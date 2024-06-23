@@ -1,21 +1,14 @@
-import { useCallback, useEffect, useMemo, useRef } from "react";
-
-export interface UseTimeoutResult {
-  stop: () => void;
-  start: () => void;
-  restart: () => void;
-  isRunning: () => boolean;
-}
+import { useCallback, useEffect, useRef } from "react";
 
 export function useInterval({
   callback,
   timeInMs,
-  startByDefault = true,
+  enabled = true,
 }: {
   callback: () => any;
   timeInMs: number;
-  startByDefault?: boolean;
-}): UseTimeoutResult {
+  enabled?: boolean;
+}): () => void {
   const callbackRef = useRef(callback);
   callbackRef.current = callback;
 
@@ -34,20 +27,13 @@ export function useInterval({
   }, [timeInMs, stop]);
 
   useEffect(() => {
-    if (startByDefault) start();
+    if (enabled) start();
     return stop;
-  }, [startByDefault, start, stop]);
+  }, [enabled, start, stop]);
 
-  return useMemo(
-    () => ({
-      isRunning: () => timeoutRef.current != null,
-      stop,
-      start,
-      restart: () => {
-        stop();
-        start();
-      },
-    }),
-    [start, stop]
-  );
+  // TODO is useCallback really necessary / is referential equality important?
+  return useCallback(() => {
+    stop();
+    start();
+  }, [stop, start]);
 }

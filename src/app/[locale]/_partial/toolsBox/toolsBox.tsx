@@ -14,6 +14,7 @@ export function ToolsBox() {
   const categories = useToolCategories();
   const [active, setActive] = useState(0);
   const [maxHeight, setMaxHeight] = useState<number>();
+  const [enableInterval, setEnableInterval] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const animationDeltaRef = useRef<"up" | "down">("down");
   const controlId = useId();
@@ -25,7 +26,7 @@ export function ToolsBox() {
     setMaxHeight((oldHeight) => Math.max(newHeight, oldHeight ?? 0));
   });
 
-  const interval = useInterval({
+  useInterval({
     callback: () =>
       setActive((oldActive) => {
         const newIndex = (1 + oldActive) % categories.length;
@@ -33,14 +34,11 @@ export function ToolsBox() {
         return newIndex;
       }),
     timeInMs: 4500,
-    startByDefault: false,
+    enabled: enableInterval,
   });
 
   const { ref } = useInView({
-    onChange: (inView) => {
-      if (!inView && active) interval.stop();
-      else if (inView && !interval.isRunning()) interval.start();
-    },
+    onChange: (inView) => setEnableInterval(inView),
   });
 
   return (
@@ -54,33 +52,36 @@ export function ToolsBox() {
           intro={t("Languages.intro")}
         />
         {/** Category Selector */}
-        <div className={css.selectorContainer}>
-          <ul className={css.selector} aria-label="Category Selector">
+        <div
+          className={css.selectorContainer}
+          onMouseEnter={() => setEnableInterval(false)}
+          onMouseLeave={() => setEnableInterval(true)}
+          onFocus={() => setEnableInterval(false)}
+          onBlur={() => setEnableInterval(true)}
+        >
+          <fieldset className={css.selector} aria-label="Category Selector">
             {categories.map((category, i) => (
-              <li key={category.name}>
-                <label data-active={i === active}>
-                  <VisuallyHidden>
-                    <input
-                      type="radio"
-                      name={"Select Category"}
-                      aria-controls={controlId}
-                      checked={active === i}
-                      onChange={() => {
-                        interval.restart();
-                        setActive((oldActive) => {
-                          animationDeltaRef.current =
-                            i > oldActive ? "down" : "up";
-                          return i;
-                        });
-                      }}
-                    />
-                  </VisuallyHidden>
-                  {category.icon}
-                  {category.name}
-                </label>
-              </li>
+              <label key={category.name} data-active={i === active}>
+                <VisuallyHidden>
+                  <input
+                    type="radio"
+                    name={"Select Category"}
+                    aria-controls={controlId}
+                    checked={active === i}
+                    onChange={() => {
+                      setActive((oldActive) => {
+                        animationDeltaRef.current =
+                          i > oldActive ? "down" : "up";
+                        return i;
+                      });
+                    }}
+                  />
+                </VisuallyHidden>
+                {category.icon}
+                {category.name}
+              </label>
             ))}
-          </ul>
+          </fieldset>
         </div>
       </div>
       {/** Category Contents */}

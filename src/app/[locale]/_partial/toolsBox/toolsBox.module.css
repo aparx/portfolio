@@ -65,7 +65,7 @@
 }
 
 .selector {
-  list-style: none;
+  position: relative;
   padding: unset;
   margin: unset;
   border-radius: var(--spacing-1);
@@ -76,9 +76,11 @@
   color: var(--color-emphasis-medium);
   overflow-x: auto;
   max-width: 100%;
+  min-width: 0;
 }
 
 .selector label {
+  position: relative;
   display: flex;
   align-items: center;
   gap: var(--spacing-2);
@@ -101,7 +103,7 @@
   color: var(--color-accent-1);
 }
 
-.selector li:not(:last-child) label {
+.selector label:not(:last-child) {
   border-bottom: 1px solid var(--color-outline-card);
 }
 
@@ -117,7 +119,7 @@
     flex-direction: row !important;
   }
 
-  .selector li:not(:last-child) label {
+  .selector label:not(:last-child) {
     border-bottom: unset;
     border-right: 1px solid var(--color-outline-card);
   }

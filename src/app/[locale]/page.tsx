@@ -24,12 +24,8 @@ export default function Home() {
             <GridBox.Header
               title={t("Passion.title")}
               subtitle={t("Passion.subtitle")}
-              intro={
-                <>
-                  <MdVerified />
-                  {t("Passion.intro")}
-                </>
-              }
+              icon={<MdVerified />}
+              intro={t("Passion.intro")}
             />
             <div className={css.boxImageContainer}>
               <Image
@@ -45,12 +41,8 @@ export default function Home() {
             <GridBox.Header
               title={t("Scale.title")}
               subtitle={t("Scale.subtitle")}
-              intro={
-                <>
-                  <FaArrowTrendUp />
-                  {t("Scale.intro")}
-                </>
-              }
+              icon={<FaArrowTrendUp />}
+              intro={t("Scale.intro")}
             />
           </GridBox.Root>
           <GridBox.Root type="stretch">Projects</GridBox.Root>
