@@ -1,5 +1,6 @@
 "use client";
 import { TextFont } from "@/components";
+import { useInterval } from "@/hooks";
 import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 import { useTranslations } from "next-intl";
 import React, { useEffect, useRef, useState } from "react";
@@ -25,10 +26,14 @@ export function ToolsBox() {
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const currentHeight = containerRef.current?.clientHeight;
-    if (currentHeight == null) return;
-    setMaxHeight((oldHeight) => Math.max(currentHeight, oldHeight ?? 0));
+    const newHeight = containerRef.current?.clientHeight;
+    if (newHeight == null) return;
+    setMaxHeight((oldHeight) => Math.max(newHeight, oldHeight ?? 0));
   }, []);
+
+  const interval = useInterval(() => {
+    setActive((oldActive) => (1 + oldActive) % categories.length);
+  }, 4500);
 
   return (
     <GridBox.Root type="stretch" className={css.root}>
@@ -44,7 +49,13 @@ export function ToolsBox() {
           <ul className={css.selector} aria-label="Category Selector">
             {categories.map((category, i) => (
               <li key={category.name}>
-                <label data-active={i === active} onClick={() => setActive(i)}>
+                <label
+                  data-active={i === active}
+                  onClick={() => {
+                    setActive(i);
+                    interval.restart();
+                  }}
+                >
                   <VisuallyHidden>
                     <input
                       type="radio"
