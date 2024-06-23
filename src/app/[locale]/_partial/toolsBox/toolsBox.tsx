@@ -5,10 +5,10 @@ import { useTranslations } from "next-intl";
 import { StaticImageData } from "next/image";
 import { useMemo, useState } from "react";
 import { BsStack } from "react-icons/bs";
-import { FaFigma, FaGlobe } from "react-icons/fa6";
+import { FaGlobe } from "react-icons/fa6";
+import { FiFigma } from "react-icons/fi";
 import { GridBox } from "../../_components";
 import css from "./toolsBox.module.css";
-import { FiFigma } from "react-icons/fi";
 
 interface ToolsCategory {
   name: string;
@@ -53,7 +53,7 @@ export function ToolsBox() {
       <div className={css.selectorContainer}>
         <ul className={css.selector} aria-label="Category Selector">
           {categories.map((category, i) => (
-            <li>
+            <li key={category.name}>
               <label data-active={i === active} onClick={() => setActive(i)}>
                 <VisuallyHidden>
                   <input
