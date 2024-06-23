@@ -1,5 +1,5 @@
 import databaseImage from "@/../public/grid/database.png";
-import editorImage from "@/../public/grid/editor.svg";
+import editorImage from "@/../public/grid/editor.png";
 import fullstackImage from "@/../public/grid/fullstack.png";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
@@ -45,6 +45,7 @@ export default function Home() {
                 src={editorImage}
                 alt="An editor showing issues being fixed, done with passion"
                 style={{ objectFit: "contain" }}
+                quality={100}
               />
             </div>
           </GridBox.Root>

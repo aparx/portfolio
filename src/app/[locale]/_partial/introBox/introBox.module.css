@@ -19,7 +19,7 @@
   color: var(--color-emphasis-medium);
 }
 
-.intro > footer > ul {
+.socialList {
   display: flex;
   gap: var(--spacing-3);
   list-style: none;
@@ -27,13 +27,18 @@
   margin: unset;
 }
 
-.intro > footer button,
-.intro > footer a {
+.socialList li {
+  display: flex;
+  align-items: center;
+}
+
+.socialList button,
+.socialList a {
   gap: var(--spacing-1);
   text-decoration: none;
 }
 
-.intro > footer li:last-child {
+.socialList li:last-child {
   margin-left: auto;
 }
 
@@ -145,8 +150,8 @@
     display: none; /* TODO change */
   }
 
-  .intro > footer li:not(:last-child) button p,
-  .intro > footer li:not(:last-child) a p {
+  .socialList li:not(:last-child) button p,
+  .socialList li:not(:last-child) a p {
     display: none;
   }
 }
