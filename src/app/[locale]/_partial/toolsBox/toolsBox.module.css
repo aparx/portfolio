@@ -46,6 +46,7 @@
   gap: var(--spacing-1);
   height: fit-content;
   opacity: 0;
+  will-change: opacity, transform, background;
 }
 
 .toolList[data-animation-delta="up"] .tool {
@@ -132,6 +133,14 @@
     justify-content: center;
     gap: var(--spacing-3);
   }
+
+  .toolList[data-animation-delta="up"] .tool {
+    animation: toolItemFadeFromLeft 0.5s forwards;
+  }
+
+  .toolList[data-animation-delta="down"] .tool {
+    animation: toolItemFadeFromRight 0.5s forwards;
+  }
 }
 
 @keyframes toolItemFadeOnUp {
@@ -149,6 +158,28 @@
   from {
     opacity: 0;
     transform: translateY(-4px);
+    background: var(--color-accent-3);
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes toolItemFadeFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-4px);
+    background: var(--color-accent-3);
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes toolItemFadeFromRight {
+  from {
+    opacity: 0;
+    transform: translateX(4px);
     background: var(--color-accent-3);
   }
   to {
