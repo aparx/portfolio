@@ -2,13 +2,18 @@ import { useTranslations } from "next-intl";
 import React, { useMemo } from "react";
 import { CgVercel } from "react-icons/cg";
 import { DiIllustrator, DiJava } from "react-icons/di";
-import { FaNodeJs } from "react-icons/fa";
-import { FaFigma, FaGitAlt, FaGlobe, FaPhp, FaReact } from "react-icons/fa6";
+import {
+  FaCss3Alt,
+  FaFigma,
+  FaGitAlt,
+  FaGlobe,
+  FaReact,
+} from "react-icons/fa6";
 import { FiFigma } from "react-icons/fi";
 import { IoLanguage } from "react-icons/io5";
 import { RiNextjsLine, RiSvelteLine } from "react-icons/ri";
 import {
-  SiHibernate,
+  SiLaravel,
   SiPostgresql,
   SiPrisma,
   SiSpring,
@@ -39,24 +44,24 @@ export function useToolCategories() {
             icon: <FaReact color="#64B5E2" />,
           },
           {
-            name: "Spring",
-            icon: <SiSpring color="#8CC84B" />,
-          },
-          {
-            name: "NodeJS",
-            icon: <FaNodeJs color="#8CC84B" />,
-          },
-          {
             name: "NextJS",
             icon: <RiNextjsLine color="white" />,
           },
           {
+            name: "Spring",
+            icon: <SiSpring color="#8CC84B" />,
+          },
+          {
+            name: "Laravel",
+            icon: <SiLaravel color="#fa5d2a" />,
+          },
+          {
             name: "Svelte",
-            icon: <RiSvelteLine color="#FF3E00" />,
+            icon: <RiSvelteLine color="#fa5d2a" />,
           },
           {
             name: "SvelteKit",
-            icon: <RiSvelteLine color="#FF3E00" />,
+            icon: <RiSvelteLine color="#fa5d2a" />,
           },
         ],
       },
@@ -73,12 +78,12 @@ export function useToolCategories() {
             icon: <DiJava />,
           },
           {
-            name: "PHP",
-            icon: <FaPhp />,
-          },
-          {
             name: "PL/pgSQL",
             icon: <SiPostgresql />,
+          },
+          {
+            name: "Sass/CSS",
+            icon: <FaCss3Alt />,
           },
         ],
       },

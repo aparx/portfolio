@@ -43,7 +43,7 @@
       }
     },
     "Passion": {
-      "title": "Leidenschaft is garantiert. Immer.",
+      "title": "Leidenschaft ist garantiert. Immer.",
       "subtitle": "Meine Leidenschaft ist ein ständiger Motivator.",
       "intro": "Qualitätsversprechen"
     },
@@ -51,6 +51,11 @@
       "title": "Von mittelgroß bis ganz groß.",
       "subtitle": "Jegliche Skalierung, ich mach es.",
       "intro": "Variierende Komplexität und Skalierung"
+    },
+    "Projects": {
+      "title": "Aktuelle Beispielprojekte",
+      "subtitle": "Ein Einblick in meine Fähigkeiten.",
+      "intro": "Ein Einblick was möglich ist"
     }
   }
 }

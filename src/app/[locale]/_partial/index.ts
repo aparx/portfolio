@@ -1,2 +1,3 @@
 export * from "./introBox";
-export * from "./toolsBox";
+export * from "./projectsBox";
+export * from "./skillsBox";

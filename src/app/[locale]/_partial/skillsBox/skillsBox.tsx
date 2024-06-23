@@ -6,10 +6,10 @@ import { useTranslations } from "next-intl";
 import { useEffect, useId, useRef, useState } from "react";
 import { useInView } from "react-intersection-observer";
 import { GridBox } from "../../_components";
-import { useToolCategories } from "./toolsBox.config";
-import css from "./toolsBox.module.css";
+import { useToolCategories } from "./skillsBox.config";
+import css from "./skillsBox.module.css";
 
-export function ToolsBox() {
+export function SkillsBox() {
   const t = useTranslations("index");
   const categories = useToolCategories();
   const [active, setActive] = useState(0);
