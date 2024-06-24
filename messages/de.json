@@ -9,33 +9,33 @@
         },
         "2015": {
           "title": "Der Beginn meiner Reise",
-          "description": "Meine Reise begann mit Visual Basic und führte mich schnell zu Java."
+          "description": "Beginn meiner Reise mit Visual Basic und führte mich direkt zu Java."
         },
         "2017": {
           "title": "Desktop und Game development",
-          "description": "Ich begann mit der Entwicklung umfangreicher Projekte mit Java und C++, die letztlich von Tausenden von Nutzern verwendet wurden. Zusätzlich tauchte ich in die Welt des Reverse Engineering ein."
+          "description": "Entwicklung umfangreicher Projekte mit Java und C++, die letztlich von Tausenden von Nutzern verwendet wurden. Zusätzlich tauchte ich in die Welt des Reverse Engineering ein."
         },
         "2019": {
           "title": "Fullstack Entwicklung",
-          "description": "Ich begann mit der Full-Stack-Webentwicklung, anfangs mit PHP und dem Laravel (MVC)-Framework, und erweiterte anschließend mein Fachwissen auf verschiedene JavaScript-Frameworks."
+          "description": "Full-Stack-Webentwicklung, anfangs mit PHP und dem Laravel-Framework und anschließend erweiterte ich mein Fachwissen auf verschiedene Frontend und Backend Frameworks."
         }
       }
     },
     "Frontend": {
       "title": "Frontend Entwicklung",
       "subtitle": "Von Konzepierung, bis Endprodukt.",
-      "intro": "Erschaffen von Erlebnissen"
+      "intro": "Erschaffen von Nutzererlebnissen"
     },
     "Backend": {
       "title": "Backend Entwicklung",
       "subtitle": "Performante, skalierbare Backends.",
-      "intro": "Extensive Backend Entwicklung"
+      "intro": "Erschaffen von skalierbaren Backends"
     },
     "Languages": {
       "title": "Ich spreche viele Sprachen.",
       "subtitle": "{name}, ist eine.",
       "intro": "Verschiedene Sprachen, Frameworks und Tools.",
-      "outro": "Fehlt etwas? Kontakiere mich.",
+      "outro": "Fehlt etwas? Kontaktiere mich.",
       "categories": {
         "0": "Web Frameworks",
         "1": "Präferierte Sprachen",
