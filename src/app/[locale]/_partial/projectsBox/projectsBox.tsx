@@ -1,18 +1,16 @@
 import portfolioPreviewImage from "@/../public/projects/portfolio.png";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
+import Link from "next/link";
 import { MdWorkHistory } from "react-icons/md";
+import { TbExternalLink } from "react-icons/tb";
 import { GridBox } from "../../_components";
+import { ProjectData, useProjectsConfig } from "./projectsBox.config";
 import css from "./projectsBox.module.css";
-
-export interface ProjectData {
-  title: string;
-  description: string;
-  href?: string;
-}
 
 export function ProjectsBox() {
   const t = useTranslations("index");
+  const projects = useProjectsConfig();
 
   return (
     <GridBox.Root type="stretch" className={css.root}>
@@ -23,34 +21,11 @@ export function ProjectsBox() {
         icon={<MdWorkHistory />}
       />
       <ul aria-label="Projects I worked on" className={css.projectList}>
-        <li>
-          <Project
-            title="Lorem Ipsum"
-            description="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua."
-            href="https://google.com/"
-          />
-        </li>
-        <li>
-          <Project
-            title="Lorem Ipsum"
-            description="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua."
-            href="https://google.com/"
-          />
-        </li>
-        <li>
-          <Project
-            title="Lorem Ipsum"
-            description="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua."
-            href="https://google.com/"
-          />
-        </li>
-        <li>
-          <Project
-            title="Lorem Ipsum"
-            description="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua."
-            href="https://google.com/"
-          />
-        </li>
+        {projects.map((project) => (
+          <li key={project.title}>
+            <Project {...project} />
+          </li>
+        ))}
       </ul>
     </GridBox.Root>
   );
@@ -59,7 +34,7 @@ export function ProjectsBox() {
 function Project({ title, description, href }: ProjectData) {
   return (
     <article className={css.project}>
-      <header aria-hidden>
+      <Link href={href ?? "/"} aria-label="Link to project">
         <Image
           src={portfolioPreviewImage}
           alt="Preview Image"
@@ -69,8 +44,9 @@ function Project({ title, description, href }: ProjectData) {
             objectPosition: "top center",
           }}
         />
+        <TbExternalLink className={css.linkItem} />
         <div />
-      </header>
+      </Link>
       <div>
         <h4>{title}</h4>
         <p>{description}</p>

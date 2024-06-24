@@ -55,7 +55,17 @@
     "Projects": {
       "title": "Aktuelle Beispielprojekte",
       "subtitle": "Ein Einblick in meine Fähigkeiten.",
-      "intro": "Ein Einblick was möglich ist"
+      "intro": "Ein Einblick was möglich ist",
+      "projects": {
+        "portfolio": {
+          "title": "Portfolio",
+          "description": "Mein ganz eigenes, einfaches Portfolio. Es wurde mit NextJS 14.1 und CSS Modules erstellt und innerhalb weniger als einer Woche Arbeit fertiggestellt, einschließlich UI- und UX-Design. Das Hauptziel war es, ein vertrautes Gefühl für andere Entwicklerteams und eine professionelle Umgebung zu bieten."
+        },
+        "roadone30": {
+          "title": "roadone30",
+          "description": "Roadone30 ist eine deutsche Mowtown-Musikgruppe, die mich 2019 gebeten hat, ihre Website zu erstellen, und dies dauert bis heute an. Sie verfügt über einen individuell gestalteten Blog, Songlisten, Threads, eine Galerie und mehr. Realisiert mit NextJS, Planetscale (MySQL), Prisma, TRPC und Cloudflare R2 S3-Storage."
+        }
+      }
     }
   }
 }
