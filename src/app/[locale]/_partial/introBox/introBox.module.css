@@ -14,9 +14,32 @@
 
 .intro > footer {
   background: var(--color-accent-1);
-  padding: var(--spacing-1) var(--spacing-4);
+  padding: var(--spacing-1) var(--spacing-3);
   border-top: var(--grid-border);
   color: var(--color-emphasis-medium);
+}
+
+.socialList {
+  display: flex;
+  gap: var(--spacing-3);
+  list-style: none;
+  padding: unset;
+  margin: unset;
+}
+
+.socialList li {
+  display: flex;
+  align-items: center;
+}
+
+.socialList button,
+.socialList a {
+  gap: var(--spacing-1);
+  text-decoration: none;
+}
+
+.socialList li:last-child {
+  margin-left: auto;
 }
 
 .content {
@@ -122,9 +145,14 @@
   }
 }
 
-@media screen and (max-width: 540px) {
+@media screen and (max-width: 650px) {
   .portrait {
     display: none; /* TODO change */
+  }
+
+  .socialList li:not(:last-child) button p,
+  .socialList li:not(:last-child) a p {
+    display: none;
   }
 }
 

@@ -1,9 +1,12 @@
 import portraitImage from "@/../public/portrait.png";
 import thatsMeImage from "@/../public/thatsMe.svg";
-import { TextFont } from "@/components";
+import { Button, TextFont } from "@/components";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
-import { GridBox } from "../gridBox";
+import Link from "next/link";
+import { BsGithub, BsInstagram, BsTwitterX } from "react-icons/bs";
+import { MdEmail } from "react-icons/md";
+import { GridBox } from "../../_components/gridBox";
 import css from "./introBox.module.css";
 
 export function IntroBox() {
@@ -32,7 +35,9 @@ export function IntroBox() {
         </div>
       </div>
       <TextFont asChild type="mono" size="sm">
-        <footer>Contact me</footer>
+        <footer>
+          <SocialList />
+        </footer>
       </TextFont>
     </section>
   );
@@ -57,5 +62,44 @@ function Timeline() {
         </li>
       ))}
     </ol>
+  );
+}
+
+function SocialList() {
+  return (
+    <ul className={css.socialList} aria-label="Contact me">
+      <li>
+        <Button asChild appearance="transparent">
+          <Link href="https://x.com/bonedfps">
+            <BsTwitterX aria-label="Twitter/X" />
+            <p aria-hidden>@bonedfps</p>
+          </Link>
+        </Button>
+      </li>
+      <li>
+        <Button asChild appearance="transparent">
+          <Link href="https://instagram.com/_vizeb_">
+            <BsInstagram aria-label="Instagram" />
+            <p aria-hidden>@_vizeb_</p>
+          </Link>
+        </Button>
+      </li>
+      <li>
+        <Button asChild appearance="transparent">
+          <Link href="https://github.com/aparx">
+            <BsGithub aria-label="GitHub" />
+            <p aria-hidden>@aparx</p>
+          </Link>
+        </Button>
+      </li>
+      <li>
+        <Button asChild appearance="transparent">
+          <Link href="mailto:contact@vizeb.com">
+            <MdEmail aria-label="Email" />
+            <p>contact@vizeb.com</p>
+          </Link>
+        </Button>
+      </li>
+    </ul>
   );
 }

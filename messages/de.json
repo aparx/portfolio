@@ -4,40 +4,46 @@
       "subtitle": "Fullstack Entwickler & UI/UX Designer",
       "timeline": {
         "2003": {
-          "title": "Geboren im Oktober",
+          "title": "Geboren in NRW, Deutschland",
           "description": ""
         },
         "2015": {
           "title": "Der Beginn meiner Reise",
-          "description": "Meine Reise begann mit Visual Basic und führte mich schnell zu Java."
+          "description": "Beginn meiner Reise mit Visual Basic und führte mich direkt zu Java."
         },
         "2017": {
           "title": "Desktop und Game development",
-          "description": "Ich begann mit der Entwicklung umfangreicher Projekte mit Java und C++, die letztlich von Tausenden von Nutzern verwendet wurden. Zusätzlich tauchte ich in die Welt des Reverse Engineering ein."
+          "description": "Entwicklung umfangreicher Projekte mit Java und C++, die letztlich von Tausenden von Nutzern verwendet wurden. Zusätzlich tauchte ich in die Welt des Reverse Engineering ein."
         },
         "2019": {
           "title": "Fullstack Entwicklung",
-          "description": "Ich begann mit der Full-Stack-Webentwicklung, anfangs mit PHP und dem Laravel (MVC)-Framework, und erweiterte anschließend mein Fachwissen auf verschiedene JavaScript-Frameworks."
+          "description": "Full-Stack-Webentwicklung, anfangs mit PHP und dem Laravel-Framework und anschließend erweiterte ich mein Fachwissen auf verschiedene Frontend und Backend Frameworks."
         }
       }
     },
     "Frontend": {
       "title": "Frontend Entwicklung",
       "subtitle": "Von Konzepierung, bis Endprodukt.",
-      "intro": "Erschaffen von Erlebnissen"
+      "intro": "Erschaffen von Nutzererlebnissen"
     },
     "Backend": {
       "title": "Backend Entwicklung",
       "subtitle": "Performante, skalierbare Backends.",
-      "intro": "Extensive Backend Entwicklung"
+      "intro": "Erschaffen von skalierbaren Backends"
     },
     "Languages": {
       "title": "Ich spreche viele Sprachen.",
-      "subtitle": "{name}, ist eine davon.",
-      "intro": "Verschiedene Sprachen, Frameworks und Tools."
+      "subtitle": "{name}, ist eine.",
+      "intro": "Verschiedene Sprachen, Frameworks und Tools.",
+      "outro": "Fehlt etwas? Kontaktiere mich.",
+      "categories": {
+        "0": "Web Frameworks",
+        "1": "Präferierte Sprachen",
+        "2": "Design und Tools"
+      }
     },
     "Passion": {
-      "title": "Leidenschaft is garantiert. Immer.",
+      "title": "Leidenschaft ist garantiert. Immer.",
       "subtitle": "Meine Leidenschaft ist ein ständiger Motivator.",
       "intro": "Qualitätsversprechen"
     },
@@ -45,6 +51,21 @@
       "title": "Von mittelgroß bis ganz groß.",
       "subtitle": "Jegliche Skalierung, ich mach es.",
       "intro": "Variierende Komplexität und Skalierung"
+    },
+    "Projects": {
+      "title": "Aktuelle Beispielprojekte",
+      "subtitle": "Ein Einblick in meine Fähigkeiten.",
+      "intro": "Ein Einblick was möglich ist",
+      "projects": {
+        "portfolio": {
+          "title": "Portfolio",
+          "description": "Mein ganz eigenes, einfaches Portfolio. Es wurde mit NextJS 14.1 und CSS Modules erstellt und innerhalb weniger als einer Woche Arbeit fertiggestellt, einschließlich UI- und UX-Design. Das Hauptziel war es, ein vertrautes Gefühl für andere Entwicklerteams und eine professionelle Umgebung zu bieten."
+        },
+        "roadone30": {
+          "title": "roadone30",
+          "description": "Roadone30 ist eine deutsche Mowtown-Musikgruppe, die mich 2019 gebeten hat, ihre Website zu erstellen, und dies dauert bis heute an. Sie verfügt über einen individuell gestalteten Blog, Songlisten, Threads, eine Galerie und mehr. Realisiert mit NextJS, Planetscale (MySQL), Prisma, TRPC und Cloudflare R2 S3-Storage."
+        }
+      }
     }
   }
 }

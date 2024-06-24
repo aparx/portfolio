@@ -1,11 +1,12 @@
 import databaseImage from "@/../public/grid/database.png";
-import editorImage from "@/../public/grid/editor.svg";
+import editorImage from "@/../public/grid/editor.png";
 import fullstackImage from "@/../public/grid/fullstack.png";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { FaArrowTrendUp } from "react-icons/fa6";
 import { MdVerified } from "react-icons/md";
-import { GridBox, IntroBox } from "./_components";
+import { GridBox } from "./_components";
+import { IntroBox, ProjectsBox, SkillsBox } from "./_partial";
 import css from "./page.module.css";
 
 export default function Home() {
@@ -18,25 +19,13 @@ export default function Home() {
         <IntroBox />
         <main className={css.grid}>
           <ServiceRow />
-          <GridBox.Root type="stretch">
-            <GridBox.Header
-              title={t("Languages.title")}
-              subtitle={t("Languages.subtitle", {
-                name: "Web Architektur",
-              })}
-              intro={t("Languages.intro")}
-            />
-          </GridBox.Root>
+          <SkillsBox />
           <GridBox.Root type="split" side="start">
             <GridBox.Header
               title={t("Passion.title")}
               subtitle={t("Passion.subtitle")}
-              intro={
-                <>
-                  <MdVerified />
-                  {t("Passion.intro")}
-                </>
-              }
+              icon={<MdVerified />}
+              intro={t("Passion.intro")}
             />
             <div className={css.boxImageContainer}>
               <Image
@@ -44,6 +33,7 @@ export default function Home() {
                 src={editorImage}
                 alt="An editor showing issues being fixed, done with passion"
                 style={{ objectFit: "contain" }}
+                quality={100}
               />
             </div>
           </GridBox.Root>
@@ -51,15 +41,11 @@ export default function Home() {
             <GridBox.Header
               title={t("Scale.title")}
               subtitle={t("Scale.subtitle")}
-              intro={
-                <>
-                  <FaArrowTrendUp />
-                  {t("Scale.intro")}
-                </>
-              }
+              icon={<FaArrowTrendUp />}
+              intro={t("Scale.intro")}
             />
           </GridBox.Root>
-          <GridBox.Root type="stretch">Projects</GridBox.Root>
+          <ProjectsBox />
           <GridBox.Root type="stretch" style={{ borderBottom: "unset" }}>
             Get in touch
           </GridBox.Root>

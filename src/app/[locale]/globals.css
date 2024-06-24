@@ -1,6 +1,11 @@
 :root {
   color-scheme: dark;
 
+  /** <---> Opacities <---> */
+  --emphasis-high: 1;
+  --emphasis-medium: 0.8;
+  --emphasis-low: 0.37;
+
   /** <---> Colors <---> */
   --color-primary: #64b5e2;
   --color-accent-0: #000000;
@@ -8,16 +13,11 @@
   --color-accent-2: #131313;
   --color-accent-3: #202020;
   --color-accent-4: #343434;
-  --color-emphasis-high: rgb(230, 230, 230);
-  --color-emphasis-medium: rgba(230, 230, 230, 0.8);
-  --color-emphasis-low: rgba(230, 230, 230, 0.37);
+  --color-emphasis-high: rgba(230, 230, 230, var(--emphasis-high));
+  --color-emphasis-medium: rgba(230, 230, 230, var(--emphasis-medium));
+  --color-emphasis-low: rgba(230, 230, 230, var(--emphasis-low));
   --color-outline-grid: #212121;
   --color-outline-card: #ffffff14;
-
-  /** <---> Opacities <---> */
-  --emphasis-high: #FF;
-  --emphasis-medium: #46;
-  --emphasis-low: #25;
 
   /** <---> Spacing <---> */
   --spacing-0: 5px;
@@ -25,7 +25,7 @@
   --spacing-2: 15px;
   --spacing-3: 20px;
   --spacing-4: 30px;
-  --spacing-5: 50px;
+  --spacing-5: 45px;
 
   /** <---> Font size <---> */
   --fs-base: 0.875rem;
@@ -33,6 +33,9 @@
   --fs-1: 1rem;
   --fs-2: 1.143rem;
   --fs-3: 1.571rem;
+
+  /** <---> State <---> */
+  --color-state-hover: rgba(255, 255, 255, 0.1);
 }
 
 html {

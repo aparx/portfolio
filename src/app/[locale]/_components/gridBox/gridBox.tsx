@@ -14,6 +14,19 @@ export type GridBoxProps = Omit<
 > &
   GridBoxBaseProps;
 
+interface GridBoxHeaderBaseProps {
+  title: React.ReactNode;
+  subtitle?: React.ReactNode;
+  intro?: React.ReactNode;
+  icon?: React.ReactNode;
+}
+
+export type GridBoxHeaderProps = Omit<
+  ComponentPropsWithoutRef<"div">,
+  "children" | keyof GridBoxHeaderBaseProps
+> &
+  GridBoxHeaderBaseProps;
+
 export function Root({
   type,
   side,
@@ -35,28 +48,22 @@ export function Root({
   );
 }
 
-interface GridBoxTitleBaseProps {
-  title: React.ReactNode;
-  subtitle?: React.ReactNode;
-  intro?: React.ReactNode;
-}
-
-export type GridBoxTitleProps = Omit<
-  ComponentPropsWithoutRef<"div">,
-  "children" | keyof GridBoxTitleBaseProps
-> &
-  GridBoxTitleBaseProps;
-
 export function Header({
   title,
   subtitle,
   intro,
+  icon,
   className,
   ...restProps
-}: GridBoxTitleProps) {
+}: GridBoxHeaderProps) {
   return (
     <header className={mergeClassNames(className, css.title)} {...restProps}>
-      {intro && <p>{intro}</p>}
+      {(icon || intro) && (
+        <p>
+          {icon}
+          {intro}
+        </p>
+      )}
       <hgroup>
         <h2>{title}</h2>
         {subtitle && <h3>{subtitle}</h3>}

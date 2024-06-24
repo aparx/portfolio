@@ -4,7 +4,7 @@
       "subtitle": "Fullstack Developer & UI/UX Designer",
       "timeline": {
         "2003": {
-          "title": "Born October",
+          "title": "Born in Germany",
           "description": ""
         },
         "2015": {
@@ -33,8 +33,14 @@
     },
     "Languages": {
       "title": "I speak many languages.",
-      "subtitle": "{name}, is one of them.",
-      "intro": "Different languages, frameworks and tools"
+      "subtitle": "{name}, is one.",
+      "intro": "Different languages, frameworks and tools",
+      "outro": "Missing something? Hit me up!",
+      "categories": {
+        "0": "Web Frameworks",
+        "1": "Preferred Languages",
+        "2": "Design and Tools"
+      }
     },
     "Passion": {
       "title": "Passion is guaranteed, always.",
@@ -45,6 +51,21 @@
       "title": "From medium to large scale.",
       "subtitle": "Any scale of application. I do it.",
       "intro": "Varying complexity"
+    },
+    "Projects": {
+      "title": "Some of my work",
+      "subtitle": "Get a gist of my capabilities.",
+      "intro": "A glimpse of what is possible",
+      "projects": {
+        "portfolio": {
+          "title": "Portfolio",
+          "description": "My very own simplistic portfolio. Made with NextJS 14.1 and CSS Modules, it was done within less of a week of work, including the UI and UX design. The main goal was to provide a known feeling for other developer teams and a professional environment."
+        },
+        "roadone30": {
+          "title": "roadone30",
+          "description": "Roadone30 is a german mowtown music group, that asked me to do their website in 2019 until now. It features a custom made blog, song lists, threads, a gallery and more. Done with NextJS, Planetscale (MySQL), Prisma, TRPC and Cloudflare R2 S3-Storage."
+        }
+      }
     }
   }
 }
