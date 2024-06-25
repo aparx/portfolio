@@ -68,8 +68,8 @@
       }
     },
     "Contact": {
-      "title": "Get in touch",
-      "subtitle": "Let's start our journey.",
+      "title": "Get in touch with me",
+      "subtitle": "Let's start our journey and have a non-binding chat.",
       "fields": {
         "email": {
           "label": "Email",
@@ -77,7 +77,7 @@
         },
         "subject": {
           "label": "Subject",
-          "placeholder": "In need of a custom webapp"
+          "placeholder": "Estimated costs for custom solution"
         },
         "details": {
           "label": "Details",
