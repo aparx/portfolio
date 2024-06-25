@@ -116,7 +116,7 @@
 
 .project > a:hover .linkItem,
 .project > a:focus-visible .linkItem {
-  color: var(--color-primary);
+  color: var(--color-emphasis-high);
 }
 
 @media screen and (max-width: 540px) {

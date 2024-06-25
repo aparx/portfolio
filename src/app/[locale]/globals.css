@@ -36,6 +36,7 @@
 
   /** <---> State <---> */
   --color-state-hover: rgba(255, 255, 255, 0.1);
+  --color-state-focus: rgba(255, 255, 255, 0.025);
 }
 
 html {

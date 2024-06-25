@@ -6,7 +6,7 @@ import Image from "next/image";
 import { FaArrowTrendUp } from "react-icons/fa6";
 import { MdVerified } from "react-icons/md";
 import { GridBox } from "./_components";
-import { IntroBox, ProjectsBox, SkillsBox } from "./_partial";
+import { ContactBox, IntroBox, ProjectsBox, SkillsBox } from "./_partial";
 import css from "./page.module.css";
 
 export default function Home() {
@@ -46,9 +46,7 @@ export default function Home() {
             />
           </GridBox.Root>
           <ProjectsBox />
-          <GridBox.Root type="stretch" style={{ borderBottom: "unset" }}>
-            Get in touch
-          </GridBox.Root>
+          <ContactBox />
         </main>
       </div>
     </>

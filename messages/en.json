@@ -66,6 +66,25 @@
           "description": "Roadone30 is a german mowtown music group, that asked me to do their website in 2019 until now. It features a custom made blog, song lists, threads, a gallery and more. Done with NextJS, Planetscale (MySQL), Prisma, TRPC and Cloudflare R2 S3-Storage."
         }
       }
+    },
+    "Contact": {
+      "title": "Get in touch",
+      "subtitle": "Let's start our journey.",
+      "fields": {
+        "email": {
+          "label": "Email",
+          "placeholder": "example@vizeb.dev"
+        },
+        "subject": {
+          "label": "Subject",
+          "placeholder": "In need of a custom webapp"
+        },
+        "details": {
+          "label": "Details",
+          "placeholder": "So I have this Idea ..."
+        }
+      },
+      "submit": "Contact me"
     }
   }
 }

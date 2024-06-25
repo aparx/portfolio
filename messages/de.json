@@ -66,6 +66,25 @@
           "description": "Roadone30 ist eine deutsche Mowtown-Musikgruppe, die mich 2019 gebeten hat, ihre Website zu erstellen, und dies dauert bis heute an. Sie verfügt über einen individuell gestalteten Blog, Songlisten, Threads, eine Galerie und mehr. Realisiert mit NextJS, Planetscale (MySQL), Prisma, TRPC und Cloudflare R2 S3-Storage."
         }
       }
+    },
+    "Contact": {
+      "title": "Kontaktiere mich",
+      "subtitle": "Lass uns unsere Reise antreten.",
+      "fields": {
+        "email": {
+          "label": "E-Mail",
+          "placeholder": "beispiel@vizeb.dev"
+        },
+        "subject": {
+          "label": "Betreff",
+          "placeholder": "Kostenvoranschlag für Projektidee"
+        },
+        "details": {
+          "label": "Details",
+          "placeholder": "Also, ich habe da diese Idee ..."
+        }
+      },
+      "submit": "Kontaktiere mich"
     }
   }
 }
