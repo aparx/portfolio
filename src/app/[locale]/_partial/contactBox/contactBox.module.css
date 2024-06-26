@@ -111,17 +111,31 @@
   margin-top: var(--spacing-0);
 }
 
-.root label[data-state="error"] {
+.root label[data-invalid="true"] {
   color: var(--color-destructive-lighter);
 }
 
-.root label[data-state="error"] input,
-.root label[data-state="error"] textarea {
+.root label[data-invalid="true"] p[aria-live="assertive"] {
+  font-size: var(--fs-0);
+  font-weight: 500;
+}
+
+.root label[data-invalid="true"] input,
+.root label[data-invalid="true"] textarea {
   background: var(--color-destructive-darkest);
   border: 1px solid var(--color-destructive-lighter);
 }
 
-.root label[data-state="error"] input:not(:focus-visible),
-.root label[data-state="error"] textarea:not(:focus-visible) {
+.root label[data-invalid="true"] input:focus-visible,
+.root label[data-invalid="true"] textarea:focus-visible {
+  background: color-mix(
+    in srgb,
+    var(--color-destructive-darkest),
+    var(--color-state-focus)
+  );
+}
+
+.root label[data-invalid="true"] input:not(:focus-visible),
+.root label[data-invalid="true"] textarea:not(:focus-visible) {
   color: var(--color-destructive-lighter);
 }

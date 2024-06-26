@@ -53,6 +53,7 @@ function Form() {
         label={t("fields.email.label")}
         placeholder={t("fields.email.placeholder")}
         pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$"
+        error="Need at least 20 characters"
         required
       />
       <Field
@@ -120,7 +121,7 @@ function Label({
   const Children = children;
 
   return (
-    <label data-state={hasError ? "error" : undefined}>
+    <label data-invalid={hasError}>
       <div>
         <strong>{label}</strong>
         {hasError && (
