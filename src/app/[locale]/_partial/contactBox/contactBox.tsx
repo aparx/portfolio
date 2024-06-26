@@ -1,5 +1,6 @@
 import { Button, TextFont } from "@/components";
 import { useTranslations } from "next-intl";
+import { InputHTMLAttributes, useId } from "react";
 import { LuContact } from "react-icons/lu";
 import { MdEmail, MdPhone } from "react-icons/md";
 import { GridBox } from "../../_components";
@@ -46,32 +47,89 @@ function Form() {
 
   return (
     <form>
-      <label>
-        {t("fields.email.label")}
-        <input
-          type="text"
-          placeholder={t("fields.email.placeholder")}
-          pattern="[\w-\.]+@([\w-]+\.)+[\w-]{2,4}"
-          required
-        />
-      </label>
-      <label>
-        {t("fields.subject.label")}
-        <input
-          type="text"
-          placeholder={t("fields.subject.placeholder")}
-          required
-        />
-      </label>
-      <label>
-        {t("fields.details.label")}
-        <textarea placeholder={t("fields.details.placeholder")} required />
-      </label>
+      <Field
+        as="input"
+        type="text"
+        label={t("fields.email.label")}
+        placeholder={t("fields.email.placeholder")}
+        pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$"
+        required
+      />
+      <Field
+        as="input"
+        type="text"
+        label={t("fields.subject.label")}
+        placeholder={t("fields.subject.placeholder")}
+        required
+      />
+      <Field
+        as="textarea"
+        label={t("fields.details.label")}
+        placeholder={t("fields.details.placeholder")}
+        required
+      />
       <footer>
         <Button type="submit" appearance="cta" disabled>
           {t("submit")}
         </Button>
       </footer>
     </form>
+  );
+}
+
+function Field({
+  as: Component,
+  label,
+  error,
+  ...restProps
+}: Omit<
+  InputHTMLAttributes<HTMLInputElement | HTMLTextAreaElement>,
+  "children"
+> & {
+  as: "input" | "textarea";
+  label: React.ReactNode;
+  error?: string | string[] | null;
+}) {
+  return (
+    <Label label={label} error={error}>
+      {({ errorId }) => (
+        <Component
+          {...restProps}
+          aria-invalid={errorId != null}
+          aria-errormessage={errorId}
+        />
+      )}
+    </Label>
+  );
+}
+
+function Label({
+  label,
+  children,
+  error,
+}: Readonly<{
+  label: React.ReactNode;
+  children: (props: { errorId: string | undefined }) => JSX.Element;
+  error?: string | string[] | null;
+}>) {
+  const errorString = Array.isArray(error)
+    ? error.join(" ").trim()
+    : error?.trim();
+  const hasError = Boolean(errorString?.length);
+  const errorId = useId();
+  const Children = children;
+
+  return (
+    <label data-state={hasError ? "error" : undefined}>
+      <div>
+        <strong>{label}</strong>
+        {hasError && (
+          <p id={errorId} aria-live="assertive">
+            {errorString}
+          </p>
+        )}
+      </div>
+      <Children errorId={hasError ? errorId : undefined} />
+    </label>
   );
 }

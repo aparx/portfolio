@@ -67,6 +67,14 @@
   gap: var(--spacing-0);
 }
 
+.root label > div {
+  display: flex;
+  column-gap: var(--spacing-2);
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
 .root input[type="text"],
 .root textarea {
   font: inherit;
@@ -101,4 +109,19 @@
 
 .root form > footer {
   margin-top: var(--spacing-0);
+}
+
+.root label[data-state="error"] {
+  color: var(--color-destructive-lighter);
+}
+
+.root label[data-state="error"] input,
+.root label[data-state="error"] textarea {
+  background: var(--color-destructive-darkest);
+  border: 1px solid var(--color-destructive-lighter);
+}
+
+.root label[data-state="error"] input:not(:focus-visible),
+.root label[data-state="error"] textarea:not(:focus-visible) {
+  color: var(--color-destructive-lighter);
 }
