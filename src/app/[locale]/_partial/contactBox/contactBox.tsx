@@ -1,6 +1,7 @@
 "use client";
 import { Button, TextFont } from "@/components";
 import { useTranslations } from "next-intl";
+import Link from "next/link";
 import { ComponentPropsWithoutRef, InputHTMLAttributes, useId } from "react";
 import { useFormState, useFormStatus } from "react-dom";
 import { IoMdCheckmarkCircleOutline } from "react-icons/io";
@@ -22,16 +23,26 @@ export function ContactBox() {
           subtitle={t("Contact.subtitle")}
         />
         <footer>
-          <ul aria-label="Contact possibilities elsewhere">
+          <ul aria-label="Contact possibilities elsewhere"> 
             <TextFont asChild type="mono">
               <li>
-                <MdPhone />
-                <p>+49 01573 8947352</p>
+                <Link
+                  href={`tel:${process.env.NEXT_PUBLIC_CONTACT_PHONE!.replaceAll(/ /g, "")}`}
+                >
+                  <MdPhone aria-label="Phone" />
+                  <address typeof="phone">
+                    {process.env.NEXT_PUBLIC_CONTACT_PHONE}
+                  </address>
+                </Link>
               </li>
             </TextFont>
             <li>
-              <MdEmail />
-              <p>contact@vizeb.dev</p>
+              <Link href={`mailto:${process.env.NEXT_PUBLIC_CONTACT_EMAIL}`}>
+                <MdEmail aria-label="Email" />
+                <address typeof="email">
+                  {process.env.NEXT_PUBLIC_CONTACT_EMAIL}
+                </address>
+              </Link>
             </li>
           </ul>
         </footer>
@@ -72,7 +83,7 @@ function Form() {
         label={t("fields.email.label")}
         placeholder={t("fields.email.placeholder")}
         error={state?.fieldErrors?.email}
-        defaultValue={state?.fieldValues?.email || "undestroy1310@gmail.com"}
+        defaultValue={state?.fieldValues?.email}
         minLength={shape.email.minLength ?? undefined}
         maxLength={shape.email.maxLength ?? undefined}
         required={!shape.subject.isOptional()}
@@ -86,7 +97,7 @@ function Form() {
         label={t("fields.subject.label")}
         placeholder={t("fields.subject.placeholder")}
         error={state?.fieldErrors?.subject}
-        defaultValue={state?.fieldValues?.subject || "Kostenvoranschlag"}
+        defaultValue={state?.fieldValues?.subject}
         minLength={shape.subject.minLength ?? undefined}
         maxLength={shape.subject.maxLength ?? undefined}
         required={!shape.subject.isOptional()}
@@ -98,10 +109,7 @@ function Form() {
         label={t("fields.details.label")}
         placeholder={t("fields.details.placeholder")}
         error={state?.fieldErrors?.body}
-        defaultValue={
-          state?.fieldValues?.body ||
-          "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren."
-        }
+        defaultValue={state?.fieldValues?.body}
         minLength={shape.body.minLength ?? undefined}
         maxLength={shape.body.maxLength ?? undefined}
         required={!shape.subject.isOptional()}

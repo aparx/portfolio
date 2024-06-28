@@ -1,0 +1,7 @@
+.post {
+  background: var(--color-accent-1);
+  border: 1px solid var(--color-outline-grid);
+  padding: var(--spacing-5);
+  margin: 0 auto;
+  max-width: 800px;
+}

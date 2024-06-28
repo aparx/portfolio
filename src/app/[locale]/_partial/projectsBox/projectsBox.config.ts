@@ -7,16 +7,16 @@ export interface ProjectData {
 }
 
 export function useProjectsConfig(): ReadonlyArray<Readonly<ProjectData>> {
-  const t = useTranslations("index");
+  const t = useTranslations("index.Projects.projects");
   return [
     {
-      title: t("Projects.projects.portfolio.title"),
-      description: t("Projects.projects.portfolio.description"),
-      href: "https://vizeb.dev/",
+      title: t("portfolio.title"),
+      description: t("portfolio.description"),
+      href: `https://${process.env.NEXT_PUBLIC_DOMAIN}/`,
     },
     {
-      title: t("Projects.projects.roadone30.title"),
-      description: t("Projects.projects.roadone30.description"),
+      title: t("roadone30.title"),
+      description: t("roadone30.description"),
       href: "https://roadone30.de/",
     },
   ];

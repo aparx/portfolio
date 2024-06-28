@@ -1,6 +1,12 @@
 import { contactFormSchema } from "@/app/[locale]/schemas";
 import { z } from "zod";
 
+export type ContactEmailProps = Readonly<
+  Partial<z.infer<typeof contactFormSchema>>
+> & {
+  includeEmail?: boolean;
+};
+
 const COLORS = {
   primary: "#64b5e2",
   accent: ["#000000", "#0c0c0c", "#131313", "#404040"],
@@ -12,16 +18,11 @@ const COLORS = {
 
 const SPACING = [5, 10, 15, 30, 40] as const;
 
-export type ContactEmailProps = z.infer<typeof contactFormSchema> & {
-  includeEmail?: boolean;
-};
-
 export function ContactEmail({
-  includeEmail,
   email,
   subject,
   body,
-}: Readonly<ContactEmailProps>) {
+}: ContactEmailProps) {
   return (
     <div
       style={{
@@ -34,7 +35,7 @@ export function ContactEmail({
         width: 500,
       }}
     >
-      <h1 style={{ color: COLORS.emphasis.high }}>Thanks for contacting me.</h1>
+      <h1>Thanks for contacting me.</h1>
       <h2>I will come back to you as fast as possible.</h2>
       <div
         style={{
@@ -43,9 +44,9 @@ export function ContactEmail({
           textAlign: "left",
         }}
       >
-        {includeEmail && <Field label="Email" value={email} />}
-        <Field label="Subject" value={subject} />
-        <Field label="Body" value={body} />
+        {email && <Field label="Email" value={email} />}
+        {subject && <Field label="Subject" value={subject} />}
+        {body && <Field label="Body" value={body} />}
       </div>
       <div
         style={{
