@@ -1,22 +1,20 @@
 import fs from "fs";
 import matter from "gray-matter";
 import path from "path";
-import { z } from "zod";
 
 const FILE_EXTENSION = ".md";
 
 export function getPostFiles() {
-  const directory = getPostsDirectory();
-  const files = fs.readdirSync(directory);
+  const files = fs.readdirSync(getPostsDirectory());
   return files.filter((x) => x.endsWith(FILE_EXTENSION));
 }
 
 export function readPostFile(fileName: string) {
-  const directory = getPostsDirectory();
   const newFileName = !fileName.endsWith(FILE_EXTENSION)
     ? fileName + FILE_EXTENSION
     : fileName;
-  return matter(fs.readFileSync(path.join(directory, newFileName)));
+  const filePath = path.join(getPostsDirectory(), newFileName);
+  return matter(fs.readFileSync(filePath));
 }
 
 function getPostsDirectory() {
