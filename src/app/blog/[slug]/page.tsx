@@ -5,14 +5,19 @@ import Image from "next/image";
 import Link from "next/link";
 import { FiExternalLink } from "react-icons/fi";
 import { z } from "zod";
-import { blogFiles, blogMetadataSchema, blogPosts } from "./helpers";
+import {
+  blogFiles,
+  blogMetadataSchema,
+  blogPosts,
+  createBlogSlug,
+} from "./helpers";
 import css from "./page.module.css";
 
 export const dynamic = "force-static";
 
 export async function generateStaticParams() {
-  return blogFiles().map((post) => ({
-    slug: post.substring(0, post.lastIndexOf(".")),
+  return blogFiles().map((fileName) => ({
+    slug: createBlogSlug(fileName),
   }));
 }
 

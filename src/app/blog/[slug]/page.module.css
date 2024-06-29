@@ -91,7 +91,13 @@
 .content h5,
 .content h6 {
   color: var(--color-emphasis-high);
-  margin-bottom: 0.5em;
+  line-height: 150%;
+  margin-bottom: 0.25em;
+  margin-top: 1em;
+}
+
+.content > *:first-child {
+  margin-top: 0;
 }
 
 .sidebar {
@@ -189,6 +195,7 @@
 @media screen and (max-width: 540px) {
   .post {
     padding: var(--spacing-3);
+    font-size: var(--fs-2);
   }
 }
 
