@@ -14,7 +14,7 @@
 
 .intro > footer {
   background: var(--color-accent-1);
-  padding: var(--spacing-1) var(--spacing-3);
+  padding: var(--spacing-1) calc(var(--spacing-5) - var(--spacing-1));
   border-top: var(--grid-border);
   color: var(--color-emphasis-medium);
 }
@@ -45,17 +45,17 @@
 .content {
   display: flex;
   flex-direction: column;
-  padding: var(--spacing-4);
+  padding: var(--spacing-5);
   gap: var(--spacing-4);
   flex: 1 1 350px;
 }
 
 .portrait {
   position: relative;
-  min-height: 300px;
-  max-height: 400px;
+  min-height: 350px;
+  max-height: 500px;
   aspect-ratio: 1 / 1.5;
-  margin: var(--spacing-4);
+  margin: var(--spacing-3);
   filter: grayscale(0.33);
 }
 
@@ -84,6 +84,12 @@
 .timeline p {
   color: var(--color-emphasis-medium);
   max-width: 50ch;
+}
+
+.timeline li > *:last-child {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-0);
 }
 
 .timeline p {
@@ -148,6 +154,14 @@
 @media screen and (max-width: 650px) {
   .portrait {
     display: none; /* TODO change */
+  }
+
+  .content {
+    padding: var(--spacing-3);
+  }
+
+  .intro > footer {
+    padding: var(--spacing-1) var(--spacing-3);
   }
 
   .socialList li:not(:last-child) button p,

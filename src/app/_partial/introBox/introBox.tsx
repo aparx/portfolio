@@ -44,20 +44,19 @@ export function IntroBox() {
 }
 
 function Timeline() {
-  const t = useTranslations("index");
+  const t = useTranslations("index.Intro.timeline");
   const keys = ["2003", "2015", "2017", "2019"] as const;
-
   return (
     <ol className={css.timeline} aria-label="My knowledge timeline">
-      {keys.map((key, i) => (
+      {keys.map((key) => (
         <li key={key}>
           <TextFont asChild type="mono">
             <time>{key}</time>
           </TextFont>
           <div className={css.timelineLine} />
           <div>
-            <h4>{t(`Intro.timeline.${key}.title`)}</h4>
-            <p>{t(`Intro.timeline.${key}.description`)}</p>
+            <h4>{t(`${key}.title`)}</h4>
+            <p>{t(`${key}.description`)}</p>
           </div>
         </li>
       ))}
