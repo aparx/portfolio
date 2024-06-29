@@ -14,21 +14,21 @@ export const blogMetadataSchema = z.object({
   createdAt: z.date(),
 });
 
-// TODO test if memoization is kept during build process
-export const blogFiles = memoizeSync(getBlogFiles);
-export const blogPosts = memoizeAsync(async () => {
-  const files = blogFiles();
-  const result = await Promise.all(files.map(readBlogFile));
-  result.sort((a, b) =>
-    a.metadata.createdAt.getTime() < b.metadata.createdAt.getTime() ? 1 : -1
-  );
-  return result;
-});
-
-export function getBlogFiles() {
+export const blogFiles = memoizeSync(() => {
   const files = fs.readdirSync(getBlogsDirectory());
   return files.filter((x) => x.endsWith(FILE_NAME_END));
-}
+});
+
+export const blogPosts = memoizeAsync(async () => {
+  // We read all possible blog posts ahead of them actually being generated.
+  // This ultimately saves a lot of resources the more blog posts there are.
+  return (await Promise.allSettled(blogFiles().map(readBlogFile)))
+    .filter((post) => post.status === "fulfilled")
+    .map((post) => post.value)
+    .sort(({ metadata: a }, { metadata: b }) => {
+      return a.createdAt.getTime() < b.createdAt.getTime() ? 1 : -1;
+    });
+});
 
 export function readBlogFile(fileName: string) {
   const newFileName = !fileName.endsWith(FILE_NAME_END)

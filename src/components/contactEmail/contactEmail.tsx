@@ -1,4 +1,4 @@
-import { contactFormSchema } from "@/app/[locale]/schemas";
+import { contactFormSchema } from "@/app/schemas";
 import { z } from "zod";
 
 export type ContactEmailProps = Readonly<
@@ -18,11 +18,7 @@ const COLORS = {
 
 const SPACING = [5, 10, 15, 30, 40] as const;
 
-export function ContactEmail({
-  email,
-  subject,
-  body,
-}: ContactEmailProps) {
+export function ContactEmail({ email, subject, body }: ContactEmailProps) {
   return (
     <div
       style={{

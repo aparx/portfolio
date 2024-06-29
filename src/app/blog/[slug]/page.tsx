@@ -5,12 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { FiExternalLink } from "react-icons/fi";
 import { z } from "zod";
-import {
-  blogFiles,
-  blogMetadataSchema,
-  blogPosts,
-  readBlogFile,
-} from "./helpers";
+import { blogFiles, blogMetadataSchema, blogPosts } from "./helpers";
 import css from "./page.module.css";
 
 export const dynamic = "force-static";
@@ -21,12 +16,14 @@ export async function generateStaticParams() {
   }));
 }
 
-export default function PostPage({
+export default async function PostPage({
   params: { slug },
 }: Readonly<{
   params: { slug: string };
 }>) {
-  const { metadata, content } = readBlogFile(slug);
+  const blogPost = (await blogPosts()).find((x) => x.slug === slug);
+  if (!blogPost) throw new Error("Could not find blog post");
+  const { metadata, content } = blogPost;
 
   return (
     <div className={css.root}>
