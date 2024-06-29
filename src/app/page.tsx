@@ -14,7 +14,6 @@ export default function Home() {
 
   return (
     <>
-      <div className={css.background} />
       <div className={css.container}>
         <IntroBox />
         <main className={css.grid}>

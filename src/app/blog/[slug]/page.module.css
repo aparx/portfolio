@@ -45,6 +45,10 @@
   font-weight: 500;
 }
 
+.post header a {
+  text-decoration: none;
+}
+
 .author {
   padding: var(--spacing-2);
   background: var(--color-accent-2);
@@ -70,6 +74,7 @@
 
 .author > *:last-child > p:first-child {
   font-weight: 550;
+  color: var(--color-emphasis-high);
 }
 
 .author > *:last-child > p:last-child {
@@ -105,6 +110,7 @@
   flex-direction: column;
   border-left: var(--container-border);
   color: var(--color-emphasis-medium);
+  background: var(--color-accent-0);
 }
 
 .sidebar > * {

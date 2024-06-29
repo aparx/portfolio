@@ -1,5 +1,6 @@
 import portraitImage from "@/../public/portrait.png";
 import { Markdown } from "@/app/_components";
+import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 import { useFormatter } from "next-intl";
 import Image from "next/image";
 import Link from "next/link";
@@ -27,7 +28,7 @@ export default async function PostPage({
   params: { slug: string };
 }>) {
   const blogPost = (await blogPosts()).find((x) => x.slug === slug);
-  if (!blogPost) throw new Error("Could not find blog post");
+  if (!blogPost) throw new Error("The target blog post could not be found.");
   const { metadata, content } = blogPost;
 
   return (
@@ -65,20 +66,23 @@ function Header({
         <h1>{title}</h1>
         {subtitle && <h2>{subtitle}</h2>}
       </hgroup>
-      <figure className={css.author}>
-        <div>
-          <Image
-            src={portraitImage}
-            alt="Portrait"
-            fill
-            style={{ objectFit: "cover" }}
-          />
-        </div>
-        <figcaption>
-          <p>Vinzent Alexander Zeband</p>
-          <p>Fullstack Developer</p>
-        </figcaption>
-      </figure>
+      <Link href="/">
+        <VisuallyHidden>Navigate Home</VisuallyHidden>
+        <figure className={css.author}>
+          <div>
+            <Image
+              src={portraitImage}
+              alt="Portrait"
+              fill
+              style={{ objectFit: "cover" }}
+            />
+          </div>
+          <figcaption>
+            <p>Vinzent Alexander Zeband</p>
+            <p>Fullstack Developer</p>
+          </figcaption>
+        </figure>
+      </Link>
     </header>
   );
 }
@@ -91,7 +95,7 @@ async function Sidebar({
   tags?: string[];
 }>) {
   const posts = await blogPosts();
-  const showPosts = posts.slice(0, 10).filter((x) => x.slug !== slug);
+  const showPosts = posts.slice(0, 5).filter((x) => x.slug !== slug);
 
   return (
     <aside className={css.sidebar}>
@@ -104,7 +108,7 @@ async function Sidebar({
         </section>
       )}
       <section>
-        <h4>Other blog posts</h4>
+        <h4>Most recent other posts</h4>
         <ul aria-label="Other blog posts">
           {showPosts.map((x) => (
             <li key={x.slug}>

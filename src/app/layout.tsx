@@ -3,6 +3,7 @@ import type { Metadata, Viewport } from "next";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 import "./globals.css";
+import css from "./layout.module.css";
 
 export const metadata: Metadata = {
   title: "Vinzent Zeband - Portfolio",
@@ -25,6 +26,7 @@ export default async function RootLayout({
     <html lang="en">
       <body className={GeistSans.className}>
         <NextIntlClientProvider messages={messages}>
+          <div className={css.background} />
           {children}
         </NextIntlClientProvider>
       </body>
