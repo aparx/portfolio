@@ -1,0 +1,11 @@
+.anchor {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-0);
+  text-decoration: underline;
+  color: var(--color-primary);
+}
+
+.anchorImage {
+  line-height: 1em;
+}
