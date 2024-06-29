@@ -5,18 +5,18 @@ import Image from "next/image";
 import Link from "next/link";
 import { FiExternalLink } from "react-icons/fi";
 import { z } from "zod";
-import { getPostFiles, readPostFile } from "./helpers";
+import {
+  blogFiles,
+  blogMetadataSchema,
+  blogPosts,
+  readBlogFile,
+} from "./helpers";
 import css from "./page.module.css";
 
-const metadataSchema = z.object({
-  title: z.string().max(128),
-  subtitle: z.string().max(256).optional(),
-  tags: z.string().array().optional(),
-  createdAt: z.date(),
-});
+export const dynamic = "force-static";
 
 export async function generateStaticParams() {
-  return getPostFiles().map((post) => ({
+  return blogFiles().map((post) => ({
     slug: post.substring(0, post.lastIndexOf(".")),
   }));
 }
@@ -26,81 +26,92 @@ export default function PostPage({
 }: Readonly<{
   params: { slug: string };
 }>) {
-  const content = readPostFile(slug);
-  const metadata = metadataSchema.parse(content.data);
-  const format = useFormatter();
+  const { metadata, content } = readBlogFile(slug);
 
   return (
     <div className={css.root}>
       <div className={css.container}>
         <article className={css.post}>
-          <header>
-            <time dateTime={metadata.createdAt.toISOString()}>
-              {format.dateTime(metadata.createdAt, {
-                year: "numeric",
-                month: "long",
-                day: "numeric",
-              })}
-            </time>
-            <hgroup>
-              <h1>{metadata.title}</h1>
-              {metadata.subtitle && <h2>{metadata.subtitle}</h2>}
-            </hgroup>
-            <figure className={css.author}>
-              <div>
-                <Image
-                  src={portraitImage}
-                  alt="Portrait"
-                  fill
-                  style={{ objectFit: "cover" }}
-                />
-              </div>
-              <figcaption>
-                <p>Vinzent Alexander Zeband</p>
-                <p>Fullstack Developer</p>
-              </figcaption>
-            </figure>
-          </header>
+          <Header {...metadata} />
           <div className={css.content}>
-            <Markdown>{content.content}</Markdown>
+            <Markdown>{content}</Markdown>
           </div>
         </article>
-        <aside className={css.sidebar}>
-          {metadata.tags && (
-            <section>
-              <h4>Tags</h4>
-              <ul aria-label="Tags from this post">
-                {metadata.tags?.map((x) => <li key={x}>{x}</li>)}
-              </ul>
-            </section>
-          )}
-          <section>
-            <h4>Other blog posts</h4>
-            <ul aria-label="Other blog posts">
-              <li>
-                <ExternalBlog {...metadata} slug="yallah" />
-              </li>
-              <li>
-                <ExternalBlog
-                  slug="test"
-                  title="Lorem Ipsum dolor sit amet"
-                  subtitle="Invidunt ut labore et dolore magna aliquyam erat sed diam voluptua."
-                  createdAt={new Date()}
-                />
-              </li>
-              <li>
-                <ExternalBlog
-                  slug="test"
-                  title="Vulputate velit esse molestie"
-                  subtitle="Duis autem vel eum iriure dolor in."
-                  createdAt={new Date()}
-                />
-              </li>
-            </ul>
-          </section>
-        </aside>
+        <Sidebar tags={metadata.tags} slug={slug} />
       </div>
     </div>
+  );
+}
+
+function Header({
+  title,
+  subtitle,
+  createdAt,
+}: z.infer<typeof blogMetadataSchema>) {
+  const format = useFormatter();
+
+  return (
+    <header>
+      <time dateTime={createdAt.toISOString()}>
+        {format.dateTime(createdAt, {
+          year: "numeric",
+          month: "long",
+          day: "numeric",
+        })}
+      </time>
+      <hgroup>
+        <h1>{title}</h1>
+        {subtitle && <h2>{subtitle}</h2>}
+      </hgroup>
+      <figure className={css.author}>
+        <div>
+          <Image
+            src={portraitImage}
+            alt="Portrait"
+            fill
+            style={{ objectFit: "cover" }}
+          />
+        </div>
+        <figcaption>
+          <p>Vinzent Alexander Zeband</p>
+          <p>Fullstack Developer</p>
+        </figcaption>
+      </figure>
+    </header>
+  );
+}
+
+async function Sidebar({
+  slug,
+  tags,
+}: Readonly<{
+  slug: string;
+  tags?: string[];
+}>) {
+  const posts = await blogPosts();
+  const showPosts = posts.slice(0, 10).filter((x) => x.slug !== slug);
+
+  return (
+    <aside className={css.sidebar}>
+      {tags && (
+        <section>
+          <h4>Tags</h4>
+          <ul aria-label="Tags from this post">
+            {tags?.map((tag) => <li key={tag}>{tag}</li>)}
+          </ul>
+        </section>
+      )}
+      <section>
+        <h4>Other blog posts</h4>
+        <ul aria-label="Other blog posts">
+          {showPosts.map((x) => (
+            <li key={x.slug}>
+              <ExternalBlog {...x.metadata} slug={x.slug} />
+            </li>
+          ))}
+        </ul>
+      </section>
+    </aside>
   );
 }
 
@@ -108,7 +119,7 @@ function ExternalBlog({
   title,
   subtitle,
   slug,
-}: z.infer<typeof metadataSchema> & {
+}: z.infer<typeof blogMetadataSchema> & {
   slug: string;
 }) {
   return (
