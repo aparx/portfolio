@@ -9,14 +9,83 @@
   );
   --animation-time: 6s;
   --border: 1px solid var(--color-outline-grid);
+  position: relative;
   border: var(--border);
   border-radius: var(--spacing-1);
   background: var(--color-accent-1);
-  overflow: hidden;
   max-width: calc(var(--content-width) + var(--spacing-5));
   max-height: calc(var(--content-height) + calc(2 * var(--spacing-3)));
   user-select: none;
   touch-action: none;
+}
+
+.editorStatus {
+  --status-width: 8em;
+  --status-height: 20px;
+  --status-gap: var(--spacing-1);
+  position: absolute;
+  display: flex;
+  align-items: center;
+  z-index: 3;
+  bottom: 0;
+  right: 0;
+  padding: var(--spacing-1) var(--spacing-2);
+  width: var(--status-width);
+  height: var(--status-height);
+  background: var(--color-accent-2);
+  border: var(--border);
+  border-radius: 99px;
+  transform: translate(var(--spacing-2), 45%);
+  overflow: hidden;
+}
+
+/** Status wrapper */
+.editorStatus > * {
+  position: absolute;
+  width: var(--status-width);
+  height: var(--status-height);
+  animation: changeStatus var(--animation-time) infinite;
+}
+
+.editorStatus > * > * {
+  width: var(--status-width);
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-1);
+  color: var(--color-emphasis-medium);
+}
+
+/** Editor Status "error" */
+.editorStatus > * > *[data-status="error"] {
+  color: var(--color-destructive-lighter);
+}
+
+/** Editor Status "compiling" > Spinner */
+.editorStatus > * > *[data-status="compiling"] > *:first-child {
+  color: var(--color-primary);
+  font-size: 1.2em;
+  animation: spinnerRotation 0.5s infinite linear;
+}
+
+/** Editor Status "compiled" > Checkmark */
+.editorStatus > * > *[data-status="compiled"] > *:first-child {
+  color: var(--color-primary);
+}
+
+.editorStatus > * > *[data-status="compiling"] {
+  /* Compiling: 2nd position */
+  transform: translateY(
+    calc(-1 * calc(var(--status-height) + var(--status-gap)))
+  );
+}
+
+.editorStatus > * > *[data-status="compiled"] {
+  /* Compiled: 3rd position */
+  transform: translateY(
+    calc(-2 * calc(var(--status-height) + var(--status-gap)))
+  );
 }
 
 .editorHeader {
@@ -27,6 +96,8 @@
   background: var(--color-accent-0);
   color: var(--color-emphasis-medium);
   border-bottom: var(--border);
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit;
 }
 
 /** Window Header Title */
@@ -69,7 +140,9 @@
   height: 100%;
   width: 100%;
   max-width: var(--content-width);
-  height: var(--content-height);
+  height: calc(var(--content-height) - var(--spacing-1));
+  border-bottom-left-radius: inherit;
+  border-bottom-right-radius: inherit;
   overflow: hidden;
 }
 
@@ -178,5 +251,44 @@
   }
   50% {
     background: var(--color-primary);
+  }
+}
+
+@keyframes changeStatus {
+  20% {
+    transform: unset;
+  }
+  30% {
+    /* Scroll to "compiling" */
+    transform: translateY(calc(var(--status-height) + var(--status-gap)));
+  }
+  45% {
+    /* Keep at "compiling" */
+    transform: translateY(calc(var(--status-height) + var(--status-gap)));
+  }
+  50% {
+    /* Scroll to "compiled" */
+    transform: translateY(
+      calc(2 * calc(var(--status-height) + var(--status-gap)))
+    );
+  }
+  75% {
+    /* Keep at "compiled" */
+    transform: translateY(
+      calc(2 * calc(var(--status-height) + var(--status-gap)))
+    );
+  }
+  75.001% {
+    /* Scroll to "error" */
+    transform: unset;
+  }
+}
+
+@keyframes spinnerRotation {
+  from {
+    rotate: 0;
+  }
+  to {
+    rotate: 360deg;
   }
 }

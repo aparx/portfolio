@@ -1,13 +1,12 @@
 import databaseImage from "@/../public/grid/database.png";
-import fullstackImage from "@/../public/grid/fullstack.png";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { BsDatabase } from "react-icons/bs";
 import { FaArrowTrendUp } from "react-icons/fa6";
-import { MdOutlineDesktopMac } from "react-icons/md";
 import { GridBox } from "./_components";
 import {
   ContactBox,
+  FrontendBox,
   IntroBox,
   PassionBox,
   ProjectsBox,
@@ -47,23 +46,7 @@ function ServiceRow() {
 
   return (
     <>
-      <GridBox.Root type="split" side="start" style={{ borderTop: "unset" }}>
-        <GridBox.Header
-          title={t("Frontend.title")}
-          subtitle={t("Frontend.subtitle")}
-          intro={t("Frontend.intro")}
-          icon={<MdOutlineDesktopMac />}
-        />
-        <div className={css.boxImageContainer}>
-          <Image
-            fill
-            src={fullstackImage}
-            alt="The same webapp opened on both a phone and desktop"
-            style={{ objectFit: "contain" }}
-            quality={100}
-          />
-        </div>
-      </GridBox.Root>
+      <FrontendBox />
       <GridBox.Root type="split" side="end" style={{ borderTop: "unset" }}>
         <GridBox.Header
           title={t("Backend.title")}

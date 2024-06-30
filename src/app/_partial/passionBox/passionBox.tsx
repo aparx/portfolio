@@ -1,6 +1,8 @@
 import { GridBox } from "@/app/_components";
 import { useTranslations } from "next-intl";
-import { MdVerified } from "react-icons/md";
+import { CgSpinner } from "react-icons/cg";
+import { IoMdCheckmark } from "react-icons/io";
+import { MdErrorOutline, MdVerified } from "react-icons/md";
 import { PiCursorFill } from "react-icons/pi";
 import { VscVscode } from "react-icons/vsc";
 import css from "./passionBox.module.css";
@@ -53,6 +55,21 @@ export function PassionBox() {
       />
       <div className={css.boxImageContainer} aria-hidden>
         <div className={css.editor}>
+          <div className={css.editorStatus}>
+            <div>
+              <div data-status="compiling">
+                <CgSpinner /> Compiling
+              </div>
+              <div data-status="error">
+                <MdErrorOutline />
+                Syntax Error
+              </div>
+              <div data-status="compiled">
+                <IoMdCheckmark />
+                Compiled
+              </div>
+            </div>
+          </div>
           <div className={css.editorHeader}>
             <div>
               <VscVscode />
