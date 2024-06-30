@@ -4,7 +4,7 @@ import { useTranslations } from "next-intl";
 import { BsDatabase } from "react-icons/bs";
 import css from "./backendBox.module.css";
 
-const ROWS: Array<[string, Date]> = [
+const rows: Array<[string, Date]> = [
   ["Nathan", new Date()],
   ["Vinzent", new Date("2003-10-13")],
   ["Daniela", new Date("1978-02-13")],
@@ -28,26 +28,26 @@ export function BackendBox() {
       <div className={css.root} aria-hidden>
         <div className={css.container}>
           <table>
-            <tr>
-              <th>
-                <div />
-              </th>
-              <th>id</th>
-              <th>first_name</th>
-              <th>birth_date</th>
-            </tr>
-            {ROWS.map(([name, date], i) => (
-              <TextFont asChild type="mono">
-                <tr key={i} data-selected={i === 1}>
-                  <td>
-                    <div />
-                  </td>
-                  <td>{20 + i}</td>
-                  <td>{name}</td>
-                  <td>{date.toISOString()}</td>
-                </tr>
-              </TextFont>
-            ))}
+            <thead>
+              <tr>
+                <th />
+                <th>id</th>
+                <th>first_name</th>
+                <th>birth_date</th>
+              </tr>
+            </thead>
+            <tbody>
+              {rows.map(([name, date], i) => (
+                <TextFont asChild type="mono">
+                  <tr key={i} data-selected={i === 1}>
+                    <td />
+                    <td>{20 + i}</td>
+                    <td>{name}</td>
+                    <td>{date.toISOString()}</td>
+                  </tr>
+                </TextFont>
+              ))}
+            </tbody>
           </table>
         </div>
         <div className={css.query}>

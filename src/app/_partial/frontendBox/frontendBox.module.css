@@ -1,7 +1,7 @@
 .root {
   position: relative;
   max-width: 400px;
-  font-size: .95em;
+  font-size: 0.95em;
   user-select: none;
 }
 
@@ -9,7 +9,7 @@
 .desktop {
   --item-width: 70px;
   --item-height: 30px;
-  --header-height: 16%;
+  --header-height: calc(1em + calc(2 * var(--spacing-1)));
   position: relative;
   display: flex;
   flex-direction: column;
@@ -76,11 +76,6 @@
   height: 100%;
   width: 15px;
   background: linear-gradient(to right, transparent, var(--header-color));
-}
-
-/** Desktop URL Text */
-.desktopUrl > *:last-child {
-  font-size: var(--fs-0);
 }
 
 .desktopUrl > *:last-child::before {
@@ -196,6 +191,5 @@
     font-size: 1.25em;
     --item-width: 100px;
     --item-height: 50px;
-    --action-size: 10px;
   }
 }

@@ -40,10 +40,14 @@
 .container td {
   text-align: left;
   padding: var(--spacing-0);
-  padding-right: var(--spacing-2);
   color: var(--color-emphasis-low);
-  min-width: 40px;
+  min-width: var(--spacing-5);
   white-space: nowrap;
+}
+
+.container th:not(:first-child),
+.container td:not(:first-child) {
+  padding-right: var(--spacing-2);
 }
 
 .container th {
@@ -56,21 +60,18 @@
   color: var(--color-emphasis-medium);
 }
 
-.container tr > th:first-child > div,
-.container tr > td:first-child > div {
+.container tr > th:first-child::before,
+.container tr > td:first-child::before {
+  content: "";
+  display: block;
   width: 1em;
   height: 1em;
   border-radius: 3px;
   border: var(--grid-border);
 }
 
-.container tr[data-selected="true"] > td:first-child > div {
-  position: relative;
-  width: 1em;
-  height: 1em;
+.container tr[data-selected="true"] > td:first-child::before {
   background: var(--color-primary-darkest);
-  border-radius: 3px;
-  border: var(--grid-border);
   border-color: var(--color-primary);
 }
 
@@ -90,6 +91,7 @@
   border: var(--grid-border);
   border-radius: 99px;
   color: var(--color-emphasis-medium);
+  box-shadow: 0 0 var(--spacing-0) var(--color-accent-1);
 }
 
 .query span[data-keyword="word"] {

@@ -7,7 +7,7 @@ import { PiCursorFill } from "react-icons/pi";
 import { VscVscode } from "react-icons/vsc";
 import css from "./passionBox.module.css";
 
-const ITEMS: Array<[number, "error" | "valid" | "default"]> = [
+const items: Array<[number, "error" | "valid" | "default"]> = [
   [15, "valid"],
   [80, "default"],
   [100, "default"],
@@ -76,15 +76,15 @@ export function PassionBox() {
               editor
             </div>
             <div>
-              <div />
-              <div />
-              <div />
+              <div data-action="minimize" />
+              <div data-action="maximize" />
+              <div data-action="close" />
             </div>
           </div>
           <div className={css.editorContentWrapper}>
             <div className={css.editorContent}>
               <PiCursorFill className={css.cursor} />
-              {ITEMS.map(([width, state], i) => (
+              {items.map(([width, state], i) => (
                 <span
                   key={i}
                   style={{ width }}
