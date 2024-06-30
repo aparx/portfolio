@@ -1,0 +1,182 @@
+.editor {
+  --show-rows: 7;
+  --content-width: 350px;
+  --content-height: calc(
+    calc(
+      calc(var(--show-rows) * calc(1rem + var(--spacing-0))) +
+        calc(2 * var(--spacing-2))
+    )
+  );
+  --animation-time: 6s;
+  --border: 1px solid var(--color-outline-grid);
+  border: var(--border);
+  border-radius: var(--spacing-1);
+  background: var(--color-accent-1);
+  overflow: hidden;
+  max-width: calc(var(--content-width) + var(--spacing-5));
+  max-height: calc(var(--content-height) + calc(2 * var(--spacing-3)));
+  user-select: none;
+  touch-action: none;
+}
+
+.editorHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-1) var(--spacing-2);
+  background: var(--color-accent-0);
+  color: var(--color-emphasis-medium);
+  border-bottom: var(--border);
+}
+
+/** Window Header Title */
+.editorHeader > *:first-child {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-1);
+}
+
+/** Window Menu */
+.editorHeader > *:last-child {
+  display: flex;
+  gap: var(--spacing-0);
+}
+
+/** Window Menu Item */
+.editorHeader > *:last-child > * {
+  width: var(--spacing-1);
+  height: var(--spacing-1);
+  border-radius: 100%;
+}
+
+/** Window Minimize */
+.editorHeader > *:last-child > *:nth-child(1) {
+  background: var(--color-emphasis-low);
+}
+
+/** Window Maximize */
+.editorHeader > *:last-child > *:nth-child(2) {
+  background: var(--color-primary);
+}
+
+/** Window Close */
+.editorHeader > *:last-child > *:nth-child(3) {
+  background: var(--color-destructive);
+}
+
+.editorContentWrapper {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  max-width: var(--content-width);
+  height: var(--content-height);
+  overflow: hidden;
+}
+
+.editorContent {
+  position: absolute;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-0);
+  padding: var(--spacing-2);
+  background: var(--color-accent-1);
+  width: var(--content-width);
+  height: fit-content;
+  overflow: hidden;
+}
+
+.editorContent > span {
+  width: 20px;
+  height: 1rem;
+  background: red;
+  border-radius: 3px;
+  flex-grow: 0;
+}
+
+.editorContent > span[data-state="error"] {
+  background: var(--color-destructive);
+}
+
+.editorContent > span[data-state="valid"] {
+  background: var(--color-primary);
+}
+
+.editorContent > span[data-state="default"] {
+  background: var(--color-accent-3);
+}
+
+.editorContentWrapper::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, transparent 50%, var(--color-accent-1)),
+    linear-gradient(to right, transparent 50%, var(--color-accent-1));
+}
+
+.cursor {
+  --fs-click: 1.05rem;
+  --fs-default: 1.25rem;
+  --transform-1: translateX(210px);
+  --transform-2: translate(120px, calc(3 * calc(1rem + var(--spacing-0))));
+  position: absolute;
+  z-index: 2;
+  font-size: var(--fs-default);
+  color: var(--color-emphasis-high);
+  left: calc(var(--spacing-2) + 0.25rem);
+  top: calc(var(--spacing-2) + 0.25rem);
+  animation: cursorAnimation var(--animation-time) infinite;
+}
+
+.editorContent > span[data-error-index="1"] {
+  animation: fadeToValid var(--animation-time) infinite;
+  animation-delay: calc(0.1 * var(--animation-time));
+}
+
+.editorContent > span[data-error-index="2"] {
+  animation: fadeToValid var(--animation-time) infinite;
+  animation-delay: calc(0.4 * var(--animation-time));
+}
+
+@keyframes cursorAnimation {
+  5% {
+    /* Move to first error */
+    transform: var(--transform-1);
+    font-size: var(--fs-default);
+  }
+  10% {
+    /* [press] */
+    transform: var(--transform-1);
+    font-size: var(--fs-click);
+  }
+  20% {
+    /* [release] */
+    transform: var(--transform-1);
+    font-size: var(--fs-default);
+  }
+  30% {
+    /* Move to second error */
+    transform: var(--transform-2);
+    font-size: var(--fs-default);
+  }
+  40% {
+    /* [press] */
+    transform: var(--transform-2);
+    font-size: var(--fs-click);
+  }
+  50% {
+    /* [release] */
+    transform: var(--transform-2);
+    font-size: var(--fs-default);
+  }
+}
+
+@keyframes fadeToValid {
+  15% {
+    background: var(--color-primary);
+  }
+  50% {
+    background: var(--color-primary);
+  }
+}

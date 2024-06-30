@@ -1,12 +1,18 @@
 import databaseImage from "@/../public/grid/database.png";
-import editorImage from "@/../public/grid/editor.png";
 import fullstackImage from "@/../public/grid/fullstack.png";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
+import { BsDatabase } from "react-icons/bs";
 import { FaArrowTrendUp } from "react-icons/fa6";
-import { MdVerified } from "react-icons/md";
+import { MdOutlineDesktopMac } from "react-icons/md";
 import { GridBox } from "./_components";
-import { ContactBox, IntroBox, ProjectsBox, SkillsBox } from "./_partial";
+import {
+  ContactBox,
+  IntroBox,
+  PassionBox,
+  ProjectsBox,
+  SkillsBox,
+} from "./_partial";
 import css from "./page.module.css";
 
 export default function Home() {
@@ -19,23 +25,7 @@ export default function Home() {
         <main className={css.grid}>
           <ServiceRow />
           <SkillsBox />
-          <GridBox.Root type="split" side="start">
-            <GridBox.Header
-              title={t("Passion.title")}
-              subtitle={t("Passion.subtitle")}
-              icon={<MdVerified />}
-              intro={t("Passion.intro")}
-            />
-            <div className={css.boxImageContainer}>
-              <Image
-                fill
-                src={editorImage}
-                alt="An editor showing issues being fixed, done with passion"
-                style={{ objectFit: "contain" }}
-                quality={100}
-              />
-            </div>
-          </GridBox.Root>
+          <PassionBox />
           <GridBox.Root type="split" side="end">
             <GridBox.Header
               title={t("Scale.title")}
@@ -62,6 +52,7 @@ function ServiceRow() {
           title={t("Frontend.title")}
           subtitle={t("Frontend.subtitle")}
           intro={t("Frontend.intro")}
+          icon={<MdOutlineDesktopMac />}
         />
         <div className={css.boxImageContainer}>
           <Image
@@ -78,6 +69,7 @@ function ServiceRow() {
           title={t("Backend.title")}
           subtitle={t("Backend.subtitle")}
           intro={t("Backend.intro")}
+          icon={<BsDatabase />}
         />
         <div className={css.boxImageContainer}>
           <Image
