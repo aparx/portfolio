@@ -24,7 +24,7 @@ export function useInterval({
     if (timeoutRef.current != null)
       throw new Error("Timeout is already started. Stop first.");
     timeoutRef.current = setInterval(() => callbackRef.current(), timeInMs);
-  }, [timeInMs, stop]);
+  }, [timeInMs]);
 
   useEffect(() => {
     if (enabled) start();

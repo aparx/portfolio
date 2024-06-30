@@ -38,8 +38,8 @@ export function BackendBox() {
             </thead>
             <tbody>
               {rows.map(([name, date], i) => (
-                <TextFont asChild type="mono">
-                  <tr key={i} data-selected={i === 1}>
+                <TextFont key={i} asChild type="mono">
+                  <tr data-selected={i === 1}>
                     <td />
                     <td>{20 + i}</td>
                     <td>{name}</td>

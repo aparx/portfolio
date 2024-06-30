@@ -24,7 +24,7 @@ export function SkillsBox() {
     const newHeight = containerRef.current?.clientHeight;
     if (newHeight == null) return;
     setMaxHeight((oldHeight) => Math.max(newHeight, oldHeight ?? 0));
-  });
+  }, [setMaxHeight]);
 
   useInterval({
     callback: () =>
