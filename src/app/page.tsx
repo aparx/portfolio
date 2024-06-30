@@ -1,10 +1,8 @@
-import databaseImage from "@/../public/grid/database.png";
 import { useTranslations } from "next-intl";
-import Image from "next/image";
-import { BsDatabase } from "react-icons/bs";
 import { FaArrowTrendUp } from "react-icons/fa6";
 import { GridBox } from "./_components";
 import {
+  BackendBox,
   ContactBox,
   FrontendBox,
   IntroBox,
@@ -22,7 +20,8 @@ export default function Home() {
       <div className={css.container}>
         <IntroBox />
         <main className={css.grid}>
-          <ServiceRow />
+          <FrontendBox />
+          <BackendBox />
           <SkillsBox />
           <PassionBox />
           <GridBox.Root type="split" side="end">
@@ -37,33 +36,6 @@ export default function Home() {
           <ContactBox />
         </main>
       </div>
-    </>
-  );
-}
-
-function ServiceRow() {
-  const t = useTranslations("index");
-
-  return (
-    <>
-      <FrontendBox />
-      <GridBox.Root type="split" side="end" style={{ borderTop: "unset" }}>
-        <GridBox.Header
-          title={t("Backend.title")}
-          subtitle={t("Backend.subtitle")}
-          intro={t("Backend.intro")}
-          icon={<BsDatabase />}
-        />
-        <div className={css.boxImageContainer}>
-          <Image
-            fill
-            src={databaseImage}
-            alt="Database table showing many entries"
-            style={{ objectFit: "contain" }}
-            quality={100}
-          />
-        </div>
-      </GridBox.Root>
     </>
   );
 }

@@ -27,15 +27,14 @@
   display: flex;
   align-items: center;
   z-index: 3;
-  bottom: 0;
-  right: 0;
+  bottom: calc(-1 * var(--spacing-1));
+  right: calc(-1 * var(--spacing-1));
   padding: var(--spacing-1) var(--spacing-2);
   width: var(--status-width);
   height: var(--status-height);
   background: var(--color-accent-2);
   border: var(--border);
   border-radius: 99px;
-  transform: translate(var(--spacing-2), 45%);
   overflow: hidden;
 }
 

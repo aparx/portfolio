@@ -1,3 +1,4 @@
+export * from "./backendBox";
 export * from "./contactBox";
 export * from "./frontendBox";
 export * from "./introBox";

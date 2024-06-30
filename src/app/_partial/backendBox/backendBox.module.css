@@ -1,0 +1,103 @@
+.root {
+  position: relative;
+  max-width: 400px;
+  user-select: none;
+  font-size: 0.95em;
+}
+
+.container {
+  position: relative;
+  background: var(--color-accent-1);
+  border: var(--grid-border);
+  padding: var(--spacing-0);
+  aspect-ratio: 16 / 9;
+  border-radius: var(--spacing-1);
+  overflow: hidden;
+}
+
+.container::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(to right, transparent 50%, var(--color-accent-1)),
+    linear-gradient(to bottom, transparent 50%, var(--color-accent-1));
+}
+
+.container table {
+  position: absolute;
+  border-collapse: collapse;
+  border-radius: var(--spacing-0);
+  overflow: hidden;
+}
+
+.container th,
+.container td {
+  border: var(--grid-border);
+}
+
+.container th,
+.container td {
+  text-align: left;
+  padding: var(--spacing-0);
+  padding-right: var(--spacing-2);
+  color: var(--color-emphasis-low);
+  min-width: 40px;
+  white-space: nowrap;
+}
+
+.container th {
+  font-weight: 500;
+  color: var(--color-emphasis-medium);
+  background: var(--color-accent-2);
+}
+
+.container tr[data-selected="true"] td {
+  color: var(--color-emphasis-medium);
+}
+
+.container tr > th:first-child > div,
+.container tr > td:first-child > div {
+  width: 1em;
+  height: 1em;
+  border-radius: 3px;
+  border: var(--grid-border);
+}
+
+.container tr[data-selected="true"] > td:first-child > div {
+  position: relative;
+  width: 1em;
+  height: 1em;
+  background: var(--color-primary-darkest);
+  border-radius: 3px;
+  border: var(--grid-border);
+  border-color: var(--color-primary);
+}
+
+.container td {
+  font-weight: 300;
+}
+
+.query {
+  position: absolute;
+  display: flex;
+  gap: var(--spacing-0);
+  bottom: calc(-1 * var(--spacing-1));
+  right: calc(-1 * var(--spacing-1));
+  z-index: 1;
+  background: var(--color-accent-2);
+  padding: var(--spacing-1) var(--spacing-2);
+  border: var(--grid-border);
+  border-radius: 99px;
+  color: var(--color-emphasis-medium);
+}
+
+.query span[data-keyword="word"] {
+  color: var(--color-primary);
+  font-weight: 450;
+}
+
+.query span[data-keyword="*"] {
+  color: var(--color-emphasis-high);
+  font-weight: 300;
+}
