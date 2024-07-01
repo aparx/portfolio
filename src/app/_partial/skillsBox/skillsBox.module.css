@@ -39,7 +39,7 @@
 .tool {
   background: var(--color-accent-1);
   padding: var(--spacing-1);
-  border: 1px solid var(--color-outline-card);
+  border: var(--grid-border);
   border-radius: 10px;
   display: flex;
   align-items: center;
@@ -70,7 +70,7 @@
   padding: unset;
   margin: unset;
   border-radius: var(--spacing-1);
-  border: 1px solid var(--color-outline-card);
+  border: var(--grid-border);
   width: fit-content;
   display: flex;
   flex-direction: column;
@@ -105,7 +105,7 @@
 }
 
 .selector label:not(:last-child) {
-  border-bottom: 1px solid var(--color-outline-card);
+  border-bottom: var(--grid-border);
 }
 
 @media screen and (max-width: 700px) {
@@ -122,7 +122,7 @@
 
   .selector label:not(:last-child) {
     border-bottom: unset;
-    border-right: 1px solid var(--color-outline-card);
+    border-right: var(--grid-border);
   }
 
   .root {

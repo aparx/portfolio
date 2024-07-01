@@ -57,16 +57,16 @@ export function PassionBox() {
         <div className={css.editor}>
           <div className={css.editorStatus}>
             <div>
-              <div data-status="compiling">
-                <CgSpinner /> Compiling
-              </div>
               <div data-status="error">
                 <MdErrorOutline />
-                Syntax Error
+                {t("status.error")}
+              </div>
+              <div data-status="compiling">
+                <CgSpinner /> {t("status.compiling")}
               </div>
               <div data-status="compiled">
                 <IoMdCheckmark />
-                Compiled
+                {t("status.compiled")}
               </div>
             </div>
           </div>

@@ -5,6 +5,20 @@
   font-size: 0.95em;
 }
 
+/** Shared metallic/reflective gradient */
+.root::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom right,
+    transparent 10%,
+    rgba(255, 255, 255, 0.035),
+    transparent 35%
+  );
+  mix-blend-mode: hard-light;
+}
+
 .container {
   position: relative;
   background: var(--color-accent-1);
@@ -76,7 +90,7 @@
 }
 
 .container td {
-  font-weight: 300;
+  font-weight: 400;
 }
 
 .query {

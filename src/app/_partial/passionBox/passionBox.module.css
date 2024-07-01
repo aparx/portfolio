@@ -7,9 +7,8 @@
       calc(2 * var(--editor-padding))
   );
   --animation-time: 6s;
-  --border: 1px solid var(--color-outline-grid);
   position: relative;
-  border: var(--border);
+  border: var(--grid-border);
   border-radius: var(--spacing-1);
   background: var(--color-accent-1);
   max-width: calc(var(--content-width) + var(--spacing-5));
@@ -19,23 +18,40 @@
 }
 
 .editorStatus {
-  --status-width: 8em;
-  --status-height: 20px;
+  --status-width: 13ch;
+  --status-height: calc(1em + calc(2 * var(--spacing-0)));
   --status-gap: var(--spacing-1);
   position: absolute;
-  display: flex;
+  z-index: 1;
   align-items: center;
-  z-index: 3;
   bottom: calc(-1 * var(--spacing-1));
   right: calc(-1 * var(--spacing-1));
   padding: var(--spacing-1) var(--spacing-2);
   width: var(--status-width);
   height: var(--status-height);
   background: var(--color-accent-2);
-  border: var(--border);
+  border: var(--grid-border);
   border-radius: 99px;
-  overflow: hidden;
   box-shadow: 0 0 var(--spacing-0) var(--color-accent-1);
+  overflow: hidden;
+}
+
+.editorStatus::before {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  height: var(--spacing-1);
+  background: linear-gradient(to top, transparent, var(--color-accent-2));
+}
+
+.editorStatus::after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  top: calc(100% - var(--spacing-1));
+  background: linear-gradient(to bottom, transparent, var(--color-accent-2));
 }
 
 /** Status wrapper */
@@ -43,7 +59,7 @@
   position: absolute;
   width: var(--status-width);
   height: var(--status-height);
-  animation: changeStatus var(--animation-time) infinite;
+  animation: change-status var(--animation-time) infinite;
 }
 
 .editorStatus > * > * {
@@ -52,28 +68,31 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: var(--spacing-1);
+  gap: var(--status-gap);
   color: var(--color-emphasis-medium);
 }
 
+/** Editor Status Icon */
+.editorStatus *[data-status] > *:first-child {
+  font-size: 1.2em;
+}
+
 /** Editor Status "error" */
-.editorStatus > * > *[data-status="error"] {
+.editorStatus *[data-status="error"] {
   color: var(--color-destructive-lighter);
 }
 
 /** Editor Status "compiling" > Spinner */
-.editorStatus > * > *[data-status="compiling"] > *:first-child {
-  color: var(--color-primary);
-  font-size: 1.2em;
-  animation: spinnerRotation 0.5s infinite linear;
+.editorStatus *[data-status="compiling"] > *:first-child {
+  animation: spinner-rotation 0.5s infinite linear;
 }
 
 /** Editor Status "compiled" > Checkmark */
-.editorStatus > * > *[data-status="compiled"] > *:first-child {
+.editorStatus *[data-status="compiled"] {
   color: var(--color-primary);
 }
 
-.editorStatus > * > *[data-status="compiling"] {
+.editorStatus *[data-status="compiling"] {
   /* Compiling: 2nd position */
   transform: translateY(
     calc(-1 * calc(var(--status-height) + var(--status-gap)))
@@ -94,7 +113,7 @@
   padding: var(--editor-padding);
   background: var(--color-accent-0);
   color: var(--color-emphasis-medium);
-  border-bottom: var(--border);
+  border-bottom: var(--grid-border);
   border-top-left-radius: inherit;
   border-top-right-radius: inherit;
 }
@@ -195,20 +214,20 @@
   color: var(--color-emphasis-high);
   left: calc(var(--editor-padding) + 0.25rem);
   top: calc(var(--editor-padding) + 0.25rem);
-  animation: cursorAnimation var(--animation-time) infinite;
+  animation: cursor-animation var(--animation-time) infinite;
 }
 
 .editorContent > span[data-error-index="1"] {
-  animation: fadeToValid var(--animation-time) infinite;
+  animation: fade-to-valid var(--animation-time) infinite;
   animation-delay: calc(0.1 * var(--animation-time));
 }
 
 .editorContent > span[data-error-index="2"] {
-  animation: fadeToValid var(--animation-time) infinite;
+  animation: fade-to-valid var(--animation-time) infinite;
   animation-delay: calc(0.4 * var(--animation-time));
 }
 
-@keyframes cursorAnimation {
+@keyframes cursor-animation {
   5% {
     /* Move to first error */
     transform: var(--transform-1);
@@ -241,7 +260,7 @@
   }
 }
 
-@keyframes fadeToValid {
+@keyframes fade-to-valid {
   15% {
     background: var(--color-primary);
   }
@@ -250,7 +269,7 @@
   }
 }
 
-@keyframes changeStatus {
+@keyframes change-status {
   20% {
     transform: unset;
   }
@@ -280,7 +299,7 @@
   }
 }
 
-@keyframes spinnerRotation {
+@keyframes spinner-rotation {
   from {
     rotate: 0;
   }

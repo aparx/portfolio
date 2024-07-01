@@ -33,7 +33,7 @@ export function SkillsBox() {
         animationDeltaRef.current = newIndex > oldActive ? "down" : "up";
         return newIndex;
       }),
-    timeInMs: 4500,
+    timeInMs: 5000,
     enabled: enableInterval,
   });
 

@@ -45,7 +45,12 @@
     "Passion": {
       "title": "Passion is guaranteed, always.",
       "subtitle": "My love is a driving motivator.",
-      "intro": "Quality through passion and skill"
+      "intro": "Quality through passion and skill",
+      "status": {
+        "error": "Syntax Error",
+        "compiling": "Compiling",
+        "compiled": "Compiled"
+      }
     },
     "Scale": {
       "title": "From medium to large scale.",
