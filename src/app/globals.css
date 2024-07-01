@@ -18,7 +18,7 @@
   --color-emphasis-medium: rgba(230, 230, 230, var(--emphasis-medium));
   --color-emphasis-low: rgba(230, 230, 230, var(--emphasis-low));
   --color-outline-grid: #212121;
-  --color-outline-card: #ffffff14;
+  --color-outline-card: #ffffff2a;
   --color-destructive: #f72424;
   --color-destructive-darker: #881717;
   --color-destructive-darkest: rgb(31, 12, 12);

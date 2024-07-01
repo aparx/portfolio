@@ -109,6 +109,7 @@
 .editorHeader {
   display: flex;
   align-items: center;
+  font-weight: 450;
   justify-content: space-between;
   padding: var(--editor-padding);
   background: var(--color-accent-0);

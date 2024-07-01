@@ -1,12 +1,13 @@
 "use client";
 import { Button, TextFont } from "@/components";
+import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
 import { ComponentPropsWithoutRef, InputHTMLAttributes, useId } from "react";
 import { useFormState, useFormStatus } from "react-dom";
 import { IoMdCheckmarkCircleOutline } from "react-icons/io";
-import { LuContact } from "react-icons/lu";
 import { MdEmail, MdPhone } from "react-icons/md";
+import { SiTypescript } from "react-icons/si";
 import { GridBox } from "../../_components";
 import { saveContactForm } from "../../actions";
 import { contactFormSchema } from "../../schemas";
@@ -23,7 +24,7 @@ export function ContactBox() {
           subtitle={t("Contact.subtitle")}
         />
         <footer>
-          <ul aria-label="Contact possibilities elsewhere"> 
+          <ul aria-label="Contact possibilities elsewhere">
             <TextFont asChild type="mono">
               <li>
                 <Link
@@ -49,8 +50,9 @@ export function ContactBox() {
       </div>
       <section>
         <h5>
-          <LuContact />
-          portfolio/contactForm.tsx
+          <VisuallyHidden>Contact Form</VisuallyHidden>
+          <SiTypescript />
+          <span aria-hidden>contactForm.tsx</span>
         </h5>
         <Form />
       </section>

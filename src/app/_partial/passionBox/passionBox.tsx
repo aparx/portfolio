@@ -73,7 +73,7 @@ export function PassionBox() {
           <div className={css.editorHeader}>
             <div>
               <VscVscode />
-              editor
+              Editor
             </div>
             <div>
               <div data-action="minimize" />

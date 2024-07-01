@@ -8,9 +8,9 @@ const rows: Array<[string, Date]> = [
   ["Nathan", new Date()],
   ["Vinzent", new Date("2003-10-13")],
   ["Daniela", new Date("1978-02-13")],
-  ["Josef", new Date("1967-07-13")],
-  ["Hans", new Date()],
-  ["Klaus", new Date()],
+  ["Joseph", new Date("1967-07-13")],
+  ["Noah", new Date()],
+  ["Alex", new Date()],
   ["Joko", new Date()],
 ];
 
@@ -39,10 +39,12 @@ export function BackendBox() {
             <tbody>
               {rows.map(([name, date], i) => (
                 <TextFont key={i} asChild type="mono">
-                  <tr data-selected={i === 1}>
+                  <tr data-selected={i === 1 || i === 3}>
                     <td />
                     <td>{20 + i}</td>
-                    <td>{name}</td>
+                    <TextFont asChild type="sans">
+                      <td style={{ letterSpacing: "0.03em" }}>{name}</td>
+                    </TextFont>
                     <td>{date.toISOString()}</td>
                   </tr>
                 </TextFont>

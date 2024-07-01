@@ -52,21 +52,24 @@
   overflow: hidden;
 }
 
+/** Contact form header */
 .root > *:last-child > h5 {
   display: flex;
   align-items: center;
   gap: var(--spacing-1);
-  font-weight: 500;
+  font-weight: 450;
+  font-size: 1em;
   color: var(--color-emphasis-medium);
   padding: var(--spacing-1) var(--spacing-2);
   border-bottom: 1px solid var(--color-outline-grid);
 }
 
+/** Contact form */
 .root > *:last-child > form {
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-1);
+  gap: var(--spacing-2);
   background: var(--color-accent-1);
   padding: var(--spacing-2);
   width: calc(100% - calc(2 * var(--spacing-2)));
