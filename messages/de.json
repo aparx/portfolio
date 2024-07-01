@@ -55,7 +55,11 @@
     "Scale": {
       "title": "Von mittelgroß bis ganz groß.",
       "subtitle": "Jegliche Skalierung, ich mach es.",
-      "intro": "Variierende Komplexität und Skalierung"
+      "intro": "Variierende Komplexität und Skalierung",
+      "chart": {
+        "users": "# Nutzer",
+        "invocations": "# Aufrufe"
+      }
     },
     "Projects": {
       "title": "Aktuelle Beispielprojekte",

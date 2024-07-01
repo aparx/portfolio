@@ -1,0 +1,23 @@
+.scale {
+  --background-color: var(--color-accent-1);
+  position: relative;
+  background: var(--background-color);
+  border: var(--grid-border);
+  padding: var(--spacing-1);
+  border-radius: var(--spacing-1);
+}
+
+.scale::before {
+  content: "";
+  position: absolute;
+  border-radius: inherit;
+  z-index: 1;
+  inset: 0;
+  background: linear-gradient(
+      to bottom left,
+      transparent 50%,
+      var(--background-color)
+    ),
+    linear-gradient(to top right, transparent 50%, var(--background-color));
+  pointer-events: none;
+}

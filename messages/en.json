@@ -55,7 +55,11 @@
     "Scale": {
       "title": "From medium to large scale.",
       "subtitle": "Any scale of application. I do it.",
-      "intro": "Varying complexity"
+      "intro": "Varying complexity",
+      "chart": {
+        "users": "# of users",
+        "invocations": "# of invocations"
+      }
     },
     "Projects": {
       "title": "Some of my work",

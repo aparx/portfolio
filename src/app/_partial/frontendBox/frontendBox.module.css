@@ -174,10 +174,10 @@
   gap: var(--spacing-1);
   flex-direction: column;
   font-size: 1em;
+  font-weight: 500;
+  letter-spacing: 0.06em;
   white-space: nowrap;
   color: var(--color-emphasis-medium);
-  letter-spacing: 0.05em;
-  font-weight: 300;
   text-align: center;
   height: calc(100% - calc(4 * var(--spacing-1)));
   width: calc(100% - calc(2 * var(--spacing-0)));

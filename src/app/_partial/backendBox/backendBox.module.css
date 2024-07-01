@@ -117,3 +117,10 @@
   color: var(--color-emphasis-high);
   font-weight: 300;
 }
+
+@media screen and (max-width: 540px) {
+  .container th,
+  .container td {
+    min-width: var(--spacing-4);
+  }
+}

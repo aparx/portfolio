@@ -14,7 +14,6 @@
   max-width: calc(var(--content-width) + var(--spacing-5));
   height: fit-content;
   user-select: none;
-  touch-action: none;
 }
 
 .editorStatus {
@@ -24,6 +23,7 @@
   position: absolute;
   z-index: 1;
   align-items: center;
+  font-weight: 500;
   bottom: calc(-1 * var(--spacing-1));
   right: calc(-1 * var(--spacing-1));
   padding: var(--spacing-1) var(--spacing-2);
@@ -132,7 +132,7 @@
 }
 
 /** Window Menu Item */
-.editorHeader > *:last-child > * {
+.editorHeader *[data-action] {
   width: var(--spacing-1);
   height: var(--spacing-1);
   border-radius: 100%;
