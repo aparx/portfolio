@@ -12,12 +12,12 @@ export function useProjectsConfig(): ReadonlyArray<Readonly<ProjectData>> {
     {
       title: t("portfolio.title"),
       description: t("portfolio.description"),
-      href: `https://${process.env.NEXT_PUBLIC_DOMAIN}/`,
+      href: "/",
     },
     {
       title: t("roadone30.title"),
       description: t("roadone30.description"),
-      href: "https://roadone30.de/",
+      href: "/",
     },
   ];
 }
