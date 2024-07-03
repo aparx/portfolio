@@ -4,6 +4,8 @@ Realised with **NextJS** and good old **CSS Modules**, it's simple yet designed 
 ## What is this portfolio about?
 
 This portfolio showcases the tools, frameworks and languages I use primarily and offers a glimpse into what I can and want to provide as a developer. In either an existing team, or in freelance work (if currently possible). It shows what I am capable of and a little bit of my past work and learning history.
+<br /><br />
+The portfolio also contains a blog, being statically generated at compile time, even tho it is yet hidden. This feature will be expanded in future iterations, whenever more blog articles are to be published.
 
 ## What tech and dependencies is being used?
 
