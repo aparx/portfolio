@@ -73,7 +73,9 @@ h6 {
 
 h1 {
   font-size: var(--fs-4);
-  font-weight: 650;
+  font-weight: 600;
+  line-height: 1.445em;
+  letter-spacing: -0.02em;
 }
 
 h2 {

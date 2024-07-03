@@ -41,7 +41,7 @@ export function ScaleBox() {
             },
           }}
           data={{
-            labels: ["23'Q1", "23'Q2", "23'Q3", "23'Q4", "24'Q1", "24'Q2"],
+            labels: ["Q1'23", "Q2'23", "Q3'23", "Q4'23", "Q1'24", "Q2'24"],
             datasets: [
               {
                 label: t("chart.users"),

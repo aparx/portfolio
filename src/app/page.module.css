@@ -26,4 +26,9 @@
   .grid {
     grid-template-columns: 1fr !important;
   }
+
+  .grid *[data-type="split"][data-side="start"] {
+    /* Removes the border right on a split gridBox */
+    border-right: unset;
+  }
 }
