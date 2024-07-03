@@ -1,5 +1,5 @@
 This is my very own portfolio. <br /><br />
-Realised with **NextJS** and good old **CSS Modules**, it's simple yet designed intuitively. While some layout inspiration comes from Vercel, everything is designed and made from scratch by me.
+Realised with **NextJS** and good old **CSS Modules**, it's simple yet designed intuitively. Even tho some layout inspiration comes from Vercel, everything is designed and made from scratch by me.
 
 ## What is this portfolio about?
 
