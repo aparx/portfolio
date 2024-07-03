@@ -15,26 +15,17 @@ As said in the introduction, this portfolio is built and served using following 
 - CSS Modules
 - Typescript
 - Vercel Hosting
+- Resend
 
-Some of the primarily used libraries:
+## What principles is the portfolio partially made out of?
 
-- geist
-- radix-ui/react-slot + RadixUI/react-visually-hidden
-- resend (_Form submission and Email forwarding_)
-- zod (_Server side form validation_)
-- react-icons
-
-Additionally, the already named technologies and dependencies, including some formatting/linting tools. For more details on what is used in the current build, have a look into the `package.json`.
-
-## What was the ideology and pattern behind this portfolio?
-
-Following is some of the principles and guidelines of designing and making the portfolio:
+Following is some of the principles and guidelines for making the portfolio:
 
 1. It **must** present a familiar-looking website to developers and DevOps engineers while keeping a professional touch. Simplicity, spacing and coloring are key.
 2. It **must** be suitable for freelance projects and job applications, serving as a hub to distribute and share knowledge of other projects of mine and my skills.
 3. It **should** be easily refactorable, in order to meet - potentially - constantly changing standards and goals (e.g. inception of a joint company).
 4. It **must** be largely accessible and obey WCAG, even if meaningful content is already cut short.
-5. Based on the _target audience_, it **must** serve in two languages: German and English.
+5. Based on the _target audience_, it **must** be served in two languages: German and English.
 6. It **might** provide explanations for non-technical viewers, based on the _target audience_.
 
 ## Target audience
