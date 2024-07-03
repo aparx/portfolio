@@ -1,36 +1,44 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+This is my very own portfolio. Realised with **NextJS** and good old **CSS Modules**, it is made simply and is yet designed quite intuitively. <br/><br/>
+Some of the _layout_ is inspired by Vercel, but everything is designed and made from scratch by myself.<br />
 
-## Getting Started
+### What is this portfolio about?
 
-First, run the development server:
+In this portfolio I highlight the tools, frameworks and languages I use primarily, and provide a small view into what I offer as a developer.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### What tech and dependencies is being used?
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+As said in the introduction, this portfolio is made and served using following technologies:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- NextJS
+- CSS Modules
+- Typescript
+- Vercel Hosting
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Following primary libraries are used as of writing:
 
-## Learn More
+- geist
+- radix-ui/react-slot + RadixUI/react-visually-hidden
+- resend (_Form submission and Email forwarding_)
+- zod (_Server side form validation_)
+- react-icons
 
-To learn more about Next.js, take a look at the following resources:
+(...) plus named technologies and some formatting and linting tools. For more see `package.json`.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### What was the ideology and pattern behind this portfolio?
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Here is a list of some of the ideas behind designing and coding the portfolio (referred to as "it"):
 
-## Deploy on Vercel
+1. It _must_ serve a to a developer and devop engineer familiar looking website, as well as providing somewhat of a professional touch. The simplicity, spacing and coloring is key here.
+2. It _must_ be able to be used for freelance projects and for job applications, serving as a Hub to distribute and share knowledge of other projects of mine and my skills.
+3. It _should_ be able to be refactored easily, to meet new standards and goals (e.g. inception of a joint company).
+4. It _must_ be largely accessible and obey WCAG, even if meaningful content is cut short.
+5. Based on the _target audience_, it must serve in two languages: German and English.
+6. It _might_ somewhat explain what is happening, even for non-techy viewers, based on the _target audience_.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Target audience
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+1. **Target Group 1**<br />
+   The primary target are employeers and lead developers of companies with certain backgrounds, looking to hire a new developer for a specific job or for longer periods, defined mostly through part- or full-time contracts. The background being either _(1)_ large sized company or _(2)_ medium sized company. The company's origin does _not_ matter, tho german companies are preferred, due to my current location.
+
+2. **Target Group 2**<br />
+   The secondary target group are local or regional businesses, trying to get a certain service, available options being described by the portfolio, for when comissions are open.

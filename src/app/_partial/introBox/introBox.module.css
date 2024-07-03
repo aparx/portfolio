@@ -1,7 +1,7 @@
 .root {
   --root-background: var(--color-accent-1);
   display: grid;
-  grid-template-columns: 2fr minmax(300px, 1fr);
+  grid-template-columns: 2fr minmax(300px, 0.7fr);
   background: var(--root-background);
   border: var(--grid-border);
 }
@@ -82,7 +82,7 @@
 /** Timeline element */
 .timeline li {
   display: flex;
-  gap: var(--spacing-2);
+  gap: var(--spacing-3);
 }
 
 .timeline time {
@@ -132,6 +132,37 @@
   color: var(--color-primary);
 }
 
+.timeline li:last-child .timelineLine::after {
+  animation: blob-animation 1s infinite;
+}
+
+/** Dots overlayed on the timeline line, representing an ellpisis */
+.timelineEllipsis {
+  bottom: 0;
+}
+
+.timelineEllipsis,
+.timelineEllipsis::before,
+.timelineEllipsis::after {
+  --dot-size: 5px;
+  --dot-gap: 5px;
+  position: absolute;
+  background: var(--root-background);
+  width: 2px;
+  height: var(--dot-size);
+  bottom: var(--dot-gap);
+}
+
+.timelineEllipsis::before {
+  content: "";
+  transform: translateY(calc(-1 * var(--dot-gap)));
+}
+
+.timelineEllipsis::after {
+  content: "";
+  transform: translateY(calc(calc(-2 * var(--dot-gap)) - var(--dot-size)));
+}
+
 /** Timeline element content (title & description) */
 .timelineContent {
   position: relative;
@@ -154,5 +185,14 @@
 
   .portrait {
     display: none;
+  }
+}
+
+@keyframes blob-animation {
+  from {
+    box-shadow: 0 0 0 0px var(--color-primary);
+  }
+  to {
+    box-shadow: 0 0 0 4px transparent;
   }
 }

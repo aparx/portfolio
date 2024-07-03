@@ -8,42 +8,18 @@ import { BsGithub, BsInstagram, BsTwitterX } from "react-icons/bs";
 import css from "./introBox.module.css";
 
 export function IntroBox() {
+  const t = useTranslations("index.Intro");
+
   return (
     <section className={css.root}>
       <div className={css.content}>
         <GridBox.Header
           title="Vinzent Alexander Zeband"
-          subtitle="Fullstack Developer & UI/UX"
+          subtitle={t("subtitle")}
         />
         <Timeline />
       </div>
-      <div className={css.portrait}>
-        <div className={css.image}>
-          <Image
-            src={portraitImage}
-            alt="Portrait"
-            fill
-            style={{ objectPosition: "top center", objectFit: "cover" }}
-          />
-        </div>
-        <ul className={css.portraitOverlay}>
-          <li>
-            <Link href="https://github.com/aparx">
-              <BsGithub />
-            </Link>
-          </li>
-          <li>
-            <Link href="https://twitter.com/bonedfps">
-              <BsTwitterX />
-            </Link>
-          </li>
-          <li>
-            <Link href="https://instagram.com/_vizeb_">
-              <BsInstagram />
-            </Link>
-          </li>
-        </ul>
-      </div>
+      <Portrait />
     </section>
   );
 }
@@ -54,12 +30,14 @@ function Timeline() {
 
   return (
     <ol className={css.timeline}>
-      {keys.map((key) => (
+      {keys.map((key, i) => (
         <li key={key}>
           <TextFont asChild type="mono">
             <time>{key}</time>
           </TextFont>
-          <div className={css.timelineLine} />
+          <div className={css.timelineLine}>
+            {i === keys.length - 1 && <div className={css.timelineEllipsis} />}
+          </div>
           <div className={css.timelineContent}>
             <h4>{t(`${key}.title`)}</h4>
             {t(`${key}.description`) && <p>{t(`${key}.description`)}</p>}
@@ -67,5 +45,37 @@ function Timeline() {
         </li>
       ))}
     </ol>
+  );
+}
+
+function Portrait() {
+  return (
+    <div className={css.portrait}>
+      <div className={css.image}>
+        <Image
+          src={portraitImage}
+          alt="Portrait"
+          fill
+          style={{ objectPosition: "top center", objectFit: "cover" }}
+        />
+      </div>
+      <ul className={css.portraitOverlay}>
+        <li>
+          <Link href="https://github.com/aparx">
+            <BsGithub />
+          </Link>
+        </li>
+        <li>
+          <Link href="https://twitter.com/bonedfps">
+            <BsTwitterX />
+          </Link>
+        </li>
+        <li>
+          <Link href="https://instagram.com/_vizeb_">
+            <BsInstagram />
+          </Link>
+        </li>
+      </ul>
+    </div>
   );
 }
