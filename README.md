@@ -1,20 +1,20 @@
-This is my very own portfolio. Realised with **NextJS** and good old **CSS Modules**, it is made simply and is yet designed quite intuitively. <br/><br/>
-Some of the _layout_ is inspired by Vercel, but everything is designed and made from scratch by myself.<br />
+This is my very own portfolio. <br /><br />
+Realised with **NextJS** and good old **CSS Modules**, it's simple yet designed intuitively. While some layout inspiration comes from Vercel, everything is designed and made from scratch by me.
 
-### What is this portfolio about?
+## What is this portfolio about?
 
-In this portfolio I highlight the tools, frameworks and languages I use primarily, and provide a small view into what I offer as a developer.
+This portfolio showcases the tools, frameworks and languages I use primarily and offers a glimpse into what I can and want to provide as a developer. In either an existing team, or in freelance work (if currently possible). It shows what I am capable of and a little bit of my past work and learning history.
 
-### What tech and dependencies is being used?
+## What tech and dependencies is being used?
 
-As said in the introduction, this portfolio is made and served using following technologies:
+As said in the introduction, this portfolio is built and served using following technologies:
 
 - NextJS
 - CSS Modules
 - Typescript
 - Vercel Hosting
 
-Following primary libraries are used as of writing:
+Some of the primarily used libraries:
 
 - geist
 - radix-ui/react-slot + RadixUI/react-visually-hidden
@@ -22,23 +22,23 @@ Following primary libraries are used as of writing:
 - zod (_Server side form validation_)
 - react-icons
 
-(...) plus named technologies and some formatting and linting tools. For more see `package.json`.
+Additionally, the already named technologies and dependencies, including some formatting/linting tools. For more details on what is used in the current build, have a look into the `package.json`.
 
-### What was the ideology and pattern behind this portfolio?
+## What was the ideology and pattern behind this portfolio?
 
-Here is a list of some of the ideas behind designing and coding the portfolio (referred to as "it"):
+Following is some of the principles and guidelines of designing and making the portfolio:
 
-1. It _must_ serve a to a developer and devop engineer familiar looking website, as well as providing somewhat of a professional touch. The simplicity, spacing and coloring is key here.
-2. It _must_ be able to be used for freelance projects and for job applications, serving as a Hub to distribute and share knowledge of other projects of mine and my skills.
-3. It _should_ be able to be refactored easily, to meet new standards and goals (e.g. inception of a joint company).
-4. It _must_ be largely accessible and obey WCAG, even if meaningful content is cut short.
-5. Based on the _target audience_, it must serve in two languages: German and English.
-6. It _might_ somewhat explain what is happening, even for non-techy viewers, based on the _target audience_.
+1. It **must** present a familiar-looking website to developers and DevOps engineers while keeping a professional touch. Simplicity, spacing and coloring are key.
+2. It **must** be suitable for freelance projects and job applications, serving as a hub to distribute and share knowledge of other projects of mine and my skills.
+3. It **should** be easily refactorable, in order to meet - potentially - constantly changing standards and goals (e.g. inception of a joint company).
+4. It **must** be largely accessible and obey WCAG, even if meaningful content is already cut short.
+5. Based on the _target audience_, it **must** serve in two languages: German and English.
+6. It **might** provide explanations for non-technical viewers, based on the _target audience_.
 
-### Target audience
+## Target audience
 
-1. **Target Group 1**<br />
-   The primary target are employeers and lead developers of companies with certain backgrounds, looking to hire a new developer for a specific job or for longer periods, defined mostly through part- or full-time contracts. The background being either _(1)_ large sized company or _(2)_ medium sized company. The company's origin does _not_ matter, tho german companies are preferred, due to my current location.
+1. **Primary Target Group**<br />
+   Employers and lead developers of companies with varying sizes, looking to hire a new developer for specific jobs or long-term positions, defined mostly through part-time or full-time contracts. The company's origin does _not_ matter, even tho german companies are preferred due to my residence.
 
-2. **Target Group 2**<br />
-   The secondary target group are local or regional businesses, trying to get a certain service, available options being described by the portfolio, for when comissions are open.
+2. **Secondary Target Group**<br />
+   Local or regional businesses seeking specific services, options being described by the portfolio, for when comissions are open.
