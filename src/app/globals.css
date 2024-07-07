@@ -48,6 +48,7 @@
 html {
   box-sizing: border-box;
   font-size: var(--fs-base);
+  scroll-behavior: smooth;
 }
 
 body {
