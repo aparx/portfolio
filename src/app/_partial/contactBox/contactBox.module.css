@@ -195,7 +195,7 @@
   z-index: 9999;
   left: 50%;
   bottom: var(--spacing-3);
-  box-shadow: 0 0 var(--spacing-0) 1px var(--color-accent-0);
+  box-shadow: 0 0 var(--spacing-1) var(--color-accent-1);
   border-radius: 999px !important;
   gap: var(--spacing-1);
   transition:
@@ -242,6 +242,6 @@
   }
 
   .floatButton {
-    bottom: var(--spacing-5);
+    bottom: var(--spacing-4);
   }
 }
