@@ -183,8 +183,19 @@
     grid-template-columns: 1fr;
   }
 
+  .content {
+    border-right: unset;
+  }
+
   .portrait {
     display: none;
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .content {
+    padding: var(--spacing-4);
+    gap: var(--spacing-4);
   }
 }
 

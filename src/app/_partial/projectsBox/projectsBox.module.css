@@ -99,6 +99,35 @@
   color: var(--color-emphasis-medium);
 }
 
+.project h4 {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+}
+
+.project h4 ul {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-1);
+  list-style: none;
+  color: var(--color-emphasis-medium);
+  margin: unset;
+  padding: unset;
+}
+
+.project h4 ul a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.project h4 ul li {
+  line-height: 0;
+}
+
+.project h4 ul li:hover {
+  color: var(--color-emphasis-high);
+}
+
 .project > footer {
   display: flex;
   gap: var(--spacing-1);

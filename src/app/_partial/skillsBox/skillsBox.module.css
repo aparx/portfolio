@@ -146,7 +146,7 @@
 @keyframes toolItemFadeOnUp {
   from {
     opacity: 0;
-    transform: translateY(4px);
+    transform: translateY(3px);
     background: var(--color-accent-3);
   }
   to {
@@ -157,7 +157,7 @@
 @keyframes toolItemFadeOnDown {
   from {
     opacity: 0;
-    transform: translateY(-4px);
+    transform: translateY(-3px);
     background: var(--color-accent-3);
   }
   to {
@@ -168,7 +168,7 @@
 @keyframes toolItemFadeFromLeft {
   from {
     opacity: 0;
-    transform: translateX(-4px);
+    transform: translateX(-3px);
     background: var(--color-accent-3);
   }
   to {
@@ -179,7 +179,7 @@
 @keyframes toolItemFadeFromRight {
   from {
     opacity: 0;
-    transform: translateX(4px);
+    transform: translateX(3px);
     background: var(--color-accent-3);
   }
   to {
