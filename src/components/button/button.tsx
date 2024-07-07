@@ -4,7 +4,7 @@ import { ComponentPropsWithoutRef } from "react";
 import { TextFont } from "../textFont";
 import css from "./button.module.css";
 
-export type ButtonAppearance = "cta" | "transparent";
+export type ButtonAppearance = "cta" | "accent" | "transparent";
 
 export interface ButtonBaseProps {
   /** The visual appearance of the button. Defaults to "transparent". */

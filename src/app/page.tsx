@@ -12,9 +12,9 @@ import css from "./page.module.css";
 
 export default function Home() {
   return (
-    <div className={css.container}>
+    <main className={css.container}>
       <IntroBox />
-      <main className={css.grid}>
+      <div className={css.grid}>
         <FrontendBox />
         <BackendBox />
         <SkillsBox />
@@ -22,7 +22,7 @@ export default function Home() {
         <ScaleBox />
         <ProjectsBox />
         <ContactBox />
-      </main>
-    </div>
+      </div>
+    </main>
   );
 }

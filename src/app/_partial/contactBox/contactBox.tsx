@@ -72,7 +72,7 @@ export function ContactBox() {
       </GridBox.Root>
       <Button
         asChild
-        appearance="cta"
+        appearance="accent"
         className={css.floatButton}
         aria-hidden
         data-visible={showFloatingButton}

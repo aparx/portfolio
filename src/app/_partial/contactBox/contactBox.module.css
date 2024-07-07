@@ -190,7 +190,7 @@
 }
 
 .floatButton {
-  --transition-time: 0.33s;
+  --transition-time: 0.3s;
   position: fixed;
   z-index: 9999;
   left: 50%;
@@ -200,7 +200,8 @@
   gap: var(--spacing-1);
   transition:
     var(--transition-time) transform,
-    var(--transition-time) opacity;
+    var(--transition-time) opacity,
+    var(--transition-time) scale;
 }
 
 .floatButton[data-visible="true"] {
@@ -238,5 +239,9 @@
 @media screen and (max-width: 540px) {
   .root > *:first-child footer ul {
     width: 100%;
+  }
+
+  .floatButton {
+    bottom: var(--spacing-5);
   }
 }
