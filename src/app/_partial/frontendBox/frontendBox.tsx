@@ -13,7 +13,7 @@ export function FrontendBox() {
         intro={t("intro")}
         icon={<MdOutlineDesktopMac />}
       />
-      <div className={css.root}>
+      <div className={css.root} aria-hidden>
         <div className={css.phone}>
           <div />
           <FakeAppView />
