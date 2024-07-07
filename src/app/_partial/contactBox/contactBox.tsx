@@ -78,7 +78,7 @@ export function ContactBox() {
         data-visible={showFloatingButton}
       >
         <Link href="#contact" style={{ textDecoration: "none" }}>
-          Get in touch
+          {t("Contact.floating")}
           <MdArrowDownward />
         </Link>
       </Button>

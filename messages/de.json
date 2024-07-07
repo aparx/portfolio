@@ -24,7 +24,7 @@
     "Frontend": {
       "title": "Frontend Entwicklung",
       "subtitle": "Von Konzepierung, bis Endprodukt.",
-      "intro": "Erschaffen von Nutzererlebnissen"
+      "intro": "Barrierefreie Nutzererlebnissen"
     },
     "Backend": {
       "title": "Backend Entwicklung",
@@ -93,7 +93,8 @@
           "placeholder": "Also, ich habe da diese Idee ..."
         }
       },
-      "submit": "Kontaktiere mich"
+      "submit": "Kontaktiere mich",
+      "floating": "Kontaktiere mich"
     }
   }
 }

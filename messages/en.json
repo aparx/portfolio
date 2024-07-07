@@ -24,7 +24,7 @@
     "Frontend": {
       "title": "Frontend Engineering",
       "subtitle": "From concept, to implementation.",
-      "intro": "Crafting user experiences"
+      "intro": "Crafting accessible user experiences"
     },
     "Backend": {
       "title": "Backend Engineering",
@@ -93,7 +93,8 @@
           "placeholder": "So I have this Idea ..."
         }
       },
-      "submit": "Contact me"
+      "submit": "Contact me",
+      "floating": "Get in touch"
     }
   }
 }
