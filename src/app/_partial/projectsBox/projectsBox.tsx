@@ -54,7 +54,7 @@ function Project({ title, description, href, links }: ProjectData) {
       <div>
         <h4>
           {title}
-          {links != null && (
+          {links && links.length !== 0 && (
             <ul aria-label="External links">
               {links?.map(({ href, type }) => {
                 const Icon = EXTERNAL_LINK_ICONS[type];
