@@ -1,4 +1,4 @@
-import { memoizeAsyncProduction, memoizeSyncProduction } from "@/utils";
+import { memoizeAsyncIfProduction, memoizeSyncIfProduction } from "@/utils";
 import fs from "fs";
 import matter from "gray-matter";
 import path from "path";
@@ -14,12 +14,12 @@ export const blogMetadataSchema = z.object({
   createdAt: z.date(),
 });
 
-export const blogFiles = memoizeSyncProduction(() => {
+export const blogFiles = memoizeSyncIfProduction(() => {
   const files = fs.readdirSync(getBlogsDirectory());
   return files.filter((x) => x.endsWith(FILE_NAME_END));
 });
 
-export const blogPosts = memoizeAsyncProduction(async () => {
+export const blogPosts = memoizeAsyncIfProduction(async () => {
   // We read all possible blog posts ahead of them actually being generated.
   // This ultimately saves a lot of resources the more blog posts there are.
   return (await Promise.allSettled(blogFiles().map(readBlogFile)))
