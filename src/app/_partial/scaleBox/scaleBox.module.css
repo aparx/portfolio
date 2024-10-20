@@ -7,8 +7,6 @@
     var(--color-emphasis-high) 50%,
     var(--color-accent-0)
   );
-  container-name: ctn;
-  container-type: inline-size;
   position: relative;
   display: grid;
   grid-template-columns: repeat(8, 1fr);

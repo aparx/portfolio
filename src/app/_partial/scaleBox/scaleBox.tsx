@@ -1,6 +1,7 @@
 "use client";
 import { GridBox } from "@/app/_components";
 import { useTranslations } from "next-intl";
+import { useMemo } from "react";
 import { FaServer, FaUserAlt } from "react-icons/fa";
 import { FaArrowTrendUp } from "react-icons/fa6";
 import css from "./scaleBox.module.css";
@@ -18,17 +19,21 @@ export function ScaleBox() {
       />
       <div className={css.container} style={{ minWidth: 0, minHeight: 0 }}>
         <div className={css.clientContainer}>
-          {Array.from({ length: 25 }, (_, i) => (
-            <div
-              key={i}
-              className={css.client}
-              style={{
-                animationDelay: `${Math.round(1000 * Math.random())}ms`,
-              }}
-            >
-              <FaUserAlt style={{ fontSize: "1.3em" }} />
-            </div>
-          ))}
+          {useMemo(
+            () =>
+              Array.from({ length: 25 }, (_, i) => (
+                <div
+                  key={i}
+                  className={css.client}
+                  style={{
+                    animationDelay: `${Math.round(1000 * Math.random())}ms`,
+                  }}
+                >
+                  <FaUserAlt style={{ fontSize: "1.3em" }} />
+                </div>
+              )),
+            []
+          )}
         </div>
         <div className={css.serverContainer}>
           <div className={css.server}>
