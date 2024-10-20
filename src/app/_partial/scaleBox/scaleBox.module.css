@@ -2,6 +2,13 @@
   --column-gap: var(--spacing-2);
   --row-gap: var(--spacing-0);
   --connect-thickness: 1px;
+  --connect-color: color-mix(
+    in srgb,
+    var(--color-emphasis-high) 50%,
+    var(--color-accent-0)
+  );
+  container-name: ctn;
+  container-type: inline-size;
   position: relative;
   display: grid;
   grid-template-columns: repeat(8, 1fr);
@@ -41,6 +48,7 @@
   border: 1px solid var(--color-outline-grid);
   border-radius: vaR(--spacing-0);
   color: var(--color-emphasis-low);
+  animation: clientSendData 3s infinite;
 }
 
 .client::before {
@@ -49,7 +57,7 @@
   width: var(--column-gap);
   height: var(--connect-thickness);
   left: calc(100% + 1px);
-  background: var(--color-primary);
+  background: var(--connect-color);
 }
 
 .client:nth-child(5n)::after {
@@ -57,7 +65,7 @@
   position: absolute;
   left: calc(100% + 1px + var(--column-gap));
   height: calc(100% + 2 * var(--row-gap));
-  background: var(--color-primary);
+  background: var(--connect-color);
   width: var(--connect-thickness);
 }
 
@@ -71,10 +79,10 @@
 
 .serverContainer {
   position: relative;
-  display: grid;
-  place-items: center;
   grid-column: 6 / -1;
   grid-row: 1 / -1;
+  display: grid;
+  place-items: center;
 }
 
 .serverContainer::before {
@@ -83,8 +91,8 @@
   top: 50%;
   left: 0;
   right: 50%;
-  background: var(--color-primary);
-  height: 1px;
+  background: var(--connect-color);
+  height: var(--connect-thickness);
 }
 
 .server {
@@ -102,4 +110,16 @@
     var(--color-primary-darkest) 20%
   );
   box-shadow: 0px 0px 40px 5px var(--color-primary-darkest);
+}
+
+@keyframes clientSendData {
+  30% {
+    color: var(--color-emphasis-low);
+  }
+  50% {
+    color: var(--color-primary);
+  }
+  80% {
+    color: var(--color-emphasis-low);
+  }
 }
