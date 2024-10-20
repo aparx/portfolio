@@ -1,23 +1,105 @@
-.scale {
-  --background-color: var(--color-accent-1);
+.container {
+  --column-gap: var(--spacing-2);
+  --row-gap: var(--spacing-0);
+  --connect-thickness: 1px;
   position: relative;
-  background: var(--background-color);
-  border: var(--grid-border);
-  padding: var(--spacing-1);
-  border-radius: var(--spacing-1);
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  column-gap: var(--column-gap);
+  row-gap: var(--spacing-0);
+  position: relative;
+  height: 200px;
 }
 
-.scale::before {
+.clientContainer {
+  position: relative;
+  grid-column: 1 / 6;
+  grid-row: 1 / -1;
+  display: grid;
+  grid-template-rows: subgrid;
+  grid-template-columns: subgrid;
+}
+
+.clientContainer::after {
   content: "";
   position: absolute;
-  border-radius: inherit;
-  z-index: 1;
   inset: 0;
+  right: calc(-1 * var(--column-gap) - var(--connect-thickness));
   background: linear-gradient(
-      to bottom left,
-      transparent 50%,
-      var(--background-color)
-    ),
-    linear-gradient(to top right, transparent 50%, var(--background-color));
+    to bottom,
+    transparent 50%,
+    var(--color-accent-0)
+  );
   pointer-events: none;
+}
+
+.client {
+  position: relative;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--color-outline-grid);
+  border-radius: vaR(--spacing-0);
+  color: var(--color-emphasis-low);
+}
+
+.client::before {
+  content: "";
+  position: absolute;
+  width: var(--column-gap);
+  height: var(--connect-thickness);
+  left: calc(100% + 1px);
+  background: var(--color-primary);
+}
+
+.client:nth-child(5n)::after {
+  content: "";
+  position: absolute;
+  left: calc(100% + 1px + var(--column-gap));
+  height: calc(100% + 2 * var(--row-gap));
+  background: var(--color-primary);
+  width: var(--connect-thickness);
+}
+
+.client:nth-child(5)::after {
+  top: 50%;
+}
+
+.client:last-child::after {
+  bottom: calc(50% - 1px);
+}
+
+.serverContainer {
+  position: relative;
+  display: grid;
+  place-items: center;
+  grid-column: 6 / -1;
+  grid-row: 1 / -1;
+}
+
+.serverContainer::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 50%;
+  background: var(--color-primary);
+  height: 1px;
+}
+
+.server {
+  position: relative;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--color-outline-grid);
+  border-radius: vaR(--spacing-0);
+  width: fit-content;
+  height: fit-content;
+  padding: var(--spacing-1);
+  background: color-mix(
+    in srgb,
+    var(--color-accent-1),
+    var(--color-primary-darkest) 20%
+  );
+  box-shadow: 0px 0px 40px 5px var(--color-primary-darkest);
 }
