@@ -19,6 +19,12 @@
   height: 200px;
 }
 
+@media screen and (max-width: 500px) {
+  .container {
+    --column-gap: var(--spacing-1);
+  }
+}
+
 .clientContainer {
   position: relative;
   grid-column: 1 / 6;
