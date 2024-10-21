@@ -11,10 +11,9 @@ import {
   FaReact,
 } from "react-icons/fa6";
 import { IoLanguage } from "react-icons/io5";
-import { RiNextjsLine, RiSvelteLine } from "react-icons/ri";
+import { RiNextjsLine } from "react-icons/ri";
 import {
   SiHibernate,
-  SiLaravel,
   SiPostgresql,
   SiPrisma,
   SiSpring,
@@ -53,16 +52,8 @@ export function useToolCategories() {
             icon: <SiSpring color="#8CC84B" />,
           },
           {
-            name: "Laravel",
-            icon: <SiLaravel color="#fa5d2a" />,
-          },
-          {
             name: "NodeJS",
             icon: <FaNodeJs color="#8CC84B" />,
-          },
-          {
-            name: "Svelte",
-            icon: <RiSvelteLine color="#fa5d2a" />,
           },
         ],
       },

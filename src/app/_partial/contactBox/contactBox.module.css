@@ -152,6 +152,31 @@
   );
 }
 
+.formContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.disabledForm {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: var(--color-accent-1);
+  flex-grow: 1;
+  color: var(--color-emphasis-medium);
+  padding: var(--spacing-4) 0;
+  margin: var(--spacing-0);
+  border: 1px solid var(--color-outline-grid);
+  border-bottom-left-radius: var(--spacing-0);
+  border-bottom-right-radius: var(--spacing-0);
+}
+
+.disabledForm > p {
+  text-align: center;
+}
+
 .submitConfirmation {
   --transition-time: 0.5s;
   position: absolute;

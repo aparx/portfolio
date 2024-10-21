@@ -94,7 +94,11 @@
         }
       },
       "submit": "Kontaktiere mich",
-      "floating": "Kontaktiere mich"
+      "floating": "Kontaktiere mich",
+      "disabled": {
+        "reason": "Aufträge sind aktuell geschlossen.",
+        "contact": "Bitte Kontaktiere mich via E-Mail oder Telefon."
+      }
     }
   }
 }

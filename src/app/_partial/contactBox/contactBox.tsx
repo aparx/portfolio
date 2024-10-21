@@ -61,13 +61,20 @@ export function ContactBox() {
             </ul>
           </footer>
         </div>
-        <section ref={ref} id="contact">
+        <section ref={ref} id="contact" className={css.formContainer}>
           <h5>
             <VisuallyHidden>Contact Form</VisuallyHidden>
             <SiTypescript />
             <span aria-hidden>contactForm.tsx</span>
           </h5>
-          <Form />
+          {process.env.NEXT_PUBLIC_COMMISSIONS_OPENED === "true" ? (
+            <Form />
+          ) : (
+            <div className={css.disabledForm}>
+              <p>{t("Contact.disabled.reason")}</p>
+              <p>{t("Contact.disabled.contact")}</p>
+            </div>
+          )}
         </section>
       </GridBox.Root>
       <Button

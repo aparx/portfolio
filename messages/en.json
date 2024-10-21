@@ -94,7 +94,11 @@
         }
       },
       "submit": "Contact me",
-      "floating": "Get in touch"
+      "floating": "Get in touch",
+      "disabled": {
+        "reason": "Commissions are currently closed.",
+        "contact": "Please contact me via E-Mail or Phone."
+      }
     }
   }
 }
