@@ -1,0 +1,155 @@
+.root {
+  position: relative;
+  background: transparent;
+}
+
+.root::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  bottom: 0;
+  height: 100%;
+  width: calc(50% - var(--spacing-5));
+  left: calc(25% + calc(var(--spacing-5) / 4));
+  border-left: var(--grid-border);
+  border-right: var(--grid-border);
+}
+
+.projectList {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--spacing-2);
+  list-style: none;
+  padding: unset;
+  margin: unset;
+}
+
+.project {
+  --transition-time: 0.3s;
+  padding: var(--spacing-1);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-1);
+  border-radius: var(--spacing-1);
+  background: var(--color-accent-1);
+  border: 1px solid var(--color-outline-grid);
+  height: calc(100% - calc(2 * var(--spacing-1)));
+}
+
+.project > a {
+  position: relative;
+  aspect-ratio: 3 / 1;
+  border-radius: var(--spacing-0);
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  background: rgba(255, 255, 255, 0.25);
+  overflow: hidden;
+  margin: 2px;
+  cursor: pointer;
+}
+
+.project > a > img {
+  filter: grayscale(1);
+  transition: var(--transition-time);
+  will-change: filter, scale, transform;
+  transform-origin: top center;
+}
+
+.project > a:hover > img,
+.project > a:focus-visible > img {
+  filter: unset;
+  scale: 1.05;
+  transform: translateY(-1px);
+}
+
+.project > a > div:last-child {
+  position: absolute;
+  inset: 0;
+  box-shadow: inset 0 0 0 1px var(--color-outline-grid);
+  border-radius: inherit;
+}
+
+.project > a::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent, var(--color-accent-1));
+  transition: var(--transition-time) background;
+}
+
+.project > a:hover::after,
+.project > a:focus-visible::after {
+  background: linear-gradient(
+    to bottom,
+    color-mix(in srgb, var(--color-state-hover), transparent 50%),
+    var(--color-accent-1)
+  );
+}
+
+.project > div {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-0);
+  padding: var(--spacing-1);
+}
+
+.project > div > p {
+  font-size: var(--fs-1);
+  color: var(--color-emphasis-medium);
+}
+
+.project h4 {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+}
+
+.project h4 ul {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-1);
+  list-style: none;
+  color: var(--color-emphasis-medium);
+  margin: unset;
+  padding: unset;
+}
+
+.project h4 ul a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.project h4 ul li {
+  line-height: 0;
+}
+
+.project h4 ul li:hover {
+  color: var(--color-emphasis-high);
+}
+
+.project > footer {
+  display: flex;
+  gap: var(--spacing-1);
+}
+
+.linkItem {
+  position: absolute;
+  z-index: 1;
+  top: var(--spacing-1);
+  right: var(--spacing-1);
+  font-size: 1.5rem;
+  color: var(--color-emphasis-medium);
+  transition: var(--transition-time) color;
+}
+
+.project > a:hover .linkItem,
+.project > a:focus-visible .linkItem {
+  color: var(--color-emphasis-high);
+}
+
+@media screen and (max-width: 540px) {
+  .root::before {
+    content: none;
+  }
+}

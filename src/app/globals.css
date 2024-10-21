@@ -1,0 +1,111 @@
+:root {
+  color-scheme: dark;
+
+  /** <---> Opacities <---> */
+  --emphasis-high: 1;
+  --emphasis-medium: 0.8;
+  --emphasis-low: 0.37;
+
+  /** <---> Colors <---> */
+  --color-primary: #64b5e2;
+  --color-primary-darkest: #09161d;
+  --color-accent-0: #000000;
+  --color-accent-1: #0c0c0c;
+  --color-accent-2: #131313;
+  --color-accent-3: #202020;
+  --color-accent-4: #343434;
+  --color-emphasis-high: rgba(230, 230, 230, var(--emphasis-high));
+  --color-emphasis-medium: rgba(230, 230, 230, var(--emphasis-medium));
+  --color-emphasis-low: rgba(230, 230, 230, var(--emphasis-low));
+  --color-outline-grid: #212121;
+  --color-outline-card: #ffffff2a;
+  --color-destructive: #f72424;
+  --color-destructive-darker: #881717;
+  --color-destructive-darkest: rgb(31, 12, 12);
+  --color-destructive-lighter: rgb(247, 126, 126);
+
+  /** <---> Spacing <---> */
+  --spacing-0: 5px;
+  --spacing-1: 10px;
+  --spacing-2: 15px;
+  --spacing-3: 20px;
+  --spacing-4: 30px;
+  --spacing-5: 45px;
+
+  /** <---> Font size <---> */
+  --fs-base: 0.875rem;
+  --fs-0: 0.857rem;
+  --fs-1: 1rem;
+  --fs-2: 1.143rem;
+  --fs-3: 1.571rem;
+  --fs-4: 2.2rem;
+
+  /** <---> State <---> */
+  --color-state-hover: rgba(255, 255, 255, 0.1);
+  --color-state-focus: rgba(255, 255, 255, 0.05);
+}
+
+html {
+  box-sizing: border-box;
+  font-size: var(--fs-base);
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-accent-0);
+  color: var(--color-emphasis-high);
+  font-size: var(--fs-1);
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  line-height: 1.647em;
+  margin: unset;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+h6 {
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  font-size: var(--fs-4);
+  font-weight: 600;
+  line-height: 1.445em;
+  letter-spacing: -0.02em;
+}
+
+h2 {
+  font-size: var(--fs-3);
+  font-weight: 600;
+  line-height: 1.445em;
+  letter-spacing: -0.01em;
+}
+
+h3 {
+  font-size: var(--fs-3);
+  font-weight: 500;
+  line-height: 1.445em;
+  letter-spacing: -0.01em;
+}
+
+h4 {
+  font-size: var(--fs-2);
+  font-weight: 550;
+  line-height: 1.445em;
+  letter-spacing: 0em;
+}
+
+strong {
+  font-weight: 500;
+}
+
+@media screen and (max-width: 540px) {
+  html {
+    font-size: calc(0.85 * var(--fs-base));
+  }
+}

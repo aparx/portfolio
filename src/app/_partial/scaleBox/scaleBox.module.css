@@ -1,0 +1,154 @@
+.container {
+  --column-gap: var(--spacing-2);
+  --row-gap: var(--spacing-0);
+  --connect-thickness: 1px;
+  --connect-color: var(--color-accent-4);
+  --client-send-duration: 3s;
+  --connect-color-animation: connectSendData 3s infinite;
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  column-gap: var(--column-gap);
+  row-gap: var(--spacing-0);
+  position: relative;
+  height: 200px;
+}
+
+@media screen and (max-width: 500px) {
+  .container {
+    --column-gap: var(--spacing-1);
+  }
+}
+
+.clientContainer {
+  position: relative;
+  grid-column: 1 / 6;
+  grid-row: 1 / -1;
+  display: grid;
+  grid-template-rows: subgrid;
+  grid-template-columns: subgrid;
+}
+
+.clientContainer::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  right: calc(-1 * var(--column-gap) - var(--connect-thickness));
+  background: linear-gradient(
+    to bottom,
+    transparent 50%,
+    var(--color-accent-0)
+  );
+  pointer-events: none;
+}
+
+.client {
+  position: relative;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--color-outline-grid);
+  border-radius: vaR(--spacing-0);
+  color: var(--color-emphasis-low);
+  animation: clientSendData var(--client-send-duration) infinite;
+}
+
+.client::before {
+  content: "";
+  position: absolute;
+  width: var(--column-gap);
+  height: var(--connect-thickness);
+  left: calc(100% + 1px);
+  background: var(--connect-color);
+  animation: var(--connect-color-animation);
+}
+
+.client:nth-child(5n)::after {
+  content: "";
+  position: absolute;
+  left: calc(100% + 1px + var(--column-gap));
+  height: calc(100% + 2 * var(--row-gap));
+  background: var(--connect-color);
+  animation: var(--connect-color-animation);
+  width: var(--connect-thickness);
+}
+
+.client:nth-child(5)::after {
+  top: 50%;
+}
+
+.client:last-child::after {
+  bottom: calc(50% - 1px);
+}
+
+.serverContainer {
+  position: relative;
+  grid-column: 6 / -1;
+  grid-row: 1 / -1;
+  display: grid;
+  place-items: center;
+}
+
+.serverContainer::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 50%;
+  height: var(--connect-thickness);
+  background: var(--connect-color);
+  animation: var(--connect-color-animation);
+}
+
+.server {
+  position: relative;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--color-outline-grid);
+  border-radius: vaR(--spacing-0);
+  width: fit-content;
+  height: fit-content;
+  padding: var(--spacing-1);
+  background: color-mix(
+    in srgb,
+    var(--color-accent-1),
+    var(--color-primary-darkest) 20%
+  );
+  color: var(--color-emphasis-medium);
+  box-shadow: 0px 0px 40px 5px var(--color-primary-darkest);
+  animation: serverReceiveData var(--client-send-duration) infinite;
+}
+
+@keyframes serverReceiveData {
+  40%,
+  90% {
+    color: var(--color-emphasis-medium);
+  }
+  60%,
+  80% {
+    color: var(--color-primary);
+  }
+}
+
+@keyframes connectSendData {
+  40%,
+  90% {
+    background: var(--connect-color);
+  }
+  60%,
+  80% {
+    background: var(--color-primary);
+  }
+}
+
+@keyframes clientSendData {
+  30% {
+    color: var(--color-emphasis-low);
+  }
+  50% {
+    color: var(--color-primary);
+  }
+  80% {
+    color: var(--color-emphasis-low);
+  }
+}

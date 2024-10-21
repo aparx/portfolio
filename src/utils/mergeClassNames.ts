@@ -1,6 +1,7 @@
 import { Primitive } from "./types";
 
 export function mergeClassNames(...args: Primitive[]): string | undefined {
-  const strings = args.filter((x): x is string => typeof x === "string");
+  // Note: we accept primitives for class names that depend on truthy conditions
+  const strings = args.filter((x) => typeof x === "string");
   return strings.length !== 0 ? strings.join(" ") : undefined;
 }

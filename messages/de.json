@@ -1,7 +1,7 @@
 {
   "index": {
     "Intro": {
-      "subtitle": "Fullstack Entwickler & UI/UX Designer",
+      "subtitle": "Fullstack Entwickler & UI/UX",
       "timeline": {
         "2003": {
           "title": "Geboren in NRW, Deutschland",
@@ -13,18 +13,18 @@
         },
         "2017": {
           "title": "Desktop und Game development",
-          "description": "Entwicklung umfangreicher Projekte mit Java und C++, die letztlich von Tausenden von Nutzern verwendet wurden. Zusätzlich tauchte ich in die Welt des Reverse Engineering ein."
+          "description": "Entwicklung umfangreicher Projekte mit Java, die letztlich von Tausenden von Nutzern verwendet wurden. Zusätzlich tauchte ich in die Welt des Reverse Engineering ein."
         },
         "2019": {
           "title": "Fullstack Entwicklung",
-          "description": "Full-Stack-Webentwicklung, anfangs mit PHP und dem Laravel-Framework und anschließend erweiterte ich mein Fachwissen auf verschiedene Frontend und Backend Frameworks."
+          "description": "Anfangs mit PHP und dem Laravel-Framework und anschließend erweiterte ich mein Fachwissen auf verschiedene Frontend und Backend Frameworks mit Tendenz zu React und NextJS."
         }
       }
     },
     "Frontend": {
       "title": "Frontend Entwicklung",
       "subtitle": "Von Konzepierung, bis Endprodukt.",
-      "intro": "Erschaffen von Nutzererlebnissen"
+      "intro": "Barrierefreie Nutzererlebnisse"
     },
     "Backend": {
       "title": "Backend Entwicklung",
@@ -37,20 +37,29 @@
       "intro": "Verschiedene Sprachen, Frameworks und Tools.",
       "outro": "Fehlt etwas? Kontaktiere mich.",
       "categories": {
-        "0": "Web Frameworks",
-        "1": "Präferierte Sprachen",
-        "2": "Design und Tools"
+        "0": "Frameworks",
+        "1": "Technologien",
+        "2": "Entwicklungstools"
       }
     },
     "Passion": {
       "title": "Leidenschaft ist garantiert. Immer.",
       "subtitle": "Meine Leidenschaft ist ein ständiger Motivator.",
-      "intro": "Qualitätsversprechen"
+      "intro": "Qualitätsversprechen",
+      "status": {
+        "error": "Syntax Fehler",
+        "compiling": "Kompilieren",
+        "compiled": "Kompiliert"
+      }
     },
     "Scale": {
       "title": "Von mittelgroß bis ganz groß.",
       "subtitle": "Jegliche Skalierung, ich mach es.",
-      "intro": "Variierende Komplexität und Skalierung"
+      "intro": "Variierende Komplexität und Skalierung",
+      "chart": {
+        "users": "# Nutzer",
+        "invocations": "# Aufrufe"
+      }
     },
     "Projects": {
       "title": "Aktuelle Beispielprojekte",
@@ -59,12 +68,36 @@
       "projects": {
         "portfolio": {
           "title": "Portfolio",
-          "description": "Mein ganz eigenes, einfaches Portfolio. Es wurde mit NextJS 14.1 und CSS Modules erstellt und innerhalb weniger als einer Woche Arbeit fertiggestellt, einschließlich UI- und UX-Design. Das Hauptziel war es, ein vertrautes Gefühl für andere Entwicklerteams und eine professionelle Umgebung zu bieten."
+          "description": "Mein persönliches Portfolio, erstellt mit NextJS 14.1 und CSS Modules, wurde in weniger als einer Woche fertiggestellt und seitdem kontinuierlich verbessert. Der Fokus liegt darauf, eine vertraute und professionelle Erfahrung für Entwicklerteams zu bieten, mit besonderem Augenmerk auf UI- und UX-Design. Neben der Präsentation meiner Projekte und Skills dient es auch als persönliche Spielwiese für neue Ideen."
         },
         "roadone30": {
           "title": "roadone30",
-          "description": "Roadone30 ist eine deutsche Mowtown-Musikgruppe, die mich 2019 gebeten hat, ihre Website zu erstellen, und dies dauert bis heute an. Sie verfügt über einen individuell gestalteten Blog, Songlisten, Threads, eine Galerie und mehr. Realisiert mit NextJS, Planetscale (MySQL), Prisma, TRPC und Cloudflare R2 S3-Storage."
+          "description": "Roadone30 ist eine deutsche Mowtown-Musikgruppe, für die ich seit 2019 mehrere Projekte entwickle. Dieses Projekt umfasste Blogs, Songlisten, Threads, Galerien und mehr, realisiert mit NextJS 12, Planetscale (MySQL), Prisma, tRPC, NextAuth und Cloudflare R2. Die Seite ist inzwischen offline, da sich Anforderungen geändert haben. Das Projekt zeigt meine frühere Arbeit und meinen Entwicklungsweg."
         }
+      }
+    },
+    "Contact": {
+      "title": "Kontaktiere mich",
+      "subtitle": "Lass uns unsere Reise antreten und ein unverbindliches Gespräch haben.",
+      "fields": {
+        "email": {
+          "label": "E-Mail",
+          "placeholder": "beispiel@vizeb.dev"
+        },
+        "subject": {
+          "label": "Betreff",
+          "placeholder": "Kostenvoranschlag für Projektidee"
+        },
+        "details": {
+          "label": "Details",
+          "placeholder": "Also, ich habe da diese Idee ..."
+        }
+      },
+      "submit": "Kontaktiere mich",
+      "floating": "Kontaktiere mich",
+      "disabled": {
+        "reason": "Aufträge sind aktuell geschlossen.",
+        "contact": "Bitte kontaktiere mich via E-Mail oder Telefon."
       }
     }
   }

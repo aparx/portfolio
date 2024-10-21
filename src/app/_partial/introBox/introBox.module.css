@@ -1,0 +1,209 @@
+.root {
+  --root-background: var(--color-accent-1);
+  display: grid;
+  grid-template-columns: 2fr minmax(300px, 0.7fr);
+  background: var(--root-background);
+  border: var(--grid-border);
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+  padding: var(--spacing-5);
+  border-right: var(--grid-border);
+}
+
+/** Portrait image wrapper (parent of container) */
+.portrait {
+  display: flex;
+  position: relative;
+  margin: var(--spacing-1);
+}
+
+/** Portrait image container (direct parent of image) */
+.image {
+  position: relative;
+  border: var(--grid-border);
+  border-radius: var(--spacing-0);
+  overflow: hidden;
+  filter: grayscale(30%);
+  flex-grow: 1;
+}
+
+.image::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    transparent calc(100% - calc(2 * var(--spacing-5))),
+    var(--root-background)
+  );
+  touch-action: none;
+}
+
+.portraitOverlay {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+  list-style: none;
+  right: var(--spacing-1);
+  bottom: var(--spacing-1);
+  margin: unset;
+  padding: var(--spacing-1);
+  background: var(--color-accent-2);
+  border: var(--grid-border);
+  border-radius: var(--spacing-0);
+}
+
+.portraitOverlay li {
+  line-height: 100%;
+}
+
+.portraitOverlay li a {
+  color: var(--color-emphasis-medium);
+  text-decoration: none;
+}
+
+.portraitOverlay li a:hover {
+  color: var(--color-emphasis-high);
+}
+
+/** Timeline list */
+.timeline {
+  position: relative;
+  list-style: none;
+  margin: unset;
+  padding: unset;
+}
+
+/** Timeline element */
+.timeline li {
+  display: flex;
+  gap: var(--spacing-3);
+}
+
+.timeline time {
+  color: var(--color-emphasis-medium);
+}
+
+/** Timeline line */
+.timelineLine {
+  --blob-size: 0.8em;
+  position: relative;
+  flex: 0 0 2px;
+}
+
+/** Timeline element line */
+.timelineLine::before {
+  content: "";
+  position: absolute;
+  width: 2px;
+  height: 100%;
+  background: var(--color-primary);
+}
+
+/** Timeline element blob */
+.timelineLine::after {
+  content: "";
+  box-sizing: border-box;
+  position: absolute;
+  width: var(--blob-size);
+  height: var(--blob-size);
+  background: var(--root-background);
+  border-radius: 100%;
+  border: 2px solid var(--color-primary);
+  left: 50%;
+  transform: translateX(-50%) translateY(calc(var(--blob-size) / 2));
+}
+
+/* Remove leading line in the timeline for the first element */
+.timeline li:first-child .timelineLine::before {
+  top: var(--blob-size);
+}
+
+.timeline li:first-child .timelineLine::after {
+  border-radius: 0;
+}
+
+.timeline li:first-child h4 {
+  color: var(--color-primary);
+}
+
+.timeline li:last-child .timelineLine::after {
+  animation: blob-animation 1s infinite;
+}
+
+/** Dots overlayed on the timeline line, representing an ellpisis */
+.timelineEllipsis {
+  bottom: 0;
+}
+
+.timelineEllipsis,
+.timelineEllipsis::before,
+.timelineEllipsis::after {
+  --dot-size: 5px;
+  --dot-gap: 5px;
+  position: absolute;
+  background: var(--root-background);
+  width: 2px;
+  height: var(--dot-size);
+  bottom: var(--dot-gap);
+}
+
+.timelineEllipsis::before {
+  content: "";
+  transform: translateY(calc(-1 * var(--dot-gap)));
+}
+
+.timelineEllipsis::after {
+  content: "";
+  transform: translateY(calc(calc(-2 * var(--dot-gap)) - var(--dot-size)));
+}
+
+/** Timeline element content (title & description) */
+.timelineContent {
+  position: relative;
+}
+
+.timelineContent p {
+  margin-top: 2px;
+  color: var(--color-emphasis-medium);
+}
+
+/* Applies a gap-like negative space to the timeline elements */
+.timeline li:not(:last-child) .timelineContent {
+  padding-bottom: var(--spacing-2);
+}
+
+@media screen and (max-width: 700px) {
+  .root {
+    grid-template-columns: 1fr;
+  }
+
+  .content {
+    border-right: unset;
+  }
+
+  .portrait {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .content {
+    padding: var(--spacing-4);
+    gap: var(--spacing-4);
+  }
+}
+
+@keyframes blob-animation {
+  from {
+    box-shadow: 0 0 0 0px var(--color-primary);
+  }
+  to {
+    box-shadow: 0 0 0 4px transparent;
+  }
+}
