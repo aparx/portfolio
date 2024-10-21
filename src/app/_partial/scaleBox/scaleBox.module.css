@@ -2,11 +2,9 @@
   --column-gap: var(--spacing-2);
   --row-gap: var(--spacing-0);
   --connect-thickness: 1px;
-  --connect-color: color-mix(
-    in srgb,
-    var(--color-emphasis-high) 50%,
-    var(--color-accent-0)
-  );
+  --connect-color: var(--color-accent-4);
+  --client-send-duration: 3s;
+  --connect-color-animation: connectSendData 3s infinite;
   position: relative;
   display: grid;
   grid-template-columns: repeat(8, 1fr);
@@ -52,7 +50,7 @@
   border: 1px solid var(--color-outline-grid);
   border-radius: vaR(--spacing-0);
   color: var(--color-emphasis-low);
-  animation: clientSendData 3s infinite;
+  animation: clientSendData var(--client-send-duration) infinite;
 }
 
 .client::before {
@@ -62,6 +60,7 @@
   height: var(--connect-thickness);
   left: calc(100% + 1px);
   background: var(--connect-color);
+  animation: var(--connect-color-animation);
 }
 
 .client:nth-child(5n)::after {
@@ -70,6 +69,7 @@
   left: calc(100% + 1px + var(--column-gap));
   height: calc(100% + 2 * var(--row-gap));
   background: var(--connect-color);
+  animation: var(--connect-color-animation);
   width: var(--connect-thickness);
 }
 
@@ -95,8 +95,9 @@
   top: 50%;
   left: 0;
   right: 50%;
-  background: var(--connect-color);
   height: var(--connect-thickness);
+  background: var(--connect-color);
+  animation: var(--connect-color-animation);
 }
 
 .server {
@@ -113,7 +114,31 @@
     var(--color-accent-1),
     var(--color-primary-darkest) 20%
   );
+  color: var(--color-emphasis-medium);
   box-shadow: 0px 0px 40px 5px var(--color-primary-darkest);
+  animation: serverReceiveData var(--client-send-duration) infinite;
+}
+
+@keyframes serverReceiveData {
+  40%,
+  90% {
+    color: var(--color-emphasis-medium);
+  }
+  60%,
+  80% {
+    color: var(--color-primary);
+  }
+}
+
+@keyframes connectSendData {
+  40%,
+  90% {
+    background: var(--connect-color);
+  }
+  60%,
+  80% {
+    background: var(--color-primary);
+  }
 }
 
 @keyframes clientSendData {
