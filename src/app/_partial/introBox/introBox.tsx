@@ -4,7 +4,7 @@ import { TextFont } from "@/components";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import Link from "next/link";
-import { BsGithub, BsInstagram, BsTwitterX } from "react-icons/bs";
+import { BsGithub, BsInstagram } from "react-icons/bs";
 import css from "./introBox.module.css";
 
 export function IntroBox() {
@@ -63,11 +63,6 @@ function Portrait() {
         <li>
           <Link href="https://github.com/aparx">
             <BsGithub />
-          </Link>
-        </li>
-        <li>
-          <Link href="https://twitter.com/bonedfps">
-            <BsTwitterX />
           </Link>
         </li>
         <li>

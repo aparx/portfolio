@@ -1,7 +1,8 @@
 import { useTranslations } from "next-intl";
 import React, { useMemo } from "react";
 import { CgVercel } from "react-icons/cg";
-import { DiIllustrator, DiJava } from "react-icons/di";
+import { DiJava } from "react-icons/di";
+import { FaNodeJs, FaTools } from "react-icons/fa";
 import {
   FaCss3Alt,
   FaFigma,
@@ -9,10 +10,10 @@ import {
   FaGlobe,
   FaReact,
 } from "react-icons/fa6";
-import { FiFigma } from "react-icons/fi";
 import { IoLanguage } from "react-icons/io5";
 import { RiNextjsLine, RiSvelteLine } from "react-icons/ri";
 import {
+  SiHibernate,
   SiLaravel,
   SiPostgresql,
   SiPrisma,
@@ -56,11 +57,11 @@ export function useToolCategories() {
             icon: <SiLaravel color="#fa5d2a" />,
           },
           {
-            name: "Svelte",
-            icon: <RiSvelteLine color="#fa5d2a" />,
+            name: "NodeJS",
+            icon: <FaNodeJs color="#8CC84B" />,
           },
           {
-            name: "SvelteKit",
+            name: "Svelte",
             icon: <RiSvelteLine color="#fa5d2a" />,
           },
         ],
@@ -89,15 +90,15 @@ export function useToolCategories() {
       },
       {
         name: t("Languages.categories.2"),
-        icon: <FiFigma />,
+        icon: <FaTools />,
         elements: [
           {
             name: "Figma",
             icon: <FaFigma />,
           },
           {
-            name: "Illustrator",
-            icon: <DiIllustrator color="#F58219" />,
+            name: "Hibernate",
+            icon: <SiHibernate />,
           },
           {
             name: "Vercel",
