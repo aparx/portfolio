@@ -2,7 +2,7 @@ import { useTranslations } from "next-intl";
 import React, { useMemo } from "react";
 import { CgVercel } from "react-icons/cg";
 import { DiJava } from "react-icons/di";
-import { FaNodeJs, FaTools } from "react-icons/fa";
+import { FaLaravel, FaNodeJs, FaPhp, FaTools } from "react-icons/fa";
 import {
   FaCss3Alt,
   FaFigma,
@@ -10,6 +10,7 @@ import {
   FaGlobe,
   FaReact,
 } from "react-icons/fa6";
+import { GrGraphQl, GrMysql } from "react-icons/gr";
 import { IoLanguage } from "react-icons/io5";
 import { RiNextjsLine } from "react-icons/ri";
 import {
@@ -62,7 +63,7 @@ export function useToolCategories() {
         icon: <IoLanguage />,
         elements: [
           {
-            name: "Typescript",
+            name: "TypeScript",
             icon: <SiTypescript color="#64B5E2" />,
           },
           {
@@ -70,12 +71,20 @@ export function useToolCategories() {
             icon: <DiJava />,
           },
           {
-            name: "PL/pgSQL",
+            name: "PostgreSQL",
             icon: <SiPostgresql />,
+          },
+          {
+            name: "MySQL",
+            icon: <GrMysql />,
           },
           {
             name: "Sass/CSS",
             icon: <FaCss3Alt />,
+          },
+          {
+            name: "PHP",
+            icon: <FaPhp color="#787CB4" />,
           },
         ],
       },
