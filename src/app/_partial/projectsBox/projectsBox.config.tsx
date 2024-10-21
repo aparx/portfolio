@@ -1,4 +1,8 @@
+import portfolioPreviewImage from "@/../public/projects/portfolio.png";
+import roadonePreviewImage from "@/../public/projects/roadone.png";
+
 import { useTranslations } from "next-intl";
+import { StaticImageData } from "next/image";
 import { IconBaseProps } from "react-icons";
 import { BsGithub } from "react-icons/bs";
 import { FiFigma } from "react-icons/fi";
@@ -6,6 +10,7 @@ import { FiFigma } from "react-icons/fi";
 export interface ProjectData {
   title: string;
   description: string;
+  image: StaticImageData;
   href?: string;
   links?: ReadonlyArray<{
     type: ProjectLinkType;
@@ -26,6 +31,7 @@ export function useProjectsConfig(): ReadonlyArray<Readonly<ProjectData>> {
     {
       title: t("portfolio.title"),
       description: t("portfolio.description"),
+      image: portfolioPreviewImage,
       href: "/",
       links: [
         {
@@ -37,7 +43,14 @@ export function useProjectsConfig(): ReadonlyArray<Readonly<ProjectData>> {
     {
       title: t("roadone30.title"),
       description: t("roadone30.description"),
-      href: "/",
+      image: roadonePreviewImage,
+      href: "https://github.com/aparx/legacy-roadone",
+      links: [
+        {
+          type: "github",
+          href: "https://github.com/aparx/legacy-roadone",
+        },
+      ],
     },
   ];
 }

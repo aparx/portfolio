@@ -1,4 +1,3 @@
-import portfolioPreviewImage from "@/../public/projects/portfolio.png";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import Link from "next/link";
@@ -35,12 +34,12 @@ export function ProjectsBox() {
   );
 }
 
-function Project({ title, description, href, links }: ProjectData) {
+function Project({ title, description, href, links, image }: ProjectData) {
   return (
     <article className={css.project}>
       <Link href={href ?? "/"} aria-label="Link to project">
         <Image
-          src={portfolioPreviewImage}
+          src={image}
           alt="Preview Image"
           fill
           style={{
