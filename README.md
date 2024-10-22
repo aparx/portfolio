@@ -1,4 +1,7 @@
-This is my very own portfolio. <br /><br />
+# Portfolio
+![Screenshot_18](https://github.com/user-attachments/assets/70fec6f1-eedf-4c63-a280-aa902ea8bdf9)
+<br /><br />
+This is my very own portfolio.
 Realised with **NextJS** and good old **CSS Modules**, it's simple yet designed intuitively. Even tho some layout inspiration comes from Vercel, everything is designed and made from scratch by me.
 
 ## What is this portfolio about?
