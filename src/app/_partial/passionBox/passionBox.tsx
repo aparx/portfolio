@@ -3,7 +3,7 @@ import { useTranslations } from "next-intl";
 import { CgSpinner } from "react-icons/cg";
 import { IoMdCheckmark } from "react-icons/io";
 import { MdErrorOutline, MdVerified } from "react-icons/md";
-import { PiCursorFill } from "react-icons/pi";
+import { PiCursorBold, PiCursorClick, PiCursorClickFill, PiCursorDuotone, PiCursorFill } from "react-icons/pi";
 import { VscVscode } from "react-icons/vsc";
 import css from "./passionBox.module.css";
 

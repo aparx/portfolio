@@ -4,7 +4,10 @@ import { useTranslations } from "next-intl";
 import { useMemo } from "react";
 import { FaServer, FaUserAlt } from "react-icons/fa";
 import { FaArrowTrendUp } from "react-icons/fa6";
+import { TbLoadBalancer } from "react-icons/tb";
 import css from "./scaleBox.module.css";
+import { RiFlowChart } from "react-icons/ri";
+import { IoMdCloudOutline } from "react-icons/io";
 
 export function ScaleBox() {
   const t = useTranslations("index.Scale");
@@ -38,6 +41,11 @@ export function ScaleBox() {
         <div className={css.serverContainer}>
           <div className={css.server}>
             <FaServer style={{ fontSize: "1.5em" }} />
+          </div>
+          <div className={css.server}>
+            <IoMdCloudOutline style={{ fontSize: "1.5em" }} />
+          </div>
+          <div className={css.server}>
             <FaServer style={{ fontSize: "1.5em" }} />
           </div>
         </div>
