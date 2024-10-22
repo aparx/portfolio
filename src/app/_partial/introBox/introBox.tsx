@@ -59,7 +59,7 @@ function Portrait() {
           style={{ objectPosition: "top center", objectFit: "cover" }}
         />
       </div>
-      <ul className={css.portraitOverlay}>
+      <ul className={css.portraitOverlay} aria-label="Social media">
         <li>
           <Link href="https://github.com/aparx">
             <BsGithub />
