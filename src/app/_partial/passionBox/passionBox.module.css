@@ -26,13 +26,13 @@
   font-weight: 500;
   bottom: calc(-1 * var(--spacing-1));
   right: calc(-1 * var(--spacing-1));
-  padding: var(--spacing-1) var(--spacing-2);
+  padding: var(--spacing-1) var(--spacing-1);
   width: var(--status-width);
   height: var(--status-height);
-  background: var(--color-accent-2);
+  background: var(--color-accent-1);
   border: var(--grid-border);
-  border-radius: 99px;
-  box-shadow: 0 0 var(--spacing-0) var(--color-accent-1);
+  border-radius: var(--spacing-1);
+  box-shadow: 0 0 0 var(--spacing-0) var(--color-accent-0);
   overflow: hidden;
 }
 
@@ -42,7 +42,7 @@
   z-index: 1;
   inset: 0;
   height: var(--spacing-1);
-  background: linear-gradient(to top, transparent, var(--color-accent-2));
+  background: linear-gradient(to top, transparent, var(--color-accent-1));
 }
 
 .editorStatus::after {
@@ -51,7 +51,7 @@
   z-index: 1;
   inset: 0;
   top: calc(100% - var(--spacing-1));
-  background: linear-gradient(to bottom, transparent, var(--color-accent-2));
+  background: linear-gradient(to bottom, transparent, var(--color-accent-1));
 }
 
 /** Status wrapper */
