@@ -96,16 +96,23 @@
 .query {
   position: absolute;
   display: flex;
+  align-items: center;
   gap: var(--spacing-0);
   bottom: calc(-1 * var(--spacing-1));
   right: calc(-1 * var(--spacing-1));
   z-index: 1;
-  background: var(--color-accent-2);
-  padding: var(--spacing-1) var(--spacing-2);
+  background: var(--color-accent-1);
+  padding: var(--spacing-1) var(--spacing-1);
   border: var(--grid-border);
-  border-radius: 99px;
+  border-radius: var(--spacing-1);
   color: var(--color-emphasis-medium);
-  box-shadow: 0 0 var(--spacing-1) var(--color-accent-1);
+  box-shadow: 0 0 0 var(--spacing-0) var(--color-accent-0);
+}
+
+.query > *:first-child {
+  color: var(--color-emphasis-low);
+  font-size: 1.15em;
+  margin-right: var(--spacing-0);
 }
 
 .query span[data-keyword="word"] {

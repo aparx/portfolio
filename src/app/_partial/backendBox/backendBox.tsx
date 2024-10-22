@@ -3,6 +3,7 @@ import { TextFont } from "@/components";
 import { useTranslations } from "next-intl";
 import { BsDatabase } from "react-icons/bs";
 import css from "./backendBox.module.css";
+import { MdOutlineSubdirectoryArrowRight } from "react-icons/md";
 
 const rows: Array<[string, Date]> = [
   ["Nathan", new Date()],
@@ -53,6 +54,7 @@ export function BackendBox() {
           </table>
         </div>
         <div className={css.query}>
+          <MdOutlineSubdirectoryArrowRight />
           <span data-keyword="word">SELECT</span>
           <span data-keyword="*">*</span>
           <span data-keyword="word">FROM</span>
