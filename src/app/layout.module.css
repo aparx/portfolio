@@ -1,5 +1,5 @@
 .background {
-  position: absolute;
+  position: fixed;
   width: calc(100dvw - calc(2 * var(--spacing-1)));
   height: 100dvh;
   left: 50%;
@@ -13,7 +13,9 @@
     linear-gradient(90deg, var(--color-emphasis-high) 1px, transparent 1px);
   background-size: 50px 50px;
   background-position: -1px -1px;
-  animation: backgroundFadeIn 1s forwards;
+  animation: backgroundMove linear;
+  animation-timeline: scroll(y root);
+  animation-range: 0 100%;
 }
 
 .background::before {
@@ -27,8 +29,12 @@
   );
 }
 
-@keyframes backgroundFadeIn {
+@keyframes backgroundMove {
   from {
+    transform: 0;
+  }
+  to {
+    transform: translate(-50%, -300px);
     opacity: 0;
   }
 }

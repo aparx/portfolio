@@ -23,6 +23,8 @@
   --color-destructive-darker: #881717;
   --color-destructive-darkest: rgb(31, 12, 12);
   --color-destructive-lighter: rgb(247, 126, 126);
+  
+  --max-page-width: 940px;
 
   /** <---> Spacing <---> */
   --spacing-0: 5px;
