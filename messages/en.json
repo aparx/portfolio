@@ -73,6 +73,10 @@
         "roadone30": {
           "title": "roadone30",
           "description": "Roadone30 is a German Motown music group for whom I developed multiple projects since 2019. It featured a blog, song lists, threads, a gallery, and more, built with NextJS 12, Planetscale (MySQL), Prisma, tRPC, NextAuth, and Cloudflare R2. The site is now offline due to changing requirements. This project reflects my earlier work and development as a programmer."
+        },
+        "urlshortener": {
+          "title": "url-shortener",
+          "description": "This secure URL shortener offers features such as expiration times, one-time use, and password protection, using AES encryption for enhanced data security. Developed with NextJS 15, Drizzle, and SQLite, the project demonstrates the implementation of modern database management, encryption, and frontend design."
         }
       }
     },
