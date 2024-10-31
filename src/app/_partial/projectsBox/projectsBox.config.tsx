@@ -1,5 +1,6 @@
 import portfolioPreviewImage from "@/../public/projects/portfolio.png";
 import roadonePreviewImage from "@/../public/projects/roadone.png";
+import shortenerPreviewImage from "@/../public/projects/urlshortener.png";
 
 import { useTranslations } from "next-intl";
 import { StaticImageData } from "next/image";
@@ -49,6 +50,18 @@ export function useProjectsConfig(): ReadonlyArray<Readonly<ProjectData>> {
         {
           type: "github",
           href: "https://github.com/aparx/legacy-roadone",
+        },
+      ],
+    },
+    {
+      title: t("urlshortener.title"),
+      description: t("urlshortener.description"),
+      image: shortenerPreviewImage,
+      href: "https://github.com/aparx/url-shortener",
+      links: [
+        {
+          type: "github",
+          href: "https://github.com/aparx/url-shortener",
         },
       ],
     },
