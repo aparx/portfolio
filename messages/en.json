@@ -33,7 +33,7 @@
     },
     "Languages": {
       "title": "I speak many languages.",
-      "subtitle": "{name}, is one.",
+      "subtitle": ", is one.",
       "intro": "Different languages, frameworks and tools",
       "outro": "Missing something? Hit me up!",
       "categories": {

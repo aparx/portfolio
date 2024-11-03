@@ -72,6 +72,7 @@
 
 .container tr[data-selected="true"] td {
   color: var(--color-emphasis-medium);
+  background: var(--color-accent-2);
 }
 
 .container tr > th:first-child::before,
