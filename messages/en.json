@@ -83,26 +83,8 @@
     "Contact": {
       "title": "Get in touch with me",
       "subtitle": "Let's start our journey and have a non-binding chat.",
-      "fields": {
-        "email": {
-          "label": "Email",
-          "placeholder": "example@vizeb.dev"
-        },
-        "subject": {
-          "label": "Subject",
-          "placeholder": "Estimated costs for custom solution"
-        },
-        "details": {
-          "label": "Details",
-          "placeholder": "So I have this Idea ..."
-        }
-      },
       "submit": "Contact me",
-      "floating": "Get in touch",
-      "disabled": {
-        "reason": "Commissions are currently closed.",
-        "contact": "Please contact me via E-Mail or Phone."
-      }
+      "floating": "Get in touch"
     }
   }
 }

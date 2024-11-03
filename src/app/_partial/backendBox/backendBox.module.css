@@ -45,6 +45,16 @@
   overflow: hidden;
 }
 
+.container th > div {
+  display: flex;
+  gap: var(--spacing-0);
+  align-items: center;
+}
+
+.container th > div > *:first-child {
+  color: var(--color-emphasis-low);
+}
+
 .container th,
 .container td {
   border: var(--grid-border);

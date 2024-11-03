@@ -83,26 +83,8 @@
     "Contact": {
       "title": "Kontaktiere mich",
       "subtitle": "Lass uns unsere Reise antreten und ein unverbindliches Gespräch haben.",
-      "fields": {
-        "email": {
-          "label": "E-Mail",
-          "placeholder": "beispiel@vizeb.dev"
-        },
-        "subject": {
-          "label": "Betreff",
-          "placeholder": "Kostenvoranschlag für Projektidee"
-        },
-        "details": {
-          "label": "Details",
-          "placeholder": "Also, ich habe da diese Idee ..."
-        }
-      },
       "submit": "Kontaktiere mich",
-      "floating": "Kontaktiere mich",
-      "disabled": {
-        "reason": "Aufträge sind aktuell geschlossen.",
-        "contact": "Bitte kontaktiere mich via E-Mail oder Telefon."
-      }
+      "floating": "Kontaktiere mich"
     }
   }
 }

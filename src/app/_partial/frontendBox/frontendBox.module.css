@@ -53,7 +53,7 @@
 /** Phone & Desktop header */
 .phone > div:first-child,
 .desktop > div:first-child {
-  --header-color: var(--color-accent-1);
+  --header-color: var(--color-accent-0);
   position: relative;
   height: var(--header-height);
   width: 100%;
