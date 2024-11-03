@@ -12,7 +12,7 @@ const rows: Array<string> = [
   "dvjr1310",
   "ByteCraftr",
   "RobertGrant",
-  "MasonLee"
+  "MasonLee",
 ];
 
 export function BackendBox() {
@@ -47,7 +47,7 @@ export function BackendBox() {
                       <td style={{ letterSpacing: "0.03em" }}>{name}</td>
                     </TextFont>
                     <td>
-                      <div className={css.birthDateSuspense} />
+                      <div className={css.hiddenCell} />
                     </td>
                   </tr>
                 </TextFont>
