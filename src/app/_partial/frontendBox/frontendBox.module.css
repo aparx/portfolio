@@ -205,9 +205,9 @@
 
 .content > * {
   height: var(--item-height);
-  background: var(--color-accent-3);
-  border-radius: 3px;
-  border: 1px solid var(--color-outline-card);
+  background: linear-gradient(to bottom right, var(--color-accent-3), var(--color-accent-2));
+  border-radius: var(--spacing-0);
+  border: 1px solid var(--color-accent-4);
   animation: content-scroll linear;
   animation-timeline: scroll(y root);
   animation-range: entry 250px exit;
