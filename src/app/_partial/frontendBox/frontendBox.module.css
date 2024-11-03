@@ -36,13 +36,13 @@
 .phone {
   position: absolute;
   top: calc(var(--header-height) + var(--spacing-1));
-  right: var(--spacing-1);
+  right: calc(-1px - var(--spacing-1));
   font-size: 0.9em;
   z-index: 1;
-  aspect-ratio: 1 / 1.65;
-  width: 29%;
+  aspect-ratio: 1 / 1.8;
+  width: 26%;
   max-width: 110px;
-  box-shadow: 0 0 var(--spacing-1) var(--color-accent-1);
+  box-shadow: 0 0 0 5px var(--color-accent-0);
 }
 
 .desktop {

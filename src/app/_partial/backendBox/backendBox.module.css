@@ -72,7 +72,6 @@
 
 .container tr[data-selected="true"] td {
   color: var(--color-emphasis-medium);
-  background: var(--color-accent-2);
 }
 
 .container tr > th:first-child::before,
@@ -92,6 +91,19 @@
 
 .container td {
   font-weight: 400;
+}
+
+.birthDateSuspense {
+  width: 250px;
+  height: 1em;
+  background: linear-gradient(
+    to bottom right,
+    var(--color-accent-3),
+    var(--color-accent-1)
+  );
+  padding: 0.25em;
+  border-radius: var(--spacing-0);
+  border: 1px solid var(--color-accent-4);
 }
 
 .query {
