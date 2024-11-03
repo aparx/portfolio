@@ -1,0 +1,24 @@
+.background {
+  position: fixed;
+  width: 100dvw;
+  height: 100dvh;
+  z-index: -1;
+  background: linear-gradient(var(--color-emphasis-high) 1px, transparent 1px),
+    linear-gradient(90deg, var(--color-emphasis-high) 1px, transparent 1px);
+  background-size: 50px 50px;
+  background-position: -1px -1px;
+  mask-image: radial-gradient(white, rgba(0, 0, 0, 0) 75%);
+  animation: backgroundMove linear;
+  animation-timeline: scroll(y root);
+  animation-range: 0 100%;
+}
+
+@keyframes backgroundMove {
+  from {
+    transform: 0;
+  }
+  to {
+    transform: translateY(-300px);
+    opacity: 0;
+  }
+}

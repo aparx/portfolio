@@ -2,6 +2,7 @@
 import { TextFont } from "@/components";
 import { useInterval } from "@/hooks";
 import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
+import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
 import { useEffect, useId, useRef, useState } from "react";
 import { useInView } from "react-intersection-observer";
@@ -18,6 +19,7 @@ export function SkillsBox() {
   const containerRef = useRef<HTMLDivElement>(null);
   const animationDeltaRef = useRef<"up" | "down">("down");
   const controlId = useId();
+  const layoutId = useId();
   const activeCategory = categories[active];
 
   useEffect(() => {
@@ -62,6 +64,13 @@ export function SkillsBox() {
           <fieldset className={css.selector} aria-label="Category Selector">
             {categories.map((category, i) => (
               <label key={category.name} data-active={i === active}>
+                {i === active && (
+                  <motion.span
+                    className={css.selectorAnimator}
+                    layoutId={layoutId}
+                    transition={{ type: "spring", bounce: 0.2, duration: 0.4 }}
+                  />
+                )}
                 <VisuallyHidden>
                   <input
                     type="radio"
