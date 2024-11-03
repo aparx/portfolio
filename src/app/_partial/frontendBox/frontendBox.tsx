@@ -23,7 +23,7 @@ export function FrontendBox() {
           <div>
             <div className={css.desktopUrl}>
               <MdLockOutline />
-              <span>great.app</span>
+              <span>aparx.dev</span>
             </div>
             <div>
               <span data-action="minimize" />
@@ -42,7 +42,7 @@ export function FrontendBox() {
 function FakeAppView() {
   return (
     <div>
-      Great App
+      My Portfolio
       <div className={css.content}>
         {Array.from({ length: 20 }, (_, i) => (
           <div key={i} />

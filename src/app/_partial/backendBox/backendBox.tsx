@@ -2,17 +2,17 @@ import { GridBox } from "@/app/_components";
 import { TextFont } from "@/components";
 import { useTranslations } from "next-intl";
 import { BsDatabase } from "react-icons/bs";
-import css from "./backendBox.module.css";
 import { MdOutlineSubdirectoryArrowRight } from "react-icons/md";
+import css from "./backendBox.module.css";
 
-const rows: Array<[string, Date]> = [
-  ["Nathan", new Date()],
-  ["Vinzent", new Date("2003-10-13")],
-  ["Daniela", new Date("1978-02-13")],
-  ["Joseph", new Date("1967-07-13")],
-  ["Noah", new Date()],
-  ["Alex", new Date()],
-  ["Joko", new Date()],
+const rows: Array<string> = [
+  "DataDriveR",
+  "aparx",
+  "BitNinjaX",
+  "dvjr1310",
+  "ByteCraftr",
+  "RobertGrant",
+  "MasonLee",
 ];
 
 export function BackendBox() {
@@ -33,12 +33,12 @@ export function BackendBox() {
               <tr>
                 <th />
                 <th>id</th>
-                <th>first_name</th>
-                <th>birth_date</th>
+                <th>username</th>
+                <th>hashed_password</th>
               </tr>
             </thead>
             <tbody>
-              {rows.map(([name, date], i) => (
+              {rows.map((name, i) => (
                 <TextFont key={i} asChild type="mono">
                   <tr data-selected={i === 1 || i === 3}>
                     <td />
@@ -46,7 +46,9 @@ export function BackendBox() {
                     <TextFont asChild type="sans">
                       <td style={{ letterSpacing: "0.03em" }}>{name}</td>
                     </TextFont>
-                    <td>{date.toISOString()}</td>
+                    <td>
+                      <div className={css.hiddenCell} />
+                    </td>
                   </tr>
                 </TextFont>
               ))}
