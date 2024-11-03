@@ -2,7 +2,7 @@ import { useTranslations } from "next-intl";
 import React, { useMemo } from "react";
 import { CgVercel } from "react-icons/cg";
 import { DiJava } from "react-icons/di";
-import { FaLaravel, FaNodeJs, FaPhp, FaTools } from "react-icons/fa";
+import { FaNodeJs, FaTools } from "react-icons/fa";
 import {
   FaCss3Alt,
   FaFigma,
@@ -10,7 +10,7 @@ import {
   FaGlobe,
   FaReact,
 } from "react-icons/fa6";
-import { GrGraphQl, GrMysql } from "react-icons/gr";
+import { GrMysql } from "react-icons/gr";
 import { IoLanguage } from "react-icons/io5";
 import { RiNextjsLine } from "react-icons/ri";
 import {
@@ -19,6 +19,7 @@ import {
   SiPrisma,
   SiSpring,
   SiSupabase,
+  SiTailwindcss,
   SiTypescript,
 } from "react-icons/si";
 
@@ -83,8 +84,8 @@ export function useToolCategories() {
             icon: <FaCss3Alt />,
           },
           {
-            name: "PHP",
-            icon: <FaPhp color="#787CB4" />,
+            name: "Tailwind CSS",
+            icon: <SiTailwindcss color="#0EA5E9" />,
           },
         ],
       },
