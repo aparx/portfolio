@@ -61,6 +61,10 @@
   border-bottom: var(--grid-border);
 }
 
+.phone > div:first-child {
+  height: 2.5em;
+}
+
 /** Desktop Action header */
 .desktop > div:first-child {
   display: flex;

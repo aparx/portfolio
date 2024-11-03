@@ -1,11 +1,9 @@
 "use client";
 import { Button, TextFont } from "@/components";
-import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
 import { useState } from "react";
 import { MdArrowDownward, MdEmail, MdPhone } from "react-icons/md";
-import { SiTypescript } from "react-icons/si";
 import { useInView } from "react-intersection-observer";
 import { GridBox } from "../../_components";
 import css from "./contactBox.module.css";
@@ -24,41 +22,32 @@ export function ContactBox() {
   return (
     <>
       <GridBox.Root type="stretch" className={css.root}>
-        <div>
-          <GridBox.Header
-            title={t("Contact.title")}
-            subtitle={t("Contact.subtitle")}
-          />
-          <footer>
-            <ul aria-label="Contact possibilities elsewhere">
-              {phone && (
-                <TextFont asChild type="mono">
-                  <li>
-                    <Link href={`tel:${phone.replaceAll(/ /g, "")}`}>
-                      <MdPhone aria-label="Phone" />
-                      <address typeof="phone">{phone}</address>
-                    </Link>
-                  </li>
-                </TextFont>
-              )}
-              {email && (
+        <GridBox.Header
+          title={t("Contact.title")}
+          subtitle={t("Contact.subtitle")}
+        />
+        <footer>
+          <ul aria-label="Contact possibilities elsewhere">
+            {phone && (
+              <TextFont asChild type="mono">
                 <li>
-                  <Link href={`mailto:${email}`}>
-                    <MdEmail aria-label="Email" />
-                    <address typeof="email">{email}</address>
+                  <Link href={`tel:${phone.replaceAll(/ /g, "")}`}>
+                    <MdPhone aria-label="Phone" />
+                    <address typeof="phone">{phone}</address>
                   </Link>
                 </li>
-              )}
-            </ul>
-          </footer>
-        </div>
-        <section ref={ref} id="contact" className={css.formContainer}>
-          <h5>
-            <VisuallyHidden>Contact Form</VisuallyHidden>
-            <SiTypescript />
-            <span aria-hidden>contactForm.tsx</span>
-          </h5>
-        </section>
+              </TextFont>
+            )}
+            {email && (
+              <li>
+                <Link href={`mailto:${email}`}>
+                  <MdEmail aria-label="Email" />
+                  <address typeof="email">{email}</address>
+                </Link>
+              </li>
+            )}
+          </ul>
+        </footer>
       </GridBox.Root>
       <Button
         asChild
