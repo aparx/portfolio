@@ -63,6 +63,7 @@
 
 .selectorContainer {
   position: relative;
+  z-index: 1;
 }
 
 .selector {
@@ -78,6 +79,8 @@
   overflow-x: auto;
   max-width: 100%;
   min-width: 0;
+  padding: var(--spacing-0);
+  gap: var(--spacing-0);
 }
 
 .selector label {
@@ -91,6 +94,7 @@
   transition:
     0.15s background,
     0.15s color;
+  border-radius: var(--spacing-0);
 }
 
 .selector label:hover,
@@ -100,12 +104,15 @@
 }
 
 .selector label[data-active="true"] {
-  background: var(--color-emphasis-high);
   color: var(--color-accent-1);
 }
 
-.selector label:not(:last-child) {
-  border-bottom: var(--grid-border);
+.selectorAnimator {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: var(--color-emphasis-high);
+  z-index: -10;
 }
 
 @media screen and (max-width: 700px) {
@@ -118,11 +125,6 @@
   .selector {
     position: absolute;
     flex-direction: row !important;
-  }
-
-  .selector label:not(:last-child) {
-    border-bottom: unset;
-    border-right: var(--grid-border);
   }
 
   .root {

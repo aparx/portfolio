@@ -2,8 +2,8 @@ import { GeistSans } from "geist/font/sans";
 import type { Metadata, Viewport } from "next";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
+import { BackGrid } from "./_components";
 import "./globals.css";
-import css from "./layout.module.css";
 
 export const metadata: Metadata = {
   title: "Vinzent Zeband - Portfolio",
@@ -22,12 +22,12 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   const messages = await getMessages();
-
   return (
     <html lang="en">
       <body className={GeistSans.className}>
         <NextIntlClientProvider messages={messages}>
-          <div className={css.background} />
+          <BackGrid />
+
           {children}
         </NextIntlClientProvider>
       </body>

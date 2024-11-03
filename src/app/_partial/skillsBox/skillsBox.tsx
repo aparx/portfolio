@@ -2,6 +2,7 @@
 import { TextFont } from "@/components";
 import { useInterval } from "@/hooks";
 import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
+import { AnimatePresence, motion } from "framer-motion";
 import { useTranslations } from "next-intl";
 import { useEffect, useId, useRef, useState } from "react";
 import { useInView } from "react-intersection-observer";
@@ -18,6 +19,7 @@ export function SkillsBox() {
   const containerRef = useRef<HTMLDivElement>(null);
   const animationDeltaRef = useRef<"up" | "down">("down");
   const controlId = useId();
+  const layoutId = useId();
   const activeCategory = categories[active];
 
   useEffect(() => {
@@ -46,9 +48,30 @@ export function SkillsBox() {
       <div ref={ref}>
         <GridBox.Header
           title={t("Languages.title")}
-          subtitle={t("Languages.subtitle", {
-            name: activeCategory?.name,
-          })}
+          subtitle={
+            <div
+              style={{
+                position: "relative",
+                height: "1.25em",
+                width: "100%",
+                overflow: "hidden",
+                display: "flex",
+              }}
+            >
+              <AnimatePresence>
+                <motion.div
+                  key={activeCategory?.name}
+                  initial={{ y: "100%", opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  exit={{ y: "-100%", opacity: 0, position: "absolute" }}
+                  transition={{ duration: 0.6, type: "spring", bounce: 0.4 }}
+                >
+                  {activeCategory?.name}
+                </motion.div>
+              </AnimatePresence>
+              <span>{t("Languages.subtitle")}</span>
+            </div>
+          }
           intro={t("Languages.intro")}
         />
         {/** Category Selector */}
@@ -62,6 +85,13 @@ export function SkillsBox() {
           <fieldset className={css.selector} aria-label="Category Selector">
             {categories.map((category, i) => (
               <label key={category.name} data-active={i === active}>
+                {i === active && (
+                  <motion.span
+                    className={css.selectorAnimator}
+                    layoutId={layoutId}
+                    transition={{ type: "spring", bounce: 0.2, duration: 0.4 }}
+                  />
+                )}
                 <VisuallyHidden>
                   <input
                     type="radio"
