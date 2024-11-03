@@ -2,7 +2,11 @@ import { GridBox } from "@/app/_components";
 import { TextFont } from "@/components";
 import { useTranslations } from "next-intl";
 import { BsDatabase } from "react-icons/bs";
-import { MdOutlineSubdirectoryArrowRight } from "react-icons/md";
+import {
+  MdNumbers,
+  MdOutlineSubdirectoryArrowRight,
+  MdTextFields,
+} from "react-icons/md";
 import css from "./backendBox.module.css";
 
 const rows: Array<string> = [
@@ -32,9 +36,24 @@ export function BackendBox() {
             <thead>
               <tr>
                 <th />
-                <th>id</th>
-                <th>username</th>
-                <th>hashed_password</th>
+                <th>
+                  <div>
+                    <MdNumbers />
+                    id
+                  </div>
+                </th>
+                <th>
+                  <div>
+                    <MdTextFields />
+                    username
+                  </div>
+                </th>
+                <th>
+                  <div>
+                    <MdTextFields />
+                    hashed_password
+                  </div>
+                </th>
               </tr>
             </thead>
             <tbody>

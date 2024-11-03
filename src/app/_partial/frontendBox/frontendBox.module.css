@@ -53,12 +53,16 @@
 /** Phone & Desktop header */
 .phone > div:first-child,
 .desktop > div:first-child {
-  --header-color: var(--color-accent-1);
+  --header-color: var(--color-accent-0);
   position: relative;
   height: var(--header-height);
   width: 100%;
   background: var(--header-color);
   border-bottom: var(--grid-border);
+}
+
+.phone > div:first-child {
+  height: 2.5em;
 }
 
 /** Desktop Action header */
@@ -205,9 +209,9 @@
 
 .content > * {
   height: var(--item-height);
-  background: var(--color-accent-3);
-  border-radius: 3px;
-  border: 1px solid var(--color-outline-card);
+  background: linear-gradient(to bottom right, var(--color-accent-3), var(--color-accent-2));
+  border-radius: var(--spacing-0);
+  border: 1px solid var(--color-accent-4);
   animation: content-scroll linear;
   animation-timeline: scroll(y root);
   animation-range: entry 250px exit;

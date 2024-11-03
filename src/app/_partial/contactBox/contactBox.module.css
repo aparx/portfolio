@@ -6,212 +6,44 @@
   row-gap: var(--spacing-5);
 }
 
-.root > *:first-child {
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-5);
-}
-
-.root > *:first-child footer ul {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(225px, 1fr));
-  gap: var(--spacing-1);
-  list-style: none;
-  margin: unset;
-  padding: unset;
-}
-
 .root address {
   text-decoration: none;
   font-style: normal;
 }
 
-.root > *:first-child footer li > * {
+.root ul {
+  list-style: none;
   display: flex;
-  gap: var(--spacing-4);
+  flex-direction: column;
+  gap: var(--spacing-0);
+}
+
+/** Contact Element */
+.root ul > li > a {
+  display: flex;
   align-items: center;
-  justify-content: space-between;
-  border: 1px solid var(--color-outline-grid);
-  padding: var(--spacing-2) var(--spacing-2);
-  border-radius: var(--spacing-0);
-  color: var(--color-emphasis-medium);
+  gap: var(--spacing-1);
   text-decoration: none;
+  color: var(--color-emphasis-medium);
+  background: var(--color-accent-1);
+  justify-content: space-between;
+  border: var(--grid-border);
+  padding: var(--spacing-1);
+  border-radius: var(--spacing-0);
+  transition: .15s;
+  will-change: background, scale;
+  transform-origin: center;
 }
 
-.root > *:first-child footer li:hover > * {
-  background: var(--color-state-hover);
-}
-
-.root > *:first-child footer li > * > *:first-child {
+/** Contact Element Icon */
+.root ul > li > a > *:first-child {
   font-size: 1.25em;
 }
 
-.root > *:last-child {
-  border-radius: var(--spacing-1);
-  border: 1px solid var(--color-outline-grid);
-  overflow: hidden;
-}
-
-/** Contact form header */
-.root > *:last-child > h5 {
-  display: flex;
-  align-items: center;
-  gap: var(--spacing-1);
-  font-weight: 450;
-  font-size: 1em;
-  color: var(--color-emphasis-medium);
-  padding: var(--spacing-1) var(--spacing-2);
-  border-bottom: 1px solid var(--color-outline-grid);
-}
-
-/** Contact form */
-.root > *:last-child > form {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-2);
-  background: var(--color-accent-1);
-  padding: var(--spacing-2);
-  width: calc(100% - calc(2 * var(--spacing-2)));
-  margin: 0 auto;
-  overflow: hidden;
-}
-
-.root label {
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-0);
-}
-
-.root label > div {
-  display: flex;
-  column-gap: var(--spacing-2);
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-}
-
-.root input[type="text"],
-.root textarea {
-  font: inherit;
-  border-radius: var(--spacing-0);
-  letter-spacing: inherit;
-  background: var(--color-accent-1);
-  padding: var(--spacing-1) var(--spacing-2);
-  border: var(--grid-border);
-  color: var(--color-emphasis-medium);
-  outline: unset;
-  margin: unset;
-  transition:
-    0.15s background,
-    0.15s color;
-}
-
-.root input:focus-visible,
-.root textarea:focus-visible {
-  background: var(--color-state-focus);
-  color: var(--color-emphasis-high);
-}
-
-.root input::placeholder,
-.root textarea::placeholder {
-  color: var(--color-emphasis-low);
-}
-
-.root textarea {
-  resize: vertical;
-  min-height: 50px;
-  max-height: 150px;
-}
-
-.root form > footer {
-  margin-top: var(--spacing-0);
-}
-
-.root label[data-invalid="true"] {
-  color: var(--color-destructive-lighter);
-}
-
-.root label[data-invalid="true"] p[aria-live="assertive"] {
-  font-size: var(--fs-0);
-  font-weight: 500;
-}
-
-.root label[data-invalid="true"] input,
-.root label[data-invalid="true"] textarea {
-  background: var(--color-destructive-darkest);
-  border: 1px solid var(--color-destructive-lighter);
-}
-
-.root label[data-invalid="true"] input:focus-visible,
-.root label[data-invalid="true"] textarea:focus-visible {
-  background: color-mix(
-    in srgb,
-    var(--color-destructive-darkest),
-    var(--color-state-focus)
-  );
-}
-
-.formContainer {
-  display: flex;
-  flex-direction: column;
-}
-
-.disabledForm {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background: var(--color-accent-1);
-  flex-grow: 1;
-  color: var(--color-emphasis-medium);
-  padding: var(--spacing-4) 0;
-  margin: var(--spacing-0);
-  border: 1px solid var(--color-outline-grid);
-  border-bottom-left-radius: var(--spacing-0);
-  border-bottom-right-radius: var(--spacing-0);
-}
-
-.disabledForm > p {
-  text-align: center;
-}
-
-.submitConfirmation {
-  --transition-time: 0.5s;
-  position: absolute;
-  inset: 10px;
-  padding: var(--spacing-5);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: var(--spacing-0);
-  background: var(--color-primary-darkest);
-  border: 1px dashed var(--color-primary);
-  color: var(--color-primary);
-  border-radius: var(--spacing-0);
-  animation: submitConfirmBackground var(--transition-time) forwards;
-  z-index: 1;
-}
-
-.submitConfirmation > * {
-  text-align: center;
-  animation: submitConfirmForeground calc(3 * var(--transition-time)) forwards;
-}
-
-.submitConfirmation > *:first-child {
-  display: flex;
-  align-items: center;
-  font-size: var(--fs-2);
-  font-weight: 500;
-  gap: var(--spacing-1);
-}
-
-.submitConfirmation > *:last-child {
-  font-size: var(--fs-1);
-  color: var(--color-emphasis-medium);
-  margin-top: auto;
+.root ul > li > a:hover,
+.root ul > li > a:focus-visible {
+  background: var(--color-accent-2);
+  scale: 1.05;
 }
 
 .floatButton {
