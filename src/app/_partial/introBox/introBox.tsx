@@ -4,7 +4,7 @@ import { TextFont } from "@/components";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import Link from "next/link";
-import { BsGithub, BsInstagram } from "react-icons/bs";
+import { BsGithub, BsInstagram, BsLinkedin } from "react-icons/bs";
 import css from "./introBox.module.css";
 
 export function IntroBox() {
@@ -61,12 +61,20 @@ function Portrait() {
       </div>
       <ul className={css.portraitOverlay} aria-label="Social media">
         <li>
-          <Link href="https://github.com/aparx">
+          <Link aria-label="GitHub" href="https://github.com/aparx">
             <BsGithub />
           </Link>
         </li>
         <li>
-          <Link href="https://instagram.com/_vizeb_">
+          <Link
+            aria-label="LinkedIn"
+            href="https://www.linkedin.com/in/vinzent-alexander-zeband-877b14336/"
+          >
+            <BsLinkedin />
+          </Link>
+        </li>
+        <li>
+          <Link aria-label="Instagram" href="https://instagram.com/_vizeb_">
             <BsInstagram />
           </Link>
         </li>

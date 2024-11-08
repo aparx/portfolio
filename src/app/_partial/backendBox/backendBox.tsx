@@ -2,11 +2,8 @@ import { GridBox } from "@/app/_components";
 import { TextFont } from "@/components";
 import { useTranslations } from "next-intl";
 import { BsDatabase } from "react-icons/bs";
-import {
-  MdNumbers,
-  MdOutlineSubdirectoryArrowRight,
-  MdTextFields,
-} from "react-icons/md";
+import { IoFilterOutline } from "react-icons/io5";
+import { MdOutlineSubdirectoryArrowRight } from "react-icons/md";
 import css from "./backendBox.module.css";
 
 const rows: Array<string> = [
@@ -38,20 +35,20 @@ export function BackendBox() {
                 <th />
                 <th>
                   <div>
-                    <MdNumbers />
                     id
+                    <IoFilterOutline />
                   </div>
                 </th>
                 <th>
                   <div>
-                    <MdTextFields />
                     username
+                    <IoFilterOutline />
                   </div>
                 </th>
                 <th>
                   <div>
-                    <MdTextFields />
                     hashed_password
+                    <IoFilterOutline />
                   </div>
                 </th>
               </tr>
