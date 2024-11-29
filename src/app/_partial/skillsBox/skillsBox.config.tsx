@@ -2,7 +2,7 @@ import { useTranslations } from "next-intl";
 import React, { useMemo } from "react";
 import { CgVercel } from "react-icons/cg";
 import { DiJava } from "react-icons/di";
-import { FaNodeJs, FaTools } from "react-icons/fa";
+import { FaDocker, FaTools } from "react-icons/fa";
 import {
   FaCss3Alt,
   FaFigma,
@@ -14,9 +14,9 @@ import { GrMysql } from "react-icons/gr";
 import { IoLanguage } from "react-icons/io5";
 import { RiNextjsLine } from "react-icons/ri";
 import {
+  SiAstro,
   SiHibernate,
   SiPostgresql,
-  SiPrisma,
   SiSpring,
   SiSupabase,
   SiTailwindcss,
@@ -54,8 +54,8 @@ export function useToolCategories() {
             icon: <SiSpring color="#8CC84B" />,
           },
           {
-            name: "NodeJS",
-            icon: <FaNodeJs color="#8CC84B" />,
+            name: "Astro",
+            icon: <SiAstro color="#FF5A03" />,
           },
         ],
       },
@@ -114,8 +114,8 @@ export function useToolCategories() {
             icon: <FaGitAlt />,
           },
           {
-            name: "Prisma",
-            icon: <SiPrisma />,
+            name: "Docker",
+            icon: <FaDocker />,
           },
         ],
       },

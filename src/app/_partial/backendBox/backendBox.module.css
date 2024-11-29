@@ -49,6 +49,8 @@
   display: flex;
   gap: var(--spacing-0);
   align-items: center;
+  justify-content: space-between;
+  width: 100%;
 }
 
 .container th > div > *:first-child {
@@ -69,7 +71,7 @@
   white-space: nowrap;
 }
 
-.container th:not(:first-child),
+.container th:not(:first-child) > div,
 .container td:not(:first-child) {
   padding-right: var(--spacing-2);
 }
