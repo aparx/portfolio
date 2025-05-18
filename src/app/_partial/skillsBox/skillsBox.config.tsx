@@ -15,6 +15,8 @@ import { IoLanguage } from "react-icons/io5";
 import { RiNextjsLine } from "react-icons/ri";
 import {
   SiAstro,
+  SiExpress,
+  SiFastify,
   SiHibernate,
   SiPostgresql,
   SiSpring,
@@ -57,6 +59,14 @@ export function useToolCategories() {
             name: "Astro",
             icon: <SiAstro color="#FF5A03" />,
           },
+          {
+            name: "Fastify",
+            icon: <SiFastify color="white" />,
+          },
+          {
+            name: "Express",
+            icon: <SiExpress color="white" />,
+          },
         ],
       },
       {
@@ -80,7 +90,7 @@ export function useToolCategories() {
             icon: <GrMysql />,
           },
           {
-            name: "Sass/CSS",
+            name: "CSS/Sass",
             icon: <FaCss3Alt />,
           },
           {
